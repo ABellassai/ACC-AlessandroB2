@@ -32,8 +32,7 @@ multiply = 1
 total = 1
 while multiply <= n:
     total = total * multiply
-    multiply += 1
-    
+    multiply += 1 
 print(total,'is the factorial of',n)
 
 #5
