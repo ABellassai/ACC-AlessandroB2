@@ -35,7 +35,7 @@ else:
 cardNumber = ""
 while type(cardNumber) == str or len(str(cardNumber)) > 16 or len(str(cardNumber)) <= 13:
     try:
-        cardNumber = int(input('Enter a valid credit card number which must be between 13 and 16 digits and cannot contain letters or decimals'))
+        cardNumber = int(input('Enter a valid credit card number which must be between 13 and 16 digits and cannot contain letters or decimals: '))
     except ValueError:
         pass
 cardNumber = str(cardNumber)
@@ -70,4 +70,4 @@ if (evens + odds) % 10 == 0:
     print("This card is valid.")
 else:
     print("This card is not valid.")
-    
+   
