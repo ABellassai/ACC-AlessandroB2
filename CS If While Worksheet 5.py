@@ -7,13 +7,13 @@ while (integerA == integerB):
     print('The two integers cannot be equal!')
     integerA = int(input('Enter a lower number: '))
     integerB = int(input('Enter a higher number: '))
-if (integerA < integerB):
-     randomChoice = random.randint (integerA, integerB)
-else:
-     randomChoice = random.randint (integerB, integerA)
+if (integerA > integerB):
+    oldB = integerB
+    integerB = integerA
+    integerA = oldB
+randomChoice = random.randint (integerA, integerB)
 
-minNumberGuesses = (round(math.log(integerB-integerA+1,2)))
-#The -1 accounts for the first guess.
+minNumberGuesses = (round(math.log(integerB-integerA + 1, 2)))
 print('You have ',minNumberGuesses,'guesses')
 answer = input('Guess the number the system generated: ')
 minNumberGuesses -= 1
@@ -31,6 +31,7 @@ else:
     print('The number the computer picked was',randomChoice)
 
     
+
 #Credit Card Program     Q2
 cardNumber = ""
 while type(cardNumber) == str or len(str(cardNumber)) > 16 or len(str(cardNumber)) <= 13:
@@ -70,4 +71,4 @@ if (evens + odds) % 10 == 0:
     print("This card is valid.")
 else:
     print("This card is not valid.")
-   
+    
