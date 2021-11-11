@@ -1,7 +1,7 @@
 
 import time
 string = 'Hello There Bob'
-'''
+
 # Use the len method to print the length of the string
 lengthOfString = len(string)
 print (lengthOfString)
@@ -30,7 +30,7 @@ for ch in range(0,len(string)):
  print(ch)
 
 time.sleep(2)
-'''
+
 print(string.upper()) #returns uppercase string
 print(string.lower()) #returns lowercase string
 print(string.count(b)) #counts how many times b appears
