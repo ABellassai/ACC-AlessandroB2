@@ -1,7 +1,7 @@
 
 import time
 string = 'Hello There Bob'
-
+'''
 # Use the len method to print the length of the string
 lengthOfString = len(string)
 print (lengthOfString)
@@ -31,22 +31,22 @@ for ch in range(0,len(string)):
 
 time.sleep(2)
 
-print(string.upper()) #returns uppercase string
-print(string.lower()) #returns lowercase string
-print(string.count(b)) #counts how many times b appears
-print(string.find(b)) #position of the first occurrence of b
+print(string.upper())   #returns uppercase string
+print(string.lower())   #returns lowercase string
+print(string.count(b))  #counts how many times b appears
+print(string.find(b))   #position of the first occurrence of b
 print(string.replace(b,l)) #replaces b with l
 print(string.islower()) #returns True if all characters are lowercase
 print(string.isupper()) #returns True if all characters are uppercase
 print(string.isalnum()) #returns True if all characters are alphanumeric
 print(string.isalpha()) #returns True if all characters are alphabetic
 print(string.isdigit()) #returns True if all characters are digits
-print(string.strip(b)) #returns a string with leading and trailing characters removed
+print(string.strip(b))  #returns a string with leading and trailing characters removed
 
 Write a program to check if a string is a palindrome or not. (A string is called palindrome if it
 reads same backwards as forward. For example, Noon is a palindrome.)
-Note: Python will return false if you use the == operator with letters of different case. For
-example ‘n’ == ‘N’ will return false.
-It is easiest if you test a word that is all one case, so maybe convert the input to upper case
-or lower case using the relevant function above. Try figuring it out on paper before you code
-it up.
+'''
+
+string1 = input('Give me a word and I will check if it is palindrome: ')
+checkString = string1.lower()
+for i in range (len(checkString))
