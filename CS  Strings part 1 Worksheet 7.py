@@ -1,7 +1,7 @@
 
 import time
 string = 'Hello There Bob'
-'''
+
 # Use the len method to print the length of the string
 lengthOfString = len(string)
 print (lengthOfString)
@@ -45,7 +45,7 @@ print(string.strip(b))  #returns a string with leading and trailing characters r
 
 Write a program to check if a string is a palindrome or not. (A string is called palindrome if it
 reads same backwards as forward. For example, Noon is a palindrome.)
-'''
+
 
 string1 = input('Give me a word and I will check if it is palindrome: ')
 checkString = string1.lower()
