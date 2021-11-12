@@ -43,10 +43,17 @@ print(string.isalpha()) #returns True if all characters are alphabetic
 print(string.isdigit()) #returns True if all characters are digits
 print(string.strip(b))  #returns a string with leading and trailing characters removed
 
-Write a program to check if a string is a palindrome or not. (A string is called palindrome if it
-reads same backwards as forward. For example, Noon is a palindrome.)
-
-
-string1 = input('Give me a word and I will check if it is palindrome: ')
-checkString = string1.lower()
-for i in range (len(checkString))
+#Palindrome Word check!
+wordGiven = str(input('Give me a word and I will check if it is palindrome: '))
+wordGiven = wordGiven.lower()
+palindromeCheck = 1
+for check in range(0,(len(wordGiven)//2)-1):
+    if wordGiven[check] == wordGiven[-(check+1)]:
+        if palindromeCheck != 0:
+            palindromeCheck = 2
+    else:
+        palindromeCheck = 0
+if palindromeCheck != 0:
+    print(wordGiven, 'is a palindrome!')
+else:
+    print(wordGiven, 'is not a palindrome :(')
