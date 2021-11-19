@@ -15,7 +15,9 @@ for character in string:
         print (sumOfCharacters)
 
 #3
-
+string = input('Type a string: ')
+spaces = string.replace(' ', '-')
+print(spaces)
 
 #4
 
