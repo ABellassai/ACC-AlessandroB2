@@ -20,7 +20,11 @@ spaces = string.replace(' ', '-')
 print(spaces)
 
 #4
-
+string = input('Type a string: ')
+for ch in string:
+    if (ch == 'a' or ch== 'e' or ch == 'I' or ch == 'o' or ch == 'u'):
+        newString = string.lower()
+        print(newString)
 
 #5
 
