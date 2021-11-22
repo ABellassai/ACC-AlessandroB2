@@ -34,6 +34,5 @@ for ch in string:
 #6
 string = input('Type a sentence: ')
 if string.find('-'):
-    newString = string.replace('-', '''
-''')
+    newString = string.replace('-', '\n')
     print(newString)
