@@ -21,12 +21,14 @@ print(spaces)
 
 #4 and #5
 string = input('Type a string: ')
+vowels = 0
+counter = 0
 for ch in string:
     if (ch == 'a' or ch== 'e' or ch == 'i' or ch == 'o' or ch == 'u'):
         newString = string.lower()
         print(newString)
-       vowels += 1
-       counter +=1
-       print('There are' len(string)-vowels,'consonants')
+        vowels += 1
+        counter +=1
+        print('There are', len(string)-vowels,'consonants')
 #6
 
