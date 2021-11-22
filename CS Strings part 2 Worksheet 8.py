@@ -30,5 +30,10 @@ for ch in string:
         vowels += 1
         counter +=1
         print('There are', len(string)-vowels,'consonants')
-#6
 
+#6
+string = input('Type a sentence: ')
+if string.find('-'):
+    newString = string.replace('-', '''
+''')
+    print(newString)
