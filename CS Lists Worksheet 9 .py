@@ -29,72 +29,59 @@ print(list5) #output [2,3,5,7,9]
 list5.sort(reverse = True) # returns a new list with L items sorted 
 print(list5) # output [9,7,5,3,2]
 
-
-#3
-aList = ['a', 'b', 'c', 'd'] 
-print(aList)
-print("""1. Append an element
-2. Insert an element
-3. Append a list to the given list
-4. Modify an existing element
-5. Delete an existing element from its position
-6. Delete an existing element with a given value
-7. Sort the list in the ascending order
-8. Sort the list in descending order
-9. Display the list
-Please enter an option(1 - 9): """)
-
 choiceMade = int(input())
-
 if choiceMade == 1:
     print('1. Append an element')
     print('Current List = [ a, b, c, d] ')
-    userInput = input('Enter what you want to add in the list: ')
-    list.append(userInput)
+    userInput = str(input('Enter what you want to add in the list: '))
+    aList.append(userInput)
+    print('The new list is ',aList)
 
 elif choiceMade == 2:
     print('2. Insert an element')
     print('Current List = [ a, b, c, d] ')
-    list.insert(enter,replace)
+    insert = int(input('Insert an element to replace another element: '))
+    sobstitute = int(input('What do you want to sobstitute ? '))
+    aList.insert(insert , sobstitute)
+    print(aList)
 
 
 elif choiceMade == 3:
     print('3. Append a list to the given list')
     print('Current List = [ a, b, c, d] ')
-    list2.extend(user_list)
+    aList.extend(user_list)
 
 
 elif choiceMade == 4:
     print('1. Append an element')
     print('Current List = [ a, b, c, d] ')
-    list[i] = x
+    aList[i] = x
 
 
 elif choiceMade == 5:
     print('1. Append an element')
     print('Current List = [ a, b, c, d] ')
-    del list[i]
+    del aList[i]
 
 
 elif choiceMade == 6:
     print('1. Append an element')
     print('Current List = [ a, b, c, d] ')
-    list.pop(i)
+    aList.pop(i)
 
 
 elif choiceMade == 7:
     print('1. Append an element')
     print('Current List = [ a, b, c, d] ')
-    list.sort()
-
+    aList.sort()
 
 elif choiceMade == 8:
     print('1. Append an element')
     print('Current List = [ a, b, c, d] ')
-    list5.sort(reverse = True)
+    aList.sort(reverse = True)
+    print(aList)
 
 elif choiceMade == 9:
     print('1. Append an element')
     print('Current List = [ a, b, c, d] ')
     print(aList)
-    
