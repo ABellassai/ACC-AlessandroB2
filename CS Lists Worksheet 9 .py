@@ -4,7 +4,6 @@ list1 = []
 print(list1) #This is Empty like ME!!!
 
 #2
-
 list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 list[3] = 3 #stores x with index i
 list[5] #retrieves the item with index i
@@ -20,9 +19,15 @@ list.pop(1) #removes the item at position i and returns its value
 print(list.index(10)) #returns the position of the first occurrence of x in a list
 list.count(8) #returns the number of times x appears in a list
 list.reverse() #reverses list elements
-list.copy(list1) #returns a copy of the list
+list2 = list.copy(list1) #returns a copy of the list
 list.clear() #removes all items from the list
 print(list1)
+
+list5 = [3,2,7,9,5]
+list5.sort() #sorts items in a list
+print(list5) #output [2,3,5,7,9]
+list5.sort(reverse = True) # returns a new list with L items sorted 
+print(list5) # output [9,7,5,3,2]
 
 #3
 aList = ['a', 'b', 'c', 'd']
