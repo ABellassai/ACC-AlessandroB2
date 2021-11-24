@@ -25,7 +25,7 @@ list.clear() #removes all items from the list
 print(list1)
 
 #3
-aList=["a", "b", "c", "d"]
+aList = ['a', 'b', 'c', 'd']
 print(aList)
 print("""1. Append an element
 2. Insert an element
