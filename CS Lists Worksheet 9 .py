@@ -29,6 +29,7 @@ print(list5) #output [2,3,5,7,9]
 list5.sort(reverse = True) # returns a new list with L items sorted 
 print(list5) # output [9,7,5,3,2]
 
+
 #3
 aList = ['a', 'b', 'c', 'd'] 
 print(aList)
@@ -48,8 +49,8 @@ choiceMade = int(input())
 if choiceMade == 1:
     print('1. Append an element')
     print('Current List = [ a, b, c, d] ')
-    list.append()
-
+    userInput = input('Enter what you want to add in the list: ')
+    list.append(userInput)
 
 elif choiceMade == 2:
     print('2. Insert an element')
@@ -96,5 +97,4 @@ elif choiceMade == 9:
     print('1. Append an element')
     print('Current List = [ a, b, c, d] ')
     print(aList)
-    
     
