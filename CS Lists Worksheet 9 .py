@@ -40,4 +40,43 @@ print("""1. Append an element
 6. Delete an existing element with a given value
 7. Sort the list in the ascending order
 8. Sort the list in descending order
-9. Display the list.""")
+9. Display the list
+Please enter an option(1 - 9): """)
+
+choiceMade = int(input())
+
+if choiceMade = 1:
+    list.append()
+
+
+elif choiceMade = 2:
+    list.insert(enter,replace)
+
+
+elif choiceMade = 3:
+    list2.extend(user_list)
+
+
+elif choiceMade = 4:
+    list[i] = x
+
+
+elif choiceMade = 5:
+    del list[i]
+
+
+elif choiceMade = 6:
+    list.pop(i)
+
+
+elif choiceMade = 7:
+    list.sort()
+
+
+elif choiceMade = 8:
+    list5.sort(reverse = True)
+
+elif choiceMade = 9:
+    print(aList)
+    
+    
