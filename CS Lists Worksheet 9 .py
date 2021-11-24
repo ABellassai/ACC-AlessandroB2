@@ -30,7 +30,7 @@ list5.sort(reverse = True) # returns a new list with L items sorted
 print(list5) # output [9,7,5,3,2]
 
 #3
-aList = ['a', 'b', 'c', 'd']
+aList = ['a', 'b', 'c', 'd'] 
 print(aList)
 print("""1. Append an element
 2. Insert an element
@@ -45,38 +45,56 @@ Please enter an option(1 - 9): """)
 
 choiceMade = int(input())
 
-if choiceMade = 1:
+if choiceMade == 1:
+    print('1. Append an element')
+    print('Current List = [ a, b, c, d] ')
     list.append()
 
 
-elif choiceMade = 2:
+elif choiceMade == 2:
+    print('2. Insert an element')
+    print('Current List = [ a, b, c, d] ')
     list.insert(enter,replace)
 
 
-elif choiceMade = 3:
+elif choiceMade == 3:
+    print('3. Append a list to the given list')
+    print('Current List = [ a, b, c, d] ')
     list2.extend(user_list)
 
 
-elif choiceMade = 4:
+elif choiceMade == 4:
+    print('1. Append an element')
+    print('Current List = [ a, b, c, d] ')
     list[i] = x
 
 
-elif choiceMade = 5:
+elif choiceMade == 5:
+    print('1. Append an element')
+    print('Current List = [ a, b, c, d] ')
     del list[i]
 
 
-elif choiceMade = 6:
+elif choiceMade == 6:
+    print('1. Append an element')
+    print('Current List = [ a, b, c, d] ')
     list.pop(i)
 
 
-elif choiceMade = 7:
+elif choiceMade == 7:
+    print('1. Append an element')
+    print('Current List = [ a, b, c, d] ')
     list.sort()
 
 
-elif choiceMade = 8:
+elif choiceMade == 8:
+    print('1. Append an element')
+    print('Current List = [ a, b, c, d] ')
     list5.sort(reverse = True)
 
-elif choiceMade = 9:
+elif choiceMade == 9:
+    print('1. Append an element')
+    print('Current List = [ a, b, c, d] ')
     print(aList)
     
     
