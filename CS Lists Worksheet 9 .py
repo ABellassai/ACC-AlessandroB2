@@ -112,4 +112,5 @@ elif choiceMade == 9:
     print('Current List = [ a, b, c, d] ')
     print(aList)
 
-    
+elif choiceMade == 0
+    exit()
