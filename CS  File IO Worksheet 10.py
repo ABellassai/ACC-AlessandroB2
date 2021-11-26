@@ -20,3 +20,13 @@ file2.read(10)
 
 #The mode is the number which appears most often. If two numbers occur with the same frequency,
 #the data is bi-modal, and more than two is multimodal
+
+
+Example 1:
+1,2,3,4,5,6,7,8,9,10,11 – here 6 is the median because it is in the middle of all the numbers ordered
+from largest to smallest
+1, 2, 2, 2, 2, 2, 3, 3, 3, 4, 5, 6, 7, 8, 9, 10, 11 – here 3 is the median because it is in the middle of all
+the numbers ordered from largest to smallest
+Example 2:
+1,2,3,4,5,6,7,8,9,10 - here 5.5 is the median. If we have an even number of numbers, there is no
+single “middle number”, so we add the middle two numbers together and divide them by 2
