@@ -8,8 +8,23 @@ print(file1.read())
 print(file2.read())
 
 #The range tells us how spread out a group of numbers are. To calculate the range we subtract the
-#smallest number from the larges
-file1 =
+#smallest number from the largest
+
+list1 = file1.read()
+final_List = []
+for item in list1.split():
+    final_List.append(int(item))
+print(final_List)
+final_List.sort()
+print(final_List[9] - final_List[0])
+
+list2 = file2.read()
+final_List2 = []
+for item2 in list2.split():
+    final_List2.append(int(item2))
+print(final_List2)
+final_List2.sort()
+print(final_List2[99] - final_List2[0])
 
 #The frequency is a count of how often each different number appears
 
