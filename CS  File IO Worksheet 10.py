@@ -4,12 +4,12 @@
 
 file1 = open("C:/Users/18ABellassai.ACC/Downloads/10Random.txt", "r")
 file2 = open("C:/Users/18ABellassai.ACC/Downloads/100Random.txt", "r")
-print(file1.read(100))
-print(file2.read(1000))
+print(file1.read())
+print(file2.read())
 
 #The range tells us how spread out a group of numbers are. To calculate the range we subtract the
-#smallest number from the largest.
-
+#smallest number from the larges
+file1 =
 
 #The frequency is a count of how often each different number appears
 
@@ -21,7 +21,10 @@ print(file2.read(1000))
 #The mode is the number which appears most often. If two numbers occur with the same frequency,
 #the data is bi-modal, and more than two is multimodal
 
+#The median is the number that is in the middle if you were to order all the numbers from largest to
+#smallest
 
+'''
 Example 1:
 1,2,3,4,5,6,7,8,9,10,11 – here 6 is the median because it is in the middle of all the numbers ordered
 from largest to smallest
@@ -30,3 +33,4 @@ the numbers ordered from largest to smallest
 Example 2:
 1,2,3,4,5,6,7,8,9,10 - here 5.5 is the median. If we have an even number of numbers, there is no
 single “middle number”, so we add the middle two numbers together and divide them by 2
+'''
