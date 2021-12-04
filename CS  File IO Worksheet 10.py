@@ -1,4 +1,3 @@
-#1
 # Write a program to open the files and print each line:
 # Range, Frequency, Mean, Median, and Mode values for each file
 
