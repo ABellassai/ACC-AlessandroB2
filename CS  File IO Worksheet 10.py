@@ -15,41 +15,70 @@ list1 = file1.read()
 final_List = []
 for item in list1.split():
     final_List.append(int(item))
-'''
 print(final_List)
 final_List.sort()
 print(final_List[-1] - final_List[0])
-'''
+
 list2 = file2.read()
 final_List2 = []
 for item2 in list2.split():
     final_List2.append(int(item2))
-'''
 print(final_List2)
 final_List2.sort()
 print(final_List2[-1] - final_List2[0])
-'''
-#The frequency is a count of how often each different number appears
 
-counter = 0
-for item in list1.count(item):
-        counter + 1
-final_List.count(item)
-print(final_List, ':', counter)
+print('\n')
 
+# The frequency is a count of how often each different number appears
+frequency1 = {}
+for item in list1:
+   if item in frequency1:
+      frequency1[item] += 1
+   else:
+      frequency1[item] = 1
+print('List 10 Frequency', frequency1)
 
+'''\/ *www.tutorialspoint.com* \/'''
 
-final_List2.count
+frequency2 = {}
+for item in list2:
+   if item in frequency2:
+      frequency2[item] += 1
+   else:
+      frequency2[item] = 1
+print('List 100 Frequency', frequency2)
 
-#The mean is the average of all the numbers. To calculate the mean, add all the numbers together
-#and divide this value by the number of numbers
+'''^^ *www.tutorialspoint.com* ^^'''
 
+print('\n')
 
-#The mode is the number which appears most often. If two numbers occur with the same frequency,
-#the data is bi-modal, and more than two is multimodal
+# The mean is the average of all the numbers. To calculate the mean, add all the numbers together and divide this value by the number of numbers
+sumOflist1 = sum(list1)
+sumOflist2 = sum(list2)
 
-#The median is the number that is in the middle if you were to order all the numbers from largest to
-#smallest
+meanlist1 = sumOflist1 / 10
+meanlist2 = sumOflist2 / 100
+print('Mean of 10: ', meanlist1)
+print('Mean of 100: ', meanlist2)
+
+print('\n')
+
+# The mode is the number which appears most often. If two numbers occur with the same frequency, the data is bi-modal, and more than two is multimodal
+'''\/ * https://stackabuse.com/ * \/'''
+import statistics
+modeOFList1 = statistics.mode(list1)
+print('Mode of 10: ', modeOFList1)
+modeOFList2 = statistics.mode(list2)
+print('Mode of 100: ', modeOFList2)
+'''^^ * https://stackabuse.com/ * ^^'''
+
+print('\n')
+
+# The median is the number that is in the middle if you were to order all the numbers from largest to smallest.
+medianOFList1 = statistics.median(list1)
+print('Median of 10: ', medianOFList1)
+medianOFList2 = statistics.median(list2)
+print('Median of 100 : ', medianOFList2)
 
 '''
 Example 1:
