@@ -4,10 +4,10 @@
 
 file1 = open("C:/Users/18ABellassai.ACC/Downloads/10Random.txt", "r")
 file2 = open("C:/Users/18ABellassai.ACC/Downloads/100Random.txt", "r")
-'''
+
 print(file1.read())
 print(file2.read())
-'''
+
 #The range tells us how spread out a group of numbers are. To calculate the range we subtract the
 #smallest number from the largest
 
