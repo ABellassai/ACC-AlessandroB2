@@ -3,22 +3,24 @@
 
 file1 = open("C:/Users/18ABellassai.ACC/Downloads/10Random.txt", "r")
 file2 = open("C:/Users/18ABellassai.ACC/Downloads/100Random.txt", "r")
-
+'''
 print(file1.read())
 print(file2.read())
-
+'''
 #The range tells us how spread out a group of numbers are. To calculate the range we subtract the
 #smallest number from the largest
 
 list1 = file1.read()
-final_List = []
+'''
+final_list = []
 for item in list1.split():
-    final_List.append(int(item))
-print(final_List)
-final_List.sort()
-print(final_List[-1] - final_List[0])
-
+    final_list.append(int(item))
+print(final_list)
+final_list.sort()
+print(final_list[-1] - final_list[0])
+'''
 list2 = file2.read()
+'''
 final_List2 = []
 for item2 in list2.split():
     final_List2.append(int(item2))
@@ -27,7 +29,7 @@ final_List2.sort()
 print(final_List2[-1] - final_List2[0])
 
 print('\n')
-
+'''
 # The frequency is a count of how often each different number appears
 frequency1 = {}
 for item in list1:
