@@ -1,31 +1,28 @@
 #Bubble List - V1
-L = [20, 50, 70, 10, 40]
-print('Initial list: ', L)
+A = [20, 50, 70, 10, 40]
+print('Initial list: ', A)
 
-for k in range(len(L)): #5
-    for y in range(len(L) - 1): #4
-        if L[y] > L[y + 1]:
-            temp = L[y]
-            L[y] = L[y + 1]
-            L[y + 1] = temp
-            
-print('Sorted list: ', L)
+for k in range(len(A)): #5
+    for y in range(len(A) - 1): #4
+        if A[y] > A[y + 1]:
+            temp = A[y]
+            A[y] = A[y + 1]
+            A[y + 1] = temp   
+print('Sorted list: ', A)
 
 #Bubble List - V2
-Z = [2, 5, 7, 10, 4]
-print('Initial list: ', Z)
+B = [2, 5, 7, 10, 4]
+print('Initial list: ', B)
 
 exchange = True
 i = 0
-
-while (i < len(Z)) and (exchange == True):
+while (i < len(B)) and (exchange == True):
     exchange = False
-    for c in range(len(Z) - 1):
-        if Z[c] > Z[c + 1]:
-            temp = Z[c + 1]
-            Z[c + 1] = Z[c]
-            Z[c] = temp
+    for b in range(len(B) - 1):
+        if B[b] > B[b + 1]:
+            temp = B[b + 1]
+            B[b + 1] = B[b]
+            B[b] = temp
             exchange = True
     i = i + 1
-
-print('Sorted list: ', Z)
+print('Sorted list: ', B)
