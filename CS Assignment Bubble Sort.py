@@ -24,12 +24,10 @@ while (i< n) and  exchange:
     print("AFTER PASS %d: %s " %(i+1, L))
     i= i+1 # increment the loop counter
 print("OUTPUT (sorted list): ", L)
+
 '''As an exercise you might consider modifying the code so that it computes the following:
 1 the number comparisons on each pass
 2 the total number of exchanges on each pass
 3 the total number of comparisons
 4 the total number of exchanges'''
-
-#1
-
 
