@@ -1,7 +1,6 @@
-#1
 myList= [5, 7, 3, 6, 2, 4, 1]
 
-def bubbleSort(L, descending = False):
+def bubbleSort(L, descending = False, dbg = True):
    # print("INPUT (initial list): ", L)
     exchange = True
     n = len(L)
