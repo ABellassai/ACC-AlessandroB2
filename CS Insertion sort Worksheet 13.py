@@ -1,6 +1,7 @@
 #Program 1
 myList = [5, 7, 3, 6, 2, 4, 1]
 
+#Bubble Sort Function
 def bubbleSort(L, descending = False, dbg = True):
    # print("INPUT (initial list): ", L)
     exchange = True
@@ -22,14 +23,15 @@ def bubbleSort(L, descending = False, dbg = True):
 result = bubbleSort(myList)
 print(result)
 
+#Insertion Sort Function
 def insertionSort(L):
     marker = 1     
-    while (marker < len(myList)):
+    while (marker < len(L)):
         x= marker
-        while (myList[x] < myList[x - 1] and x > 0):
-               tmp = myList[x]
-               myList[x] = myList[x - 1]
-               myList[x - 1] = tmp
+        while (L[x] < L[x - 1] and x > 0):
+               tmp = L[x]
+               L[x] = L[x - 1]
+               L[x - 1] = tmp
                x = x - 1
         marker = marker + 1
     return(L)
@@ -37,4 +39,16 @@ result = insertionSort(myList)
 print(result)
 
 #Program 2
+myList2 = [9, 2, 3, 1, 5, 6, 7, 3, 4, 5]
+sortSelection = int(input('Type 1 for Bubblem sort or 2 for Insertion sort: '))
 
+if sortSelection == 1:
+    result = bubbleSort(myList2)
+    print(result)
+
+elif sortSelection == 2:
+    result = insertionSort(myList2)
+    print(result)
+    
+elif sortSelection != 1 or 2:
+    print('Give either 1 or 2')
