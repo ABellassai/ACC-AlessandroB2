@@ -24,7 +24,7 @@ result = bubbleSort(myList)
 print(result)
 
 #Insertion Sort Function
-def insertionSort(L):
+def insertionSort(L, descending = False):
     marker = 1     
     while (marker < len(L)):
         x= marker
