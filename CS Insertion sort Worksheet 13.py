@@ -2,10 +2,12 @@
 myList = [5, 7, 3, 6, 2, 4, 1]
 
 #Bubble Sort Function
-def bubbleSort(L, descending = True, dbg = False):
+def bubbleSort(L, descending = True, dbg = True):
     exchange = True
     n = len(L)
     i = 0
+    if dbg:
+        file1 = open('log.txt', 'w')
     while (i< n) and  exchange:
         exchange = False
         for j in range(n-i-1): 
@@ -19,18 +21,17 @@ def bubbleSort(L, descending = True, dbg = False):
                     exchange = True    
             
         if dbg == True:
-            file1 = open('C:/Users/18ABellassai.ACC/Downloads/debug log.txt')
-            print('Debug Info')
-            print("BEFORE PASS %d: %s " %(i+1, L))
-            print("%s " %L, end="-> ")
-            print("%s " %L)
-            print("AFTER PASS %d: %s " %(i+1, L))
-            file1.close
+            file1.write('Debug Info' + "\n")
+            file1.write("BEFORE PASS" + str(i+1) + str(L)+ "\n")
+            file1.write(str(L) + "-> "+ "\n")
+            file1.write(str(L)+ "\n")
+            file1.write("AFTER PASS" + str(i+1) + str(L)+ "\n")
             
         elif dbg == False:
             ('')
             
         i= i+1
+    file1.close()
     return(L) 
 result = bubbleSort(myList)
 print(result)
