@@ -25,7 +25,7 @@ while marker < len(aList):
 print(aList)
 
 
-import sys alloks us to access the systems library 
+import sys allows us to access the systems library 
 #sys.argv [] is a list that contains the command line arguments 
 #sys.argv [0) will return the name of the program- this is alays the first argument
 #sys.argv [1] will return the first argument after the proran name 
@@ -35,4 +35,4 @@ import sys alloks us to access the systems library
 print ("This is the name of the program:", sys.argv [0]) 
 print ("Number of elements including the name of the program:", len (sys.argv)) 
 print ("Number of elements excluding the name of the program: ", (len (sys.argv) -1)) 
-print (" Argument List: ", str (sys.argv))
+print ("Argument List: ", str (sys.argv))
