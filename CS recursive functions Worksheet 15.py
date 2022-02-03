@@ -10,12 +10,11 @@ print(myListsum(myList))
 
 #Write a Python program using recursion to get the sum of the integer 1235467
 
-def sum(a):
+def sum1(a):
     if a < 10:
         return a
     else:
-        return a // + sum %()
+        return a % 10 + sum1(a//10)
+n = 1234567
 
-print(sum())
-
-
+print(sum1(n))
