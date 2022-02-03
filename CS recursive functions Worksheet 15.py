@@ -1,3 +1,4 @@
+#1
 myList = [1,2,3,4,5,6,7]
 
 def myListsum(aList):
@@ -8,8 +9,7 @@ def myListsum(aList):
 
 print(myListsum(myList))
 
-#Write a Python program using recursion to get the sum of the integer 1235467
-
+#2
 def sum1(a):
     if a < 10:
         return a
