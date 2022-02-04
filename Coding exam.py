@@ -17,7 +17,6 @@ print(myListsum(L))
 for i in range (0, 10001):
     print(i)
     
-
 # Program 4: Write a program to print all the characters in the string ‘Code Happy’ on a separate line
 string= 'CodeHappy'
 for i in string:
@@ -36,7 +35,6 @@ else:
 sentence = ''
 while sentence != 'z':
     sentence = input('write what you like: ').lower()
-
 
 # Program 7: Write a program to open a file called ‘CS04022022.txt’
 # and print the poem below to the file before closing it–the lines should be as below, not in one long line in the file
