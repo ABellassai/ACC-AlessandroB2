@@ -2,11 +2,11 @@
 print('Hello World')
 
 # 2. Write a program that asks the user for their name and greets them with their name
-# name = input('Enter your name: ')
-# if name.isalpha() == True:
-#     print('Welcome', name)
-# else:
-#     print('Put your real name')
+name = input('Enter your name: ')
+if name.isalpha() == True:
+    print('Welcome', name)
+else:
+    print('Put your real name')
 
 # 3. Modify the previous program such that only the users Alice and Bob are greeted with their names
 newName = input('Enter your name: ')
@@ -20,7 +20,13 @@ elif newName != 'Alice' or 'Bob':
     print('Hello Stranger')
 
 # 4. Write a program that asks the user for a number n and prints the sum of the numbers 1 to n
-number = 
+number = int(input('Give me a number: '))
+def recursive(n):
+    if n == 1:
+        return n
+    else:
+        return n + recursive(n - 1)
+print(recursive(number))
 
 # 5. Modify the previous program such that only multiples of three or five are considered in the
 # sum, e.g. 3, 5, 6, 9, 10, 12, 15 for n=17
