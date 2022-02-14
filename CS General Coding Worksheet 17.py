@@ -107,3 +107,6 @@ else:
     print('The number the computer picked was',randomChoice)
     
 # 10. Write a program that prints the next 20 leap years
+year=2022
+for i in range(0, 20):
+    print(year + i*4)
