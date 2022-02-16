@@ -32,10 +32,13 @@ print(recursive(number))
 # sum, e.g. 3, 5, 6, 9, 10, 12, 15 for n=17
 number = int(input('Give me a number: '))
 def recursive(n):
-    if n == 1:
+    if n == 0:
         return n
     else:
-        return n + recursive(n - 1)
+        if (n) % 3 == 0 or (n) % 5 == 0:
+            return n + recursive(n - 1)
+        else:
+            return recursive(n-1)
 print(recursive(number))
 
 # 6. Write a program that asks the user for a number n and gives them the possibility to choose
