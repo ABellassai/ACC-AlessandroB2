@@ -6,12 +6,11 @@ serialString = 'test\n'
 string = input('')
 while(1):
     serialPort.write((string+"\n").encode())
-    time.sleep(30)
+    time.sleep(10)
 
-
-def on_button_pressed_a():
+def on_forever():
     line = serial.read_line()
     basic.show_string(line)
     radio.send_string(line)
-radio.set_group(1)
-input.on_button_pressed(Button.A, on_button_pressed_a)
+    radio.set_group(7)
+basic.forever(on_forever)
