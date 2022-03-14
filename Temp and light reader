@@ -1,0 +1,9 @@
+readingL = 0
+readingT = 0
+serial.read_line()
+def on_forever():
+    global readingL, readingT
+    readingL = input.light_level()
+    readingT = input.temperature()
+    basic.show_number(0)
+basic.forever(on_forever)
