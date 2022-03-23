@@ -1,0 +1,4 @@
+fileName = input('What is the file? ')
+file = open( sample.txt,'r')
+for line in file:
+    f.readline(file)
