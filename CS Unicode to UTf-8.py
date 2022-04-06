@@ -38,3 +38,19 @@ elif value == 'E':
     value == 14
 elif value == 'F':
     value == 15
+
+
+s = 'U+0x41'
+#if s contains 'U+' or '0x' or 'U+0x':
+    
+uniVariable = input('Give me and hexodecimal value:')
+listHexodecimal = []
+for i in uniVariable:
+    if i == '0':
+        listHexodecimal.append('0000')
+print(listHexodecimal)
+
+
+['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F']
+listBinary = ['0000', '0001', '0010', '0011', '0100', '0101', '0110', '0111', '1000', '1001', '1010', '1011', '1100', '1101', '1110', '1111']
+    
