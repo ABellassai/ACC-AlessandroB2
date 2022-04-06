@@ -43,11 +43,41 @@ elif value == 'F':
 s = 'U+0x41'
 #if s contains 'U+' or '0x' or 'U+0x':
     
-uniVariable = input('Give me and hexodecimal value:')
+uniVariable = input('Give me and hexodecimal value: U+0x')
 listHexodecimal = []
 for i in uniVariable:
     if i == '0':
         listHexodecimal.append('0000')
+    if i == '1':
+        listHexodecimal.append('0001')
+    if i == '2':
+        listHexodecimal.append('0010')
+    if i == '3':
+        listHexodecimal.append('0011')
+    if i == '4':
+        listHexodecimal.append('0100')
+    if i == '5':
+        listHexodecimal.append('0101')
+    if i == '6':
+        listHexodecimal.append('0110')
+    if i == '7':
+        listHexodecimal.append('0111')
+    if i == '8':
+        listHexodecimal.append('1000')
+    if i == '9':
+        listHexodecimal.append('1001')
+    if i == 'A':
+        listHexodecimal.append('1010')
+    if i == 'B':
+        listHexodecimal.append('1011')
+    if i == 'C':
+        listHexodecimal.append('1100')
+    if i == 'D':
+        listHexodecimal.append('1101')
+    if i == 'E':
+        listHexodecimal.append('1110')
+    if i == 'F':
+        listHexodecimal.append('1111')
 print(listHexodecimal)
 
 
