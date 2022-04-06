@@ -16,13 +16,6 @@ elif value == 14:
     value == E
 elif value == 15:
     value == F
-    
-    
-#Program 2
-# Write a second program which decodes UTF-8 values to their Unicode code point and print
-# the character at that code point
-c = ord('P')
-print (c)
 
 
 value = 0
@@ -83,4 +76,50 @@ print(listHexodecimal)
 
 ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F']
 listBinary = ['0000', '0001', '0010', '0011', '0100', '0101', '0110', '0111', '1000', '1001', '1010', '1011', '1100', '1101', '1110', '1111']
+   
     
+#Program 2
+# Write a second program which decodes UTF-8 values to their Unicode code point and print
+# the character at that code point
+c = ord('P')
+print (c)
+
+
+utfVariable = input('Give me and binary value: ')
+listBinary = []
+for j in uniVariable:
+    if j == '0000':
+        listBinary.append('0')
+    if j == '0001':
+        listBinary.append('1')
+    if j == '0010':
+        listBinary.append('2')
+    if j == '0011':
+        listBinary.append('3')
+    if j == '0100':
+        listBinary.append('4')
+    if j == '0101':
+        listBinary.append('5')
+    if j == '0110':
+        listBinary.append('6')
+    if j == '0111':
+        listBinary.append('7')
+    if j == '1000':
+        listBinary.append('8')
+    if j == '1001':
+        listBinary.append('9')
+    if j == '1010':
+        listBinary.append('A')
+    if j == '1011':
+        listBinary.append('B')
+    if j == '1100':
+        listBinary.append('C')
+    if j == '1101':
+        listBinary.append('D')
+    if j == '1110':
+        listBinary.append('E')
+    if j == '1111':
+        listBinary.append('F')
+print(listBinary)
+
+
