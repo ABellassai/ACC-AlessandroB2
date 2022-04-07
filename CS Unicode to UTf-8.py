@@ -85,41 +85,39 @@ c = ord('P')
 print (c)
 
 
-utfVariable = input('Give me and binary value: ')
+utfVariable = input('Give me any binary value: ')
 listBinary = []
-for j in uniVariable:
-    if j == '0000':
-        listBinary.append('0')
-    if j == '0001':
-        listBinary.append('1')
-    if j == '0010':
-        listBinary.append('2')
-    if j == '0011':
-        listBinary.append('3')
-    if j == '0100':
-        listBinary.append('4')
-    if j == '0101':
-        listBinary.append('5')
-    if j == '0110':
-        listBinary.append('6')
-    if j == '0111':
-        listBinary.append('7')
-    if j == '1000':
-        listBinary.append('8')
-    if j == '1001':
-        listBinary.append('9')
-    if j == '1010':
-        listBinary.append('A')
-    if j == '1011':
-        listBinary.append('B')
-    if j == '1100':
-        listBinary.append('C')
-    if j == '1101':
-        listBinary.append('D')
-    if j == '1110':
-        listBinary.append('E')
-    if j == '1111':
-        listBinary.append('F')
+if utfVariable == '0000':
+    listBinary.append(0)
+if utfVariable == '0001':
+    listBinary.append(1)
+if utfVariable == '0010':
+    listBinary.append(2)
+if utfVariable == '0011':
+    listBinary.append(3)
+if utfVariable == '0100':
+    listBinary.append(4)
+if utfVariable == '0101':
+    listBinary.append(5)
+if utfVariable == '0110':
+    listBinary.append(6)
+if utfVariable == '0111':
+    listBinary.append(7)
+if utfVariable == '1000':
+    listBinary.append(8)
+if utfVariable == '1001':
+    listBinary.append(9)
+if utfVariable == '1010':
+    listBinary.append(A)
+if utfVariable == '1011':
+    listBinary.append(B)
+if utfVariable == '1100':
+    listBinary.append(C)
+if utfVariable == '1101':
+    listBinary.append(D)
+if utfVariable == '1110':
+    listBinary.append(E)
+if utfVariable == '1111':
+    listBinary.append(F)
 print(listBinary)
-
 
