@@ -38,7 +38,6 @@ with open('answers.txt', 'w') as Answers:
     Answers.write('\n')
     Answers.write('No. of Words = ')
     Answers.write(str(words))
-
 f.close()
 
 #Program 2
@@ -54,14 +53,30 @@ mean = 0
 totalNum = 0
 total = sum(float(a) for a in d.split(','))
 totalNum = d.count(',') + 1
-print('The mean is: ', total // totalNum)
+mean = total // totalNum
     
 #Median
+L = []
+for a in d.split(','):
+   L.append(float(a)) 
+print(L)
+L.sort() = newList
 
 
-
-
+median = 0
 #Mode
 
 
+
+mode = 0
+
+with open('answers2.txt', 'w') as Answers2:
+    Answers2.write('Mean = ')
+    Answers2.write(str(mean))
+    Answers2.write('\n')
+    Answers2.write('Median = ')
+    Answers2.write(str(median))
+    Answers2.write('\n')
+    Answers2.write('Mode = ')
+    Answers2.write(str(mode))
 f.close()
