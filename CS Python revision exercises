@@ -1,0 +1,50 @@
+import math
+
+# Q1
+compnum = 50
+guess = int(input('Guess my number: '))
+count = 1
+
+while guess != compnum:
+    count = count + 1
+    if guess > compnum:
+        print('Your guess is higher than my number')
+        guess = int(input('try again: '))
+    elif guess < compnum:
+        print('Your guess is lower than my number')
+        guess = int(input('try again: '))
+    else:
+        print('Well done, you took', count,'attempts')
+
+# Q2
+radius= float(input('Radius Measurement:'))
+depth = float(input('Depth Measurement: '))
+r2 = radius*radius
+area = 4*math.pi*r2
+
+volume = print('Volume:', area*depth)
+
+# Q3
+print('1. Square ')
+print('2. Triangle')
+num = int(input('Enter a number: '))
+
+if num == 1:
+    sideSquare = int(input('Enter a measurement for a side: '))
+    print('Area:', sideSquare*sideSquare)
+    
+if num == 2:
+    base = int(input('Enter a measurement for base: '))
+    height = int(input('Enter a measurement for height: '))
+    print('Area:', base*height/2)
+
+else:
+    print('ERROR ERROR ERROR TRY AGAIN')
+
+# Q4
+num1 = int(input('Enter a number: '))
+
+for x in (num1):
+    
+    print('*'* num1)
+
