@@ -43,8 +43,27 @@ else:
 
 # Q4
 num1 = int(input('Enter a number: '))
+x = 1
 
-for x in (num1):
-    
-    print('*'* num1)
+while x != num1 + 1:
+    print('*'* x)
+    x = x+1        
+
+# Q5
+f = open('C:/Users/18ABellassai.ACC/Desktop/File.txt','r')
+f.read(100)
+print(f)
+
+f.close()
+
+# Q6
+f2 = open('C:/Users/18ABellassai.ACC/Desktop/File.txt','w')
+f2.read(100)
+print(f2)
+
+f.close()
+
+# Q7
+
+
 
