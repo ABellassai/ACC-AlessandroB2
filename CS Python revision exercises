@@ -51,15 +51,15 @@ while x != num1 + 1:
 
 # Q5
 f = open('C:/Users/18ABellassai.ACC/Desktop/File.txt','r')
-f.read(100)
-print(f)
+
+print(f.readline())
 
 f.close()
 
 # Q6
 f2 = open('C:/Users/18ABellassai.ACC/Desktop/File.txt','w')
-f2.read(100)
-print(f2)
+
+print(f.readline())
 
 f.close()
 
