@@ -1,6 +1,5 @@
 
 # 1
-'''
 num1 = float(input("Number 1: "))
 num2 = float(input("Number 2: "))
 sum1 = num1 + num2
@@ -50,19 +49,18 @@ while initialNumber >= 0:
     counter = counter + 1
     total = total + initialNumber
 print(total / counter)
-'''
-# 5. Write a program to take in 5 numbers and add each one to a list. Then iterate through the
-# list using a for loop and add 1 to each number. Print the list at the end to show that each
-# number has been increased by 1.
+
+# 5
 listN = []
-n1 = int(input('give me 5 numbers: '))
-n2 = int(input())
-n3 = int(input())
-n4 = int(input())
-n5 = int(input())
-listN.append()
-for i in listN:
-    
+
+n1 = listN.append(int(input('give me 5 numbers: ')))
+n2 = listN.append(int(input()))
+n3 = listN.append(int(input()))
+n4 = listN.append(int(input()))
+n5 = listN.append(int(input()))
+for index in range(len(listN)):
+     listN[index]= listN[index] + 1
+print(listN)
 
 # 6. Write a program to read in the file onTime.txt and split it into a list with a delimiter of space.
 # Calculate the frequency of each word, and find the mode (The word/words that
@@ -70,6 +68,8 @@ for i in listN:
 # Write each word and its frequency to a text file named onTimeAnalysis.txt
 # At the end of the file write the mode.
 # Use plotly to draw a bar chart of the words in the txt file and their frequency.
+
+
 
 
 
