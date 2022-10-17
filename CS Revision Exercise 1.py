@@ -1,4 +1,3 @@
-
 # 1
 num1 = float(input("Number 1: "))
 num2 = float(input("Number 2: "))
@@ -61,14 +60,6 @@ n5 = listN.append(int(input()))
 for index in range(len(listN)):
      listN[index]= listN[index] + 1
 print(listN)
-
-# 6. Write a program to read in the file onTime.txt and split it into a list with a delimiter of space.
-# Calculate the frequency of each word, and find the mode (The word/words that
-# appears/appear most often).
-# Write each word and its frequency to a text file named onTimeAnalysis.txt
-# At the end of the file write the mode.
-# Use plotly to draw a bar chart of the words in the txt file and their frequency.
-
 
 
 
