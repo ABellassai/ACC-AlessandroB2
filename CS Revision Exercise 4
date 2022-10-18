@@ -11,9 +11,30 @@ for i in word:
 print(string)
 
 # 2.Amend the program above so that it reads in a file and writes the encrypted file out to a different file.
+f = open('C:/Users/18ABellassai.acc/Downloads/onTime.txt', 'r')
+f2 = open('C:/Users/18ABellassai.acc/Downloads/onTime2.txt', 'w')
+
+listF = []
+for line in f:
+    for character in line:
+        listF.append(character) (' ', '\n')
+key = int(input('Give a key to shift a letter on the alphabet: '))
+listA = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',]
+listB = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',]
+string = ''
+if 
+for i in listF:
+    counter = listA.index(i)
+    if counter + key > 25:
+        counter = counter - 26
+    string += listA[counter + key]
+print(string)
 
 
-
+print(f.read())
+print(f2.read())
+f.close()
+f2.close()
 
 # 3.Write a program to decrypt the file given the filename and shift key value as input
 
