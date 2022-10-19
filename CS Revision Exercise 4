@@ -10,31 +10,52 @@ for i in word:
     string += listA[counter + key]
 print(string)
 
-# 2.Amend the program above so that it reads in a file and writes the encrypted file out to a different file.
-f = open('C:/Users/18ABellassai.acc/Downloads/onTime.txt', 'r')
-f2 = open('C:/Users/18ABellassai.acc/Downloads/onTime2.txt', 'w')
+# 2.Amend the program above so that it reads in a file and writes the encrypted
+# file out to a different file.
+f = open('/home/alex/Scaricati/onTime.txt', 'r')
+f2 = open('/home/alex/Scaricati/onTime2.txt', 'w+')
 
 listF = []
 for line in f:
     for character in line:
-        listF.append(character) (' ', '\n')
+        listF.append(character)
+
 key = int(input('Give a key to shift a letter on the alphabet: '))
 listA = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',]
 listB = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',]
 string = ''
-if 
+
 for i in listF:
-    counter = listA.index(i)
-    if counter + key > 25:
-        counter = counter - 26
-    string += listA[counter + key]
-print(string)
-
-
-print(f.read())
+    if i.isalnum() == True:
+        if i.isdigit() == True:
+            string += i
+        elif i.islower() == True: 
+            counter = listA.index(i)
+            while counter + key > 25:
+                counter = counter - 26
+            string += listA[counter + key]
+        else:
+            counter = listB.index(i)
+            while counter + key > 25:
+                counter = counter - 26
+            string += listB[counter + key]
+    else:
+        string += i
+        
+f2.write(string)
 print(f2.read())
 f.close()
 f2.close()
 
 # 3.Write a program to decrypt the file given the filename and shift key value as input
+
+
+# 4.Write a function that takes a single string as an argument, 
+# checks that it meets the criteria belowand displays whetherthe string is a valid email address. Criteria:
+# •Contains the ‘@’ symbol
+# •Contains at least one ’.’
+# •Have a length greater than 10 characters
+
+
+# 5.Write a program which uses the function from 4. above.Call the function using keyword arguments to pass in values.
 
