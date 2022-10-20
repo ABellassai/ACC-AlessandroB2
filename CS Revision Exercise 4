@@ -48,14 +48,51 @@ f.close()
 f2.close()
 
 # 3.Write a program to decrypt the file given the filename and shift key value as input
+f2 = open('C:\\Users\\18ABellassai.acc\\Downloads\\onTime2.txt', 'r')
+f3 = open('C:\\Users\\18ABellassai.acc\\Downloads\\onTime3.txt', 'w+')
+key2 = int(input('Give a key to shift a letter on the alphabet: '))
 
+listC = ['z', 'y', 'x', 'w', 'v', 'u', 't', 's', 'r', 'q', 'p', 'o', 'n', 'm', 'l', 'k', 'j', 'i', 'h', 'g', 'f', 'e', 'd', 'c', 'b', 'a',]
+listD = ['Z', 'Y', 'X', 'W', 'V', 'U', 'T', 'S', 'R', 'Q', 'P', 'O', 'N', 'M', 'L', 'K', 'J', 'I', 'H', 'G', 'F', 'E', 'D', 'C', 'B', 'A']
+string3 = ''
 
-# 4.Write a function that takes a single string as an argument, 
-# checks that it meets the criteria belowand displays whetherthe string is a valid email address. Criteria:
-# •Contains the ‘@’ symbol
-# •Contains at least one ’.’
-# •Have a length greater than 10 characters
+list3 = []
+for line in f2:
+    for character in line:
+        list3.append(character)
+f2.close()
 
+for p in list3:
+    if p.isalnum() == True:
+        if p.isdigit() == True:
+            string3 += p
+        elif p.islower() == True: 
+            counter = listC.index(p)
+            while counter + key2 > 25:
+                counter = counter - 26
+            string3 += listC[counter + key2]
+        else:
+            counter = listD.index(p)
+            while counter + key2 > 25:
+                counter = counter - 26
+            string3 += listD[counter + key2]
+    else:
+        string3 += p
+        
+f3.write(string3)
+print(f3.read())
+f3.close()
+
+# 4.
+def email(i):
+    if '@' not in i:
+        print('Missing @')
+    if '.' not in i:
+        print('Missing .')
+    if len(i) < 10:
+        print('Email is too short')
+eMail = str(input('Give a valid Email address: '))
+email(eMail)
 
 # 5.Write a program which uses the function from 4. above.Call the function using keyword arguments to pass in values.
 
