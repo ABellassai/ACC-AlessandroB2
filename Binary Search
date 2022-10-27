@@ -1,0 +1,35 @@
+Binary Search
+How binary search works 
+•	For binary Search to work, the target array most be sorted before starting the search
+•	If works by checking the middle value of a sorted array. If is a match it returns the index value of the item.
+•	Otherwise, if the middle item is larger than the value searched for, it checks the sub-array to the left of the middle item. If the middle item is smaller than the item sought (searched), it checks the sub-array to the right of the middle term.
+•	This process repeats until the size of the sub-array is zero
+
+Example 
+•	Search the sorted array for the number 31
+   10        	14	          19	      26	        27	        31         	33        	35	          42	      44
+   0    	     1            2          3           4           5           6           7            8         9
+•	Find the mid-point of the list using the following g formula:
+•	Mid = (low + high) / 2
+•	Low and high are the indices in the list
+•	If the value of mid is not an integer value round it to the nearest integer
+    10  	    14	          19	       26       	27         	31        	33        	35           42       	44
+    0    	     1            2          3           4           5           6           7            8         9
+Here it is, (9,0) / 2 = 4 (integer value of 4.5). So, 4 is the mid of the array
+•	Compare the value stored at location 4, with the value being searched
+i.e. 31, the value at location 4 is 27, which is not a match. As the value is greater than 27 and we have the sorted array, so we also know that the target value must be in the upper portion of the array.
+•	We need to calculate a new mid value.
+•	Change our low to mid +1
+•	low = mid+1
+•	mid = (low + high)/2 = (5+9)/2 = 7
+					                                                  31	         33	         35	          42	      44
+  0    	     1            2          3           4           5           6           7            8         9
+•	The value stored at 7 Is not a match, it is too high so the target value is to the left.
+
+					                                                   31	         33	         35	          42	      44
+  0    	     1            2          3           4           5           6           7            8         9
+•	The value stored at 7 Is not a match, it is too high so the target value is to the left.
+•	mid = (low + high)/2 = (5+6)/2 = 5.5 = 5
+					                                                    31	      33        	35          	42      	44
+  0    	     1            2          3           4           5           6           7            8         9
+•	The value stored at 5 Is a match with target value
