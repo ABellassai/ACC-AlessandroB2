@@ -1,0 +1,30 @@
+# STEP 1. Choose the most right element in the list as the pivot
+# STEP 2. Create three empty lists called left_list, middle_list and right_list
+# STEP 3. for each element (key) in the list
+# if element is < pivot add it to left_list
+# if element is == pivot add it to middle_list
+# if element is > pivot add it to right_list
+# STEP 4. The result is a list made up by applying steps 1-3 to left_list, followed by the elements in
+# the middle_list, followed by applying steps 1-3 to right_list
+
+l = [10, 80, 30, 90, 40, 50, 70]
+
+def quicksort (mainList):
+    if len(mainList) <= 1:
+        return mainList
+    
+    leftList = []
+    middleList = []
+    rightList = []
+    pivot = mainList[-1]
+
+    for i in mainList:
+        if i < pivot:
+            leftList.append(i)
+        elif i == pivot:
+            middleList.append(i)
+        elif i > pivot:
+            rightList.append(i) 
+    return(quicksort(leftList) + middleList + quicksort(rightList))
+
+print(quicksort(l))
