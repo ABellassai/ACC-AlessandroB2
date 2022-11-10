@@ -1,0 +1,40 @@
+Algorithms and Time complexity
+•	Measured by the number of operations required for an input of size n
+•	The fewer the number of operations the faster the algorithm
+•	If the algorithm is independent of the size of the input it is called a Constant time Algorithm
+Constant time complexity graph
+
+
+
+
+time
+
+
+
+
+Size of input (n)
+
+•	All math operators are constant time (It is a fixed variable and not unknown)
+
+
+
+•	An algorithm has Linear Time if a number of operations is directly proportional to the size of the input n.
+
+
+
+
+
+time
+
+Quadratic complexity
+
+
+time
+
+
+
+				size of input
+If the number of the operator is proportional to the square of the input of size n. The relationship is said to be a quadratic.
+
+
+
