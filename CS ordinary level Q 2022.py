@@ -1,5 +1,7 @@
-# Question 16(a)
-# Name and School: Alessandro
+# Name and School: Alessandro Bellassai
+# (a)
+
+import random
 
 check = input('If you have finished entering peoples details type "END", otherwise press "RETURN": ')
 while check != 'END':
@@ -16,18 +18,23 @@ while check != 'END':
     elif age > 49:
         print(f_name,'you will receive the ADENO vaccine')
     value = eircode[-1]
-    print(value)
-#     if value.isdigit() == True:
-#         if value % 2 == 0:
-#             print('You must attend Eastwood for your vaccine')
-#         else:
-#             print('You must attend Northfield for your vaccine')
+    if value.isdigit() == True:
+        if int(value) % 2 == 0:
+             print('You must attend Eastwood for your vaccine')
+        else:
+             print('You must attend Northfield for your vaccine')
     l = ['A', 'B', 'C']
-    if import.random(0, 2) = 0
-        print('You are now enrolled in the trial to receive Super vaccine A')
-    elif:
-        print('You are now enrolled in the trial to receive Super vaccine B')
-    else:
-        print('You are now enrolled in the trial to receive Super vaccine C')
-
+    choice = random.choice(l)
+    print('You are now enrolled in the trial to receive Super vaccine', choice)
     check = input('If you have finished entering peoples details type "END", otherwise press "RETURN": ')
+
+# (b)
+List1 = [4, 5, 9, 8, 10, 17, 99, 77]
+sum1 = 0
+counter = 0
+elements = range(len.List1[])
+for i in List1:
+    counter +1
+    sum1 = + i
+mean = sum1 / elements
+print(mean)
