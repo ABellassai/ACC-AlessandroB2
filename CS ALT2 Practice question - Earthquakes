@@ -1,0 +1,22 @@
+#Hypothesis
+#4. The earthquake's intensity has increased.
+
+#The earthquakes intensity has increased during the time period 2000-2015
+
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+
+tmp = pd.read_csv('C:\\Users\\18Abellassai.acc\\Downloads\\EarthquakeTemplate\\database.csv')
+tmp = tmp.dropna(axis = 0)
+magE = tmp['Magnitude']
+yearE = tmp['Date']
+plt.scatter(yearE, magE)
+
+m,c = np.polyfit(yearE, magE, 1)
+
+yLine = []
+for x in yearE:
+    yLine.append(m*x+c)
+print('The equation of the model is y= '+str(round(m,2))+'x'+str(round(c,2)))
+plt.plot(yearE, yLine)
