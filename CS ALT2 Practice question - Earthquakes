@@ -20,3 +20,5 @@ for x in yearE:
     yLine.append(m*x+c)
 print('The equation of the model is y= '+str(round(m,2))+'x'+str(round(c,2)))
 plt.plot(yearE, yLine)
+
+pandas.splitstring()
