@@ -4,13 +4,23 @@ import random
 import time
 
 #Decicing what Gamemode user wants to play
-gamemode = int(input('Welcome to my game, select one of the options:')
-if gamemode > 0 and gamemode < 4:
-    print('[1] Single Player','\n',
+
+print(' [1] Single Player','\n',
     '[2] Multi Player','\n',
-    '[3] Rules'))
-else:
-    print('press the right key')
+    '[3] Rules')
+gamemode = int(input('Welcome to my game, select one of the options: '))
+while gamemode < 1 or gamemode > 3:
+    gamemode = int(input('ERROR! Select one of the above options: '))
+# time stop(2)
+
+"""
+if gamemode == 1:
+    # go to single player mode against bot
+elif gamemode == 2:
+    # go to multiplayer mode
+elif gamemode == 3:
+    # go to rules
+"""
 
 #CREATION OF THE DECK
 class Card:
@@ -35,8 +45,10 @@ def shuffle(deck):
 Player1 = []
 Player2 = []
 
-def deal(self, ):
-    player.append()  
+def deal(self, cardNum):
+    for i in range(cardNum):
+        Player1.append(deck.pop(0))
+        Player2.append(deck.pop(0))
     
 class Player:
     hand = None
