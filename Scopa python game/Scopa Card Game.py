@@ -7,7 +7,6 @@ import time
 ' - If you have the chance of getting golds take them because they could give you a point'
 
 #DECIDING WHAT GAMEMODE USER WANTS TO PLAY
-
 print('Scopa Card Game!','\n',
     '[1] Single Player','\n',
     '[2] Multi Player','\n',
@@ -16,7 +15,7 @@ gamemode = int(input('Welcome to my game, select one of the options: '))
 while gamemode < 1 or gamemode > 2:
     gamemode = int(input('Invalid! Select one of the above options: '))
 # time stop(2)
-'''
+
 """
 if gamemode == 1:
     # go to single player mode against bot
@@ -25,7 +24,7 @@ elif gamemode == 2:
 elif gamemode == 3:
     # go to rules
 """
-'''
+
 #CREATION OF THE CARD OBJECT
 class Card(object):
     def __init__(self, value, seed):
@@ -67,7 +66,19 @@ class PointsDeck(object):
     def showPdeck(self):
         for c in self.cards:
             c.show()
-
+'''            
+    def takingCards(self)
+        self.cards.append()
+      
+        if card is thrown != any sums or cards on the table or table is clear:
+            put it with the table cards
+        elif card is thrown == card with same value:
+                take and put in the points deck
+        elif card is thrown == sum:
+            if card is thrown = possibleSums:
+                let the player pick which sum they want to take
+                take and put in the points deck
+'''
 #MAKING THE TABLE WHERE TO PLAY CARDS
 class Table(object):
     def __init__(self):
@@ -84,7 +95,10 @@ class Table(object):
 #MAKING THE PLAYERS
 class Player(object):
     def __init__(self, name):
-        self.name = str(input('What is your name: '))
+        if gamemode == 1:
+            self.name = 'CPU'
+        elif gamemode == 2:
+            self.name = str(input('What is your name: '))
         self.hand = []
     
     def draw(self, deck):
@@ -102,7 +116,6 @@ class Player(object):
 #SHUFFLED DECK
 deck = Deck()          
 deck.shuffle()
-deck.show()
 print('\n')
 '''
 # REORDERING THE DECK
@@ -110,35 +123,124 @@ deck.build()
 deck.show()
 '''
 #THE 4 STARING CARDS ON THE TABLE
-table = Table()
-table.draw(deck).draw(deck).draw(deck).draw(deck)
-table.showTable()
-print('\n')
+tab = Table()
+tab.draw(deck).draw(deck).draw(deck).draw(deck)
+print('Cards on the table:')
+tab.showTable()
+print('\t')
 
 #MAKING EACH PLAYER'S HAND
-for p in range(gamemode):
+if gamemode == 2:
     player1 = Player('A')
-    print(player1.name +' cards :')
+    print(player1.name +' cards:') 
+    print('-------------------')
     player1.draw(deck).draw(deck).draw(deck)
     player1.showHand()
-    pointsDeck1 = PointsDeck()
-    pointsDeck1.cards.append(player1.hand)
-#   pointsDeck1.showPdeck()                 donno how to solve this (help)
+    print('\t')
+    a = 1
+    for card in player1.hand:
+        print('{}) {}'.format(a, card.show()))
+        a = a+1
+    print('\t')
     
-playerTurn = 0
-# playing = True
+    player2 = Player('B')
+    print(player2.name +' cards:') 
+    print('-------------------')
+    player2.draw(deck).draw(deck).draw(deck)
+    player2.showHand()  
+    print('\t')
+    b = 1
+    for card in player2.hand:
+        print('{}) {}'.format(b, card.show()))
+        b = b+1
+    print('\t')
+    
+elif gamemode == 1:
+    player1 = Player('A')
+    print(player1.name +' cards:') 
+    print('-------------------')
+    player1.draw(deck).draw(deck).draw(deck)
+    player1.showHand()    
+    print('\t')
+    a = 1
+    for card in player1.hand:
+        print('{}) {}'.format(a, card.show()))
+        a = a+1
+    print('\t')
+    
+    player2 = Player('CPU')
+    print('CPU cards:') 
+    print('-------------------')
+    player2.draw(deck).draw(deck).draw(deck)
+    player2.showHand()
+    print('\t')
+    b = 1
+    for card in player2.hand:
+        print('{}) {}'.format(b, card.show()))
+        b = b+1
+    print('\t')
+#print(tab.table)
+'''
+#MAKING EACH PLAYER'S EMPTY POINTS DECK  
+pointsDeck1 = PointsDeck()
+pointsDeck1.cards.append(player1.playCard() and tab.table)
+pointsDeck1.showPdeck()
+'''
 
-# for i in range (0,2):
-#     for p in Player:
+def cardProperties(value, seed, playerHand):
+    for card in playerHand:
+        splitCard = card.split(1, ' ')
+    value = splitCard[0]
+    seed = splitCard[1]        
+
+playing = True
+
 '''
 for p in player1.name:
-    for card in  > 0:
-        playerTurn = playerTurn + 1
-        print('my turn')
-  '''     
-# while playing == True:
- 
-#     def canPlay(playCard)
+    for card in player1.hand:
+        if Card.value > 0:
+            playerTurn = playerTurn + 1
+            print('my turn')
+'''
+
+#PLAYER 1 AND 2 SCORES
+scorePl1 = 0
+scorePl2 = 0
+'''
+#PLAYING LOOP AND NEW TURNS WHE BOTH PLAYERS FINISHED THEIR CARDS
+turn = 1
+while len(deck.cards) > 0 or len(player1.hand) > 0:
+    playing = True
+    if len(player1.hand) == 0 and len(player1.hand) == 0 and len(deck.cards) > 0:
+        print('New Turn - '+player1.name +' new cards:')
+        player1.draw(deck).draw(deck).draw(deck)
+        player1.showHand()
+        turn = 1
+        
+#TURN PLAYER 1
+    if turn == 1:        
+        cardChosen = int(input(player1.name, 'which card do you want to play?'))
+        while cardChosen < 1 or cardChosen > len(player1.hand):
+            cardChosen = int(input('Invalid! Select one of the cards in your hand: '))
+            cardChosen = playCard()
+            print(player1.name +' played '+ cardChosen)
+            if len(player1.hand) - 1:
+                turn = turn + 1
+            
+            
+#TURN PLAYER 2
+    elif turn == 2:
+    #cardChosen = int(input(player1.name, 'which card do you want to play?'))
+        while cardChosen < 1 or cardChosen > len(player1.hand):
+            cardChosen = int(input('Invalid! Select one of the cards in your hand: '))
+            if len(player1.hand) - 1:
+                turn = turn - 1
+#END OF THE GAME WHEN DECK RUNS OUT OF CARDS
+if len(deck.cards) == 0 and len(player1.hand) == None:
+    playing = False
+    turn = 0
+    print('End game')
+'''
 '''
 I need first to make the sums and the taking action
 #TAKING CARDS WITH SUM OR WITH SAME CARD
@@ -150,8 +252,9 @@ I need first to make the sums and the taking action
         return self.cards.append(Card(n, s))    
 '''
 
+# Wording the code so I understand it better
 '''
-    while deck is not empty and players have 3 cards each:
+    while deck is not empty and players have cards each:
         draw 3 cards to the players 
         
     #turns and gameplay
@@ -164,7 +267,7 @@ I need first to make the sums and the taking action
         elif card is thrown == card with same value:
                 take and put in the points deck
         elif card is thrown == sum:
-            if card is thrown = more than one sum:
+            if card is thrown = possibleSums:
                 let the player pick which sum they want to take
                 take and put in the points deck
         if card is thrown and table is cleared:
@@ -198,9 +301,9 @@ I need first to make the sums and the taking action
         print('total score for Player 1: ', scorePl1)
         print('total score for Player 2: ', scorePl2)
         if scorePl1 > scorePl2 :
-            print('Winner is Player 1!')
+            print('The Winner is Player 1!')
         elif if scorePl1 < scorePl2 :
-            print('Winner is Player 2!')
+            print('The Winner is Player 2!')
         if scorePl1 == scorePl2 :
             print('It's a draw!')
 '''
