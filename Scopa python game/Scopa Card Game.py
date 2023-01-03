@@ -1,5 +1,4 @@
-#Scopa Card Game
-
+#            ------------------------Scopa Card Game------------------------
 import random
 import time
 # my 2 Strategies to test
@@ -14,7 +13,7 @@ print('Scopa Card Game!','\n',
 gamemode = int(input('Welcome to my game, select one of the options: '))
 while gamemode < 1 or gamemode > 2:
     gamemode = int(input('Invalid! Select one of the above options: '))
-# time stop(2)
+# time.sleep(0.5)
 
 """
 if gamemode == 1:
@@ -116,7 +115,6 @@ class Player(object):
 #SHUFFLED DECK
 deck = Deck()          
 deck.shuffle()
-print('\n')
 '''
 # REORDERING THE DECK
 deck.build()
@@ -127,7 +125,8 @@ tab = Table()
 tab.draw(deck).draw(deck).draw(deck).draw(deck)
 print('Cards on the table:')
 tab.showTable()
-print('\t')
+print(' ')
+# time.sleep(0.5)
 
 #MAKING EACH PLAYER'S HAND
 if gamemode == 2:
@@ -136,49 +135,52 @@ if gamemode == 2:
     print('-------------------')
     player1.draw(deck).draw(deck).draw(deck)
     player1.showHand()
-    print('\t')
+    print(' ')
     a = 1
     for card in player1.hand:
         print('{}) {}'.format(a, card.show()))
         a = a+1
-    print('\t')
-    
+    print(' ')
+# time.sleep(0.5)
+
     player2 = Player('B')
     print(player2.name +' cards:') 
     print('-------------------')
     player2.draw(deck).draw(deck).draw(deck)
     player2.showHand()  
-    print('\t')
+    print(' ')
     b = 1
     for card in player2.hand:
         print('{}) {}'.format(b, card.show()))
         b = b+1
-    print('\t')
-    
+    print(' ')
+# time.sleep(0.5)
+
 elif gamemode == 1:
     player1 = Player('A')
     print(player1.name +' cards:') 
     print('-------------------')
     player1.draw(deck).draw(deck).draw(deck)
     player1.showHand()    
-    print('\t')
+    print(' ')
     a = 1
     for card in player1.hand:
         print('{}) {}'.format(a, card.show()))
         a = a+1
-    print('\t')
-    
+    print(' ')
+# time.sleep(0.5)    
     player2 = Player('CPU')
     print('CPU cards:') 
     print('-------------------')
     player2.draw(deck).draw(deck).draw(deck)
     player2.showHand()
-    print('\t')
+    print(' ')
     b = 1
     for card in player2.hand:
         print('{}) {}'.format(b, card.show()))
         b = b+1
-    print('\t')
+# time.sleep(0.5)
+    print(' ')
 #print(tab.table)
 '''
 #MAKING EACH PLAYER'S EMPTY POINTS DECK  
