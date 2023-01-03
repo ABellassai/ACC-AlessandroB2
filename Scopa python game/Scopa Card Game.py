@@ -9,18 +9,21 @@ import time
 print('Scopa Card Game!','\n',
     '[1] Single Player','\n',
     '[2] Multi Player','\n',
-    '[3] Rules')
+    '[3] Simulation Game','\n',
+    '[4] Rules')
 gamemode = int(input('Welcome to my game, select one of the options: '))
-while gamemode < 1 or gamemode > 2:
+while gamemode < 1 or gamemode > 2: #4
     gamemode = int(input('Invalid! Select one of the above options: '))
 # time.sleep(0.5)
 
 """
 if gamemode == 1:
-    # go to single player mode against bot
+    # go to single player mode against bot(CPU)
 elif gamemode == 2:
     # go to multiplayer mode
 elif gamemode == 3:
+    # go to simulation mode
+elif gamemode == 4:
     # go to rules
 """
 
@@ -139,7 +142,34 @@ print(' ')
 # time.sleep(0.5)
 
 #MAKING EACH PLAYER'S HAND
-if gamemode == 2:
+
+if elif gamemode == 1:
+    player1 = Player('A')
+    print(player1.name +' cards:') 
+    print('-------------------')
+    player1.draw(deck).draw(deck).draw(deck)
+    player1.showHand()    
+    print(' ')
+    a = 1
+    for card in player1.hand:
+        print('{}) {}'.format(a, card.show()))
+        a = a+1
+    print(' ')
+# time.sleep(0.5)    
+    player2 = Player('CPU')
+    print('CPU cards:') 
+    print('-------------------')
+    player2.draw(deck).draw(deck).draw(deck)
+    player2.showHand()
+    print(' ')
+    b = 1
+    for card in player2.hand:
+        print('{}) {}'.format(b, card.show()))
+        b = b+1
+    print(' ')
+# time.sleep(0.5)    
+
+elif gamemode == 2:
     player1 = Player('A')
     print(player1.name +' cards:') 
     print('-------------------')
@@ -166,21 +196,21 @@ if gamemode == 2:
     print(' ')
 # time.sleep(0.5)
 
-elif gamemode == 1:
-    player1 = Player('A')
-    print(player1.name +' cards:') 
+elif gamemode == 3:
+    player1 = Player('CPU 1')
+    print('CPU 1 cards:') 
     print('-------------------')
     player1.draw(deck).draw(deck).draw(deck)
-    player1.showHand()    
+    player1.showHand()
     print(' ')
     a = 1
     for card in player1.hand:
         print('{}) {}'.format(a, card.show()))
         a = a+1
     print(' ')
-# time.sleep(0.5)    
-    player2 = Player('CPU')
-    print('CPU cards:') 
+    
+    player2 = Player('CPU 2')
+    print('CPU 2 cards:') 
     print('-------------------')
     player2.draw(deck).draw(deck).draw(deck)
     player2.showHand()
@@ -189,9 +219,10 @@ elif gamemode == 1:
     for card in player2.hand:
         print('{}) {}'.format(b, card.show()))
         b = b+1
-# time.sleep(0.5)
     print(' ')
+# time.sleep(0.5)
 #print(tab.table)
+
 '''
 #MAKING EACH PLAYER'S EMPTY POINTS DECK  
 pointsDeck1 = PointsDeck()
@@ -304,16 +335,23 @@ if len(deck.cards) == 0 and len(player1.hand) == None:
         print('total score for Player 1: ', scorePl1)
         print('total score for Player 2: ', scorePl2)
         if scorePl1 > scorePl2:
-            print('The Winner is Player 1!')
+            if gamemode == 3:
+                print('The Winner is CPU 1!')
+            else:
+                print('The Winner is'+ player1.name, '!')
         elif if scorePl1 < scorePl2:
             if gamemode == 1:
                 print('The Winner is Player 2 (CPU)!')
+            elif  gamemode == 3:
+                print('The Winner is CPU 2!')
             else:
-                print('The Winner is Player 2!')
+                print('The Winner is'+ player2.name, '!')
         elif scorePl1 == scorePl2:
-            print('It's a draw!')
+            print('It is a draw!')
  
-                            #Graphs
+                        #Graphs
 Barcharts of all cards collected, all sums, all points aquired by each player
 Pie chart graph for all golden cards collected by each player
 Scatter plot graph to record in which turn scopas were taken (grafico a puntini)
+Find the mean of all cards taken in each turn and graph with a line graph which turns players took more cards
+'''
