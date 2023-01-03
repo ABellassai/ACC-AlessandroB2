@@ -111,6 +111,16 @@ class Player(object):
 #PLAYING CARDS FROM YOUR HAND    
     def playCard(self):
         return self.hand.pop()
+    
+'''
+#TAKING CARDS WITH SUM OR WITH SAME CARD  (I need first to make the sums and the taking action)
+
+
+
+#TAKING CARDS FROM TABLE TO POINTS DECK  
+    def takeCard(self):
+        return self.cards.append(Card(n, s))    
+'''
  
 #SHUFFLED DECK
 deck = Deck()          
@@ -209,7 +219,7 @@ for p in player1.name:
 scorePl1 = 0
 scorePl2 = 0
 '''
-#PLAYING LOOP AND NEW TURNS WHE BOTH PLAYERS FINISHED THEIR CARDS
+#PLAYING LOOP AND NEW TURNS WHEN BOTH PLAYERS FINISHED THEIR CARDS
 turn = 1
 while len(deck.cards) > 0 or len(player1.hand) > 0:
     playing = True
@@ -243,16 +253,7 @@ if len(deck.cards) == 0 and len(player1.hand) == None:
     turn = 0
     print('End game')
 '''
-'''
-I need first to make the sums and the taking action
-#TAKING CARDS WITH SUM OR WITH SAME CARD
 
-
-
-#TAKING CARDS FROM TABLE TO POINTS DECK  
-    def takeCard(self):
-        return self.cards.append(Card(n, s))    
-'''
 
 # Wording the code so I understand it better
 '''
@@ -302,10 +303,17 @@ I need first to make the sums and the taking action
             
         print('total score for Player 1: ', scorePl1)
         print('total score for Player 2: ', scorePl2)
-        if scorePl1 > scorePl2 :
+        if scorePl1 > scorePl2:
             print('The Winner is Player 1!')
-        elif if scorePl1 < scorePl2 :
-            print('The Winner is Player 2!')
-        if scorePl1 == scorePl2 :
+        elif if scorePl1 < scorePl2:
+            if gamemode == 1:
+                print('The Winner is Player 2 (CPU)!')
+            else:
+                print('The Winner is Player 2!')
+        elif scorePl1 == scorePl2:
             print('It's a draw!')
-'''
+ 
+                            #Graphs
+Barcharts of all cards collected, all sums, all points aquired by each player
+Pie chart graph for all golden cards collected by each player
+Scatter plot graph to record in which turn scopas were taken (grafico a puntini)
