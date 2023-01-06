@@ -98,9 +98,11 @@ class Table(object):
 class Player(object):
     def __init__(self, name):
         if gamemode == 1:
-            self.name = 'CPU'
+            self.name = str(input('What is your name: '))
         elif gamemode == 2:
             self.name = str(input('What is your name: '))
+        else:
+            self.name = 'CPU'
         self.hand = []
     
     def draw(self, deck):
@@ -136,14 +138,16 @@ deck.show()
 #THE 4 STARING CARDS ON THE TABLE
 tab = Table()
 tab.draw(deck).draw(deck).draw(deck).draw(deck)
+'''
 print('Cards on the table:')
 tab.showTable()
 print(' ')
+'''
 # time.sleep(0.5)
 
 #MAKING EACH PLAYER'S HAND
 
-if elif gamemode == 1:
+if gamemode == 1:
     player1 = Player('A')
     print(player1.name +' cards:') 
     print('-------------------')
@@ -157,7 +161,7 @@ if elif gamemode == 1:
     print(' ')
 # time.sleep(0.5)    
     player2 = Player('CPU')
-    print('CPU cards:') 
+    print('CPU cards:')                         #to fix the CPU when gamemode is one
     print('-------------------')
     player2.draw(deck).draw(deck).draw(deck)
     player2.showHand()
@@ -249,17 +253,20 @@ for p in player1.name:
 #PLAYER 1 AND 2 SCORES
 scorePl1 = 0
 scorePl2 = 0
-'''
+
 #PLAYING LOOP AND NEW TURNS WHEN BOTH PLAYERS FINISHED THEIR CARDS
 turn = 1
 while len(deck.cards) > 0 or len(player1.hand) > 0:
     playing = True
-    if len(player1.hand) == 0 and len(player1.hand) == 0 and len(deck.cards) > 0:
+    if len(player1.hand) == 0 and len(player2.hand) == 0 and len(deck.cards) > 0:
+        print('Cards on the table:')
+        tab.showTable()
+        print(' ')
         print('New Turn - '+player1.name +' new cards:')
         player1.draw(deck).draw(deck).draw(deck)
         player1.showHand()
         turn = 1
-        
+'''      
 #TURN PLAYER 1
     if turn == 1:        
         cardChosen = int(input(player1.name, 'which card do you want to play?'))
@@ -354,4 +361,6 @@ Barcharts of all cards collected, all sums, all points aquired by each player
 Pie chart graph for all golden cards collected by each player
 Scatter plot graph to record in which turn scopas were taken (grafico a puntini)
 Find the mean of all cards taken in each turn and graph with a line graph which turns players took more cards
+
+!I have to calculate all myself without using data packs! NO BUILT IN FUNCTIONS!!!!
 '''
