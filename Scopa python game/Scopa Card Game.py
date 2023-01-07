@@ -5,28 +5,6 @@ import time
 ' - The chance of winning increases if you throw the lowest cards first and keep high cards so you get more sums'
 ' - If you have the chance of getting golds take them because they could give you a point'
 
-#DECIDING WHAT GAMEMODE USER WANTS TO PLAY
-print('Scopa Card Game!','\n',
-    '[1] Single Player','\n',
-    '[2] Multi Player','\n',
-    '[3] Simulation Game','\n',
-    '[4] Rules')
-gamemode = int(input('Welcome to my game, select one of the options: '))
-while gamemode < 1 or gamemode > 2: #4
-    gamemode = int(input('Invalid! Select one of the above options: '))
-# time.sleep(0.5)
-
-"""
-if gamemode == 1:
-    # go to single player mode against bot(CPU)
-elif gamemode == 2:
-    # go to multiplayer mode
-elif gamemode == 3:
-    # go to simulation mode
-elif gamemode == 4:
-    # go to rules
-"""
-
 #CREATION OF THE CARD OBJECT
 class Card(object):
     def __init__(self, value, seed):
@@ -34,7 +12,16 @@ class Card(object):
         self.seed = seed
     
     def show(self):
-        print(self.value, self.seed)
+        print(self.strVal())
+        
+    def strVal(self):
+        return str(self.value) + ' ' + self.seed
+    
+    def intVal(self):
+        return self.value
+    
+    def seedVal(self):
+        return self.seed
         
 #CREATION OF THE SHUFFLED DECK WITH VALUES AND SYMBOLS        
 class Deck(object):
@@ -96,13 +83,9 @@ class Table(object):
 
 #MAKING THE PLAYERS
 class Player(object):
-    def __init__(self, name):
-        if gamemode == 1:
-            self.name = str(input('What is your name: '))
-        elif gamemode == 2:
-            self.name = str(input('What is your name: '))
-        else:
-            self.name = 'CPU'
+    def __init__(self, name, isCpu=False):
+        self.isCpu = isCpu
+        self.name = name
         self.hand = []
     
     def draw(self, deck):
@@ -126,6 +109,30 @@ class Player(object):
     def takeCard(self):
         return self.cards.append(Card(n, s))    
 '''
+
+#MAIN ______________________________________________________________________________________
+
+#DECIDING WHAT GAMEMODE USER WANTS TO PLAY
+print('Scopa Card Game!','\n',
+    '[1] Single Player','\n',
+    '[2] Multi Player','\n',
+    '[3] Simulation Game','\n',
+    '[4] Rules')
+gamemode = int(input('Welcome to my game, select one of the options: '))
+while gamemode < 1 or gamemode > 3: #4
+    gamemode = int(input('Invalid! Select one of the above options: '))
+# time.sleep(0.5)
+
+"""
+if gamemode == 1:
+    # go to single player mode against bot(CPU)
+elif gamemode == 2:
+    # go to multiplayer mode
+elif gamemode == 3:
+    # go to simulation mode
+elif gamemode == 4:
+    # go to rules
+"""
  
 #SHUFFLED DECK
 deck = Deck()          
@@ -138,92 +145,98 @@ deck.show()
 #THE 4 STARING CARDS ON THE TABLE
 tab = Table()
 tab.draw(deck).draw(deck).draw(deck).draw(deck)
-'''
 print('Cards on the table:')
 tab.showTable()
 print(' ')
-'''
 # time.sleep(0.5)
 
 #MAKING EACH PLAYER'S HAND
 
+players = []
 if gamemode == 1:
-    player1 = Player('A')
-    print(player1.name +' cards:') 
+    player = Player(str(input('What is your name: ')))
+    print(player.name +' cards:') 
     print('-------------------')
-    player1.draw(deck).draw(deck).draw(deck)
-    player1.showHand()    
+    player.draw(deck).draw(deck).draw(deck)
+    player.showHand()    
     print(' ')
     a = 1
-    for card in player1.hand:
-        print('{}) {}'.format(a, card.show()))
+    for card in player.hand:
+        print('{}) {}'.format(a, card.strVal()))
         a = a+1
     print(' ')
-# time.sleep(0.5)    
-    player2 = Player('CPU')
-    print('CPU cards:')                         #to fix the CPU when gamemode is one
+    players.append(player)
+# time.sleep(0.5)
+
+    player = Player("CPU", True)
+    print('CPU cards:') 
     print('-------------------')
-    player2.draw(deck).draw(deck).draw(deck)
-    player2.showHand()
+    player.draw(deck).draw(deck).draw(deck)
+    player.showHand()
     print(' ')
     b = 1
-    for card in player2.hand:
-        print('{}) {}'.format(b, card.show()))
+    for card in player.hand:
+        print('{}) {}'.format(b, card.strVal()))
         b = b+1
     print(' ')
+    players.append(player)
 # time.sleep(0.5)    
 
 elif gamemode == 2:
-    player1 = Player('A')
-    print(player1.name +' cards:') 
+    player = Player(str(input('What is your name: ')))
+    print(player.name +' cards:') 
     print('-------------------')
-    player1.draw(deck).draw(deck).draw(deck)
-    player1.showHand()
+    player.draw(deck).draw(deck).draw(deck)
+    player.showHand()
     print(' ')
     a = 1
-    for card in player1.hand:
-        print('{}) {}'.format(a, card.show()))
+    for card in player.hand:
+        print('{}) {}'.format(a, card.strVal()))
         a = a+1
     print(' ')
+    players.append(player)
 # time.sleep(0.5)
 
-    player2 = Player('B')
-    print(player2.name +' cards:') 
+    player = Player(str(input('What is your name: ')))
+    print(player.name +' cards:') 
     print('-------------------')
-    player2.draw(deck).draw(deck).draw(deck)
-    player2.showHand()  
+    player.draw(deck).draw(deck).draw(deck)    #to fix the CPU when gamemode is one
+    player.showHand()  
     print(' ')
     b = 1
-    for card in player2.hand:
-        print('{}) {}'.format(b, card.show()))
+    for card in player.hand:
+        print('{}) {}'.format(b, card.strVal()))
         b = b+1
     print(' ')
+    players.append(player)
 # time.sleep(0.5)
 
 elif gamemode == 3:
-    player1 = Player('CPU 1')
+    player = Player("CPU", True)
     print('CPU 1 cards:') 
     print('-------------------')
-    player1.draw(deck).draw(deck).draw(deck)
-    player1.showHand()
+    player.draw(deck).draw(deck).draw(deck)
+    player.showHand()
     print(' ')
     a = 1
-    for card in player1.hand:
-        print('{}) {}'.format(a, card.show()))
+    for card in player.hand:
+        print('{}) {}'.format(a, card.strVal()))
         a = a+1
     print(' ')
+    players.append(player)
     
-    player2 = Player('CPU 2')
+    player = Player("CPU", True)
     print('CPU 2 cards:') 
     print('-------------------')
-    player2.draw(deck).draw(deck).draw(deck)
-    player2.showHand()
+    player.draw(deck).draw(deck).draw(deck)
+    player.showHand()
     print(' ')
     b = 1
-    for card in player2.hand:
-        print('{}) {}'.format(b, card.show()))
+    for card in player.hand:
+        print('{}) {}'.format(b, card.strVal()))
         b = b+1
     print(' ')
+    players.append(player)
 # time.sleep(0.5)
 #print(tab.table)
 
@@ -234,17 +247,11 @@ pointsDeck1.cards.append(player1.playCard() and tab.table)
 pointsDeck1.showPdeck()
 '''
 
-def cardProperties(value, seed, playerHand):
-    for card in playerHand:
-        splitCard = card.split(1, ' ')
-    value = splitCard[0]
-    seed = splitCard[1]        
-
 playing = True
 
 '''
-for p in player1.name:
-    for card in player1.hand:
+for p in player
+    for card in player.hand:
         if Card.value > 0:
             playerTurn = playerTurn + 1
             print('my turn')
@@ -253,20 +260,17 @@ for p in player1.name:
 #PLAYER 1 AND 2 SCORES
 scorePl1 = 0
 scorePl2 = 0
-
+'''
 #PLAYING LOOP AND NEW TURNS WHEN BOTH PLAYERS FINISHED THEIR CARDS
 turn = 1
-while len(deck.cards) > 0 or len(player1.hand) > 0:
+while len(deck.cards) > 0 or len(players[0].hand) > 0:
     playing = True
-    if len(player1.hand) == 0 and len(player2.hand) == 0 and len(deck.cards) > 0:
-        print('Cards on the table:')
-        tab.showTable()
-        print(' ')
+    if len(player1.hand) == 0 and len(player1.hand) == 0 and len(deck.cards) > 0:
         print('New Turn - '+player1.name +' new cards:')
         player1.draw(deck).draw(deck).draw(deck)
         player1.showHand()
         turn = 1
-'''      
+        
 #TURN PLAYER 1
     if turn == 1:        
         cardChosen = int(input(player1.name, 'which card do you want to play?'))
