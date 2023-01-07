@@ -1,6 +1,7 @@
 #            ------------------------Scopa Card Game------------------------
 import random
 import time
+
 # my 2 Strategies to test
 ' - The chance of winning increases if you throw the lowest cards first and keep high cards so you get more sums'
 ' - If you have the chance of getting golds take them because they could give you a point'
@@ -14,12 +15,15 @@ class Card(object):
     def show(self):
         print(self.strVal())
         
+#Returns a string value of the card properties      
     def strVal(self):
         return str(self.value) + ' ' + self.seed
     
+#Returns just the card value    
     def intVal(self):
         return self.value
-    
+
+#Returns just the card seed
     def seedVal(self):
         return self.seed
         
@@ -55,6 +59,7 @@ class PointsDeck(object):
     def showPdeck(self):
         for c in self.cards:
             c.show()
+            
 '''            
     def takingCards(self)
         self.cards.append()
@@ -67,7 +72,11 @@ class PointsDeck(object):
             if card is thrown = possibleSums:
                 let the player pick which sum they want to take
                 take and put in the points deck
-'''
+'''   
+#PLAYING CARDS FROM YOUR HAND    
+def playCard(self):
+    return self.hand.pop()
+    
 #MAKING THE TABLE WHERE TO PLAY CARDS
 class Table(object):
     def __init__(self):
@@ -95,10 +104,6 @@ class Player(object):
     def showHand(self):
         for card in self.hand:
             card.show()
-            
-#PLAYING CARDS FROM YOUR HAND    
-    def playCard(self):
-        return self.hand.pop()
     
 '''
 #TAKING CARDS WITH SUM OR WITH SAME CARD  (I need first to make the sums and the taking action)
@@ -145,13 +150,8 @@ deck.show()
 #THE 4 STARING CARDS ON THE TABLE
 tab = Table()
 tab.draw(deck).draw(deck).draw(deck).draw(deck)
-print('Cards on the table:')
-tab.showTable()
-print(' ')
-# time.sleep(0.5)
 
-#MAKING EACH PLAYER'S HAND
-
+#MAKING EACH PLAYER'S HAND BASED ON THE GAMEMODE
 players = []
 if gamemode == 1:
     player = Player(str(input('What is your name: ')))
@@ -168,7 +168,7 @@ if gamemode == 1:
     players.append(player)
 # time.sleep(0.5)
 
-    player = Player("CPU", True)
+    player = Player('CPU', True)
     print('CPU cards:') 
     print('-------------------')
     player.draw(deck).draw(deck).draw(deck)
@@ -200,7 +200,7 @@ elif gamemode == 2:
     player = Player(str(input('What is your name: ')))
     print(player.name +' cards:') 
     print('-------------------')
-    player.draw(deck).draw(deck).draw(deck)    #to fix the CPU when gamemode is one
+    player.draw(deck).draw(deck).draw(deck)
     player.showHand()  
     print(' ')
     b = 1
@@ -212,7 +212,7 @@ elif gamemode == 2:
 # time.sleep(0.5)
 
 elif gamemode == 3:
-    player = Player("CPU", True)
+    player = Player('CPU', True)
     print('CPU 1 cards:') 
     print('-------------------')
     player.draw(deck).draw(deck).draw(deck)
@@ -224,8 +224,8 @@ elif gamemode == 3:
         a = a+1
     print(' ')
     players.append(player)
-    
-    player = Player("CPU", True)
+#time.sleep(0.5)    
+    player = Player('CPU', True)
     print('CPU 2 cards:') 
     print('-------------------')
     player.draw(deck).draw(deck).draw(deck)
@@ -263,6 +263,9 @@ scorePl2 = 0
 '''
 #PLAYING LOOP AND NEW TURNS WHEN BOTH PLAYERS FINISHED THEIR CARDS
 turn = 1
+print('Cards on the table:')
+tab.showTable()
+print(' ')
 while len(deck.cards) > 0 or len(players[0].hand) > 0:
     playing = True
     if len(player1.hand) == 0 and len(player1.hand) == 0 and len(deck.cards) > 0:
@@ -272,7 +275,10 @@ while len(deck.cards) > 0 or len(players[0].hand) > 0:
         turn = 1
         
 #TURN PLAYER 1
-    if turn == 1:        
+    if turn == 1:
+        print('Cards on the table:')
+        tab.showTable()
+        print(' ')
         cardChosen = int(input(player1.name, 'which card do you want to play?'))
         while cardChosen < 1 or cardChosen > len(player1.hand):
             cardChosen = int(input('Invalid! Select one of the cards in your hand: '))
@@ -284,11 +290,15 @@ while len(deck.cards) > 0 or len(players[0].hand) > 0:
             
 #TURN PLAYER 2
     elif turn == 2:
-    #cardChosen = int(input(player1.name, 'which card do you want to play?'))
+        print('Cards on the table:')
+        tab.showTable()
+        print(' ')
+        #cardChosen = int(input(player1.name, 'which card do you want to play?'))
         while cardChosen < 1 or cardChosen > len(player1.hand):
             cardChosen = int(input('Invalid! Select one of the cards in your hand: '))
             if len(player1.hand) - 1:
                 turn = turn - 1
+                
 #END OF THE GAME WHEN DECK RUNS OUT OF CARDS
 if len(deck.cards) == 0 and len(player1.hand) == None:
     playing = False
