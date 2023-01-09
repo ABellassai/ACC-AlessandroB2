@@ -92,7 +92,7 @@ class Table(object):
 
 #MAKING THE PLAYERS
 class Player(object):
-    def __init__(self, name, isCpu=False):
+    def __init__(self, name, isCpu = False):
         self.isCpu = isCpu
         self.name = name
         self.hand = []
@@ -154,103 +154,50 @@ tab.draw(deck).draw(deck).draw(deck).draw(deck)
 #MAKING EACH PLAYER'S HAND BASED ON THE GAMEMODE
 players = []
 if gamemode == 1:
-    player = Player(str(input('What is your name: ')))
-    print(player.name +' cards:') 
-    print('-------------------')
-    player.draw(deck).draw(deck).draw(deck)
-    player.showHand()    
-    print(' ')
-    a = 1
-    for card in player.hand:
-        print('{}) {}'.format(a, card.strVal()))
-        a = a+1
-    print(' ')
+    player = Player(str(input('player 1, what is your name: ')))
+    #print(player.name +' cards:')
     players.append(player)
 # time.sleep(0.5)
 
     player = Player('CPU', True)
-    print('CPU cards:') 
-    print('-------------------')
-    player.draw(deck).draw(deck).draw(deck)
-    player.showHand()
-    print(' ')
-    b = 1
-    for card in player.hand:
-        print('{}) {}'.format(b, card.strVal()))
-        b = b+1
-    print(' ')
+    #print('CPU cards:')
     players.append(player)
 # time.sleep(0.5)    
 
 elif gamemode == 2:
-    player = Player(str(input('What is your name: ')))
-    print(player.name +' cards:') 
-    print('-------------------')
-    player.draw(deck).draw(deck).draw(deck)
-    player.showHand()
-    print(' ')
-    a = 1
-    for card in player.hand:
-        print('{}) {}'.format(a, card.strVal()))
-        a = a+1
-    print(' ')
+    player = Player(str(input('player 1, what is your name: ')))
+    #print(player.name +' cards:')
     players.append(player)
 # time.sleep(0.5)
 
-    player = Player(str(input('What is your name: ')))
-    print(player.name +' cards:') 
-    print('-------------------')
-    player.draw(deck).draw(deck).draw(deck)
-    player.showHand()  
-    print(' ')
-    b = 1
-    for card in player.hand:
-        print('{}) {}'.format(b, card.strVal()))
-        b = b+1
-    print(' ')
+    player = Player(str(input('player 2, what is your name: ')))
+    #print(player.name +' cards:')
     players.append(player)
 # time.sleep(0.5)
 
 elif gamemode == 3:
-    player = Player('CPU', True)
-    print('CPU 1 cards:') 
-    print('-------------------')
-    player.draw(deck).draw(deck).draw(deck)
-    player.showHand()
-    print(' ')
-    a = 1
-    for card in player.hand:
-        print('{}) {}'.format(a, card.strVal()))
-        a = a+1
-    print(' ')
+    player = Player('CPU1', True)
+    #print('CPU 1 cards:')
     players.append(player)
 #time.sleep(0.5)    
-    player = Player('CPU', True)
-    print('CPU 2 cards:') 
-    print('-------------------')
-    player.draw(deck).draw(deck).draw(deck)
-    player.showHand()
-    print(' ')
-    b = 1
-    for card in player.hand:
-        print('{}) {}'.format(b, card.strVal()))
-        b = b+1
-    print(' ')
+    player = Player('CPU2', True)
+    #print('CPU 2 cards:')
     players.append(player)
 # time.sleep(0.5)
-#print(tab.table)
-
+#player.showHand()
 '''
 #MAKING EACH PLAYER'S EMPTY POINTS DECK  
 pointsDeck1 = PointsDeck()
-pointsDeck1.cards.append(player1.playCard() and tab.table)
+pointsDeck1.cards.append(player.playCard() and tab.table)
 pointsDeck1.showPdeck()
-'''
 
-playing = True
+pointsDeck2 = PointsDeck()
+pointsDeck2.cards.append(player.playCard() and tab.table)
+pointsDeck2.showPdeck()
 
-'''
-for p in player
+
+
+for p in players
     for card in player.hand:
         if Card.value > 0:
             playerTurn = playerTurn + 1
@@ -260,45 +207,93 @@ for p in player
 #PLAYER 1 AND 2 SCORES
 scorePl1 = 0
 scorePl2 = 0
-'''
+
 #PLAYING LOOP AND NEW TURNS WHEN BOTH PLAYERS FINISHED THEIR CARDS
-turn = 1
-print('Cards on the table:')
-tab.showTable()
-print(' ')
-while len(deck.cards) > 0 or len(players[0].hand) > 0:
+turn = 0
+playing = True
+print('\n')
+while len(deck.cards) > 0 or len(players[0].hand) > 0 or len(players[1].hand) > 0:
     playing = True
-    if len(player1.hand) == 0 and len(player1.hand) == 0 and len(deck.cards) > 0:
-        print('New Turn - '+player1.name +' new cards:')
-        player1.draw(deck).draw(deck).draw(deck)
-        player1.showHand()
-        turn = 1
+    if turn == 0:
+            players[0].draw(deck).draw(deck).draw(deck)
+            players[1].draw(deck).draw(deck).draw(deck)
+            turn = 1
+    #DRAW 3 CARDS EACH AT THE END OF EACH TURN
+    if len(players[0].hand) == 0 and len(players[1].hand) == 0 and len(deck.cards) > 0 and turn!= 0:
+        if turn % 6 == 0:
+            print('New Turn - '+players[0].name +' new cards:')
+            players[0].draw(deck).draw(deck).draw(deck)
+            players[0].showHand()
+            print('-------------------')
+            print(players[1].name +' new cards:')
+            players[1].draw(deck).draw(deck).draw(deck)
+            players[1].showHand()
+            print('\n')
         
 #TURN PLAYER 1
-    if turn == 1:
+    if turn % 2 == 1:
+        print('Turn',turn)
         print('Cards on the table:')
         tab.showTable()
         print(' ')
-        cardChosen = int(input(player1.name, 'which card do you want to play?'))
-        while cardChosen < 1 or cardChosen > len(player1.hand):
-            cardChosen = int(input('Invalid! Select one of the cards in your hand: '))
-            cardChosen = playCard()
-            print(player1.name +' played '+ cardChosen)
-            if len(player1.hand) - 1:
-                turn = turn + 1
-            
-            
+        print(players[0].name + ' it is your turn')
+        a = 1
+        for card in players[0].hand:
+            print('{}) {}'.format(a, card.strVal()))
+            a = a+1
+        cardChosen1 = int(input(players[0].name+' which card do you want to play? '))
+        while cardChosen1 < 1 or cardChosen1 > len(players[0].hand):
+            cardChosen1 = int(input('Invalid! Select one of the cards in your hand: '))
+        #cardChosen1 = playCard()
+        print(players[0].name +' played the '+ card.strVal())   #it shows the last card in player hand
+        '''
+        if 2 or more cards on the table have the same value:
+            for card in table.hand:
+            print('{}) {}'.format(a, card.strVal()))
+            a = a+1
+        tableChoice1 = int(input(players[0].name+' which card do you want to tale from the table? '))
+        while tableChoice1 < 1 or tableChoice1 > len(table cards):
+            tableChoice1 = int(input('Invalid! Select one of the cards from the table: '))
+        tableChoice1 = takeCard()
+        '''
+        "players[0].hand = players[0].hand - 1"
+        print(' ')
+        if len(players[0].hand) - 1:
+            print(players[0].hand)
+            turn = turn + 1
+          
 #TURN PLAYER 2
-    elif turn == 2:
+    elif turn % 2 == 0:
+        print('Turn',turn)
         print('Cards on the table:')
         tab.showTable()
         print(' ')
-        #cardChosen = int(input(player1.name, 'which card do you want to play?'))
-        while cardChosen < 1 or cardChosen > len(player1.hand):
-            cardChosen = int(input('Invalid! Select one of the cards in your hand: '))
-            if len(player1.hand) - 1:
-                turn = turn - 1
+        print(players[1].name + ' it is your turn')
+        b = 1
+        for card in player.hand:
+            print('{}) {}'.format(b, card.strVal()))
+            b = b+1
+        cardChosen2 = int(input(players[1].name+' which card do you want to play? '))
+        while cardChosen2 < 1 or cardChosen2 > len(players[1].hand):
+            cardChosen2 = int(input('Invalid! Select one of the cards in your hand: '))
+        #cardChosen2 = playCard()
+        print(players[1].name +' played the '+ card.strVal())
+        '''
+        if 2 or more cards on the table have the same value:
+            for card in table.hand:
+            print('{}) {}'.format(a, card.strVal()))
+            a = a+1
+        tableChoice2 = int(input(players[0].name+' which card do you want to tale from the table? '))
+        while tableChoice2 < 1 or tableChoice2 > len(table cards):
+            tableChoice2 = int(input('Invalid! Select one of the cards from the table: '))
+        tableChoice2 = takeCard()
+        '''
+        "players[1].hand = players[1].hand - 1"
+        print(' ')
+        if len(players[1].hand) - 1:
+            turn = turn + 1
                 
+'''
 #END OF THE GAME WHEN DECK RUNS OUT OF CARDS
 if len(deck.cards) == 0 and len(player1.hand) == None:
     playing = False
