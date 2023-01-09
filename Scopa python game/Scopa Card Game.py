@@ -210,6 +210,7 @@ scorePl2 = 0
 
 #PLAYING LOOP AND NEW TURNS WHEN BOTH PLAYERS FINISHED THEIR CARDS
 turn = 0
+counter = 0
 playing = True
 print('\n')
 while len(deck.cards) > 0 or len(players[0].hand) > 0 or len(players[1].hand) > 0:
@@ -220,19 +221,17 @@ while len(deck.cards) > 0 or len(players[0].hand) > 0 or len(players[1].hand) > 
             turn = 1
     #DRAW 3 CARDS EACH AT THE END OF EACH TURN
     if len(players[0].hand) == 0 and len(players[1].hand) == 0 and len(deck.cards) > 0 and turn!= 0:
-        if turn % 6 == 0:
-            print('New Turn - '+players[0].name +' new cards:')
-            players[0].draw(deck).draw(deck).draw(deck)
-            players[0].showHand()
-            print('-------------------')
-            print(players[1].name +' new cards:')
-            players[1].draw(deck).draw(deck).draw(deck)
-            players[1].showHand()
-            print('\n')
+        print('Turn',turn+',' +players[0].name +' new cards:')
+        players[0].draw(deck).draw(deck).draw(deck)
+        players[0].showHand()
+        print('-------------------')
+        print(players[1].name +' new cards:')
+        players[1].draw(deck).draw(deck).draw(deck)
+        players[1].showHand()
+        print('\n')
         
 #TURN PLAYER 1
-    if turn % 2 == 1:
-        print('Turn',turn)
+    if counter == 0:
         print('Cards on the table:')
         tab.showTable()
         print(' ')
@@ -259,12 +258,11 @@ while len(deck.cards) > 0 or len(players[0].hand) > 0 or len(players[1].hand) > 
         "players[0].hand = players[0].hand - 1"
         print(' ')
         if len(players[0].hand) - 1:
-            print(players[0].hand)
-            turn = turn + 1
+            #print(players[0].hand)
+            counter = counter + 1
           
 #TURN PLAYER 2
-    elif turn % 2 == 0:
-        print('Turn',turn)
+    elif counter == 1:
         print('Cards on the table:')
         tab.showTable()
         print(' ')
@@ -291,8 +289,8 @@ while len(deck.cards) > 0 or len(players[0].hand) > 0 or len(players[1].hand) > 
         "players[1].hand = players[1].hand - 1"
         print(' ')
         if len(players[1].hand) - 1:
-            turn = turn + 1
-                
+            counter = counter - 1
+               
 '''
 #END OF THE GAME WHEN DECK RUNS OUT OF CARDS
 if len(deck.cards) == 0 and len(player1.hand) == None:
