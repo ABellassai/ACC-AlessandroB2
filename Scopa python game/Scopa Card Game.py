@@ -50,29 +50,7 @@ class Deck(object):
 #DRAWING CARDS FROM THE DECK AND SUBTRACTING CARDS FROM THE DECK  
     def drawCard(self):
         return self.cards.pop()
-    
-#MAKING THE POINTS DECK
-class PointsDeck(object):
-    def __init__(self):
-        self.cards = []
-        
-    def showPdeck(self):
-        for c in self.cards:
-            c.show()
-            
-'''            
-    def takingCards(self)
-        self.cards.append()
-      
-        if card is thrown != any sums or cards on the table or table is clear:
-            put it with the table cards
-        elif card is thrown == card with same value:
-                take and put in the points deck
-        elif card is thrown == sum:
-            if card is thrown = possibleSums:
-                let the player pick which sum they want to take
-                take and put in the points deck
-'''   
+
 #PLAYING CARDS FROM YOUR HAND    
 def playCard(self):
     return self.hand.pop()
@@ -107,12 +85,36 @@ class Player(object):
     
 '''
 #TAKING CARDS WITH SUM OR WITH SAME CARD  (I need first to make the sums and the taking action)
-
-
+    def takeSum(self):
+        for card in table.hand:
+            
 
 #TAKING CARDS FROM TABLE TO POINTS DECK  
     def takeCard(self):
         return self.cards.append(Card(n, s))    
+'''
+  
+#MAKING THE POINTS DECK
+class PointsDeck(object):
+    def __init__(self):
+        self.cards = []
+        
+    def showPdeck(self):
+        for c in self.cards:
+            c.show()
+            
+'''            
+    def takingCards(self)
+        self.cards.append()
+      
+        if card is thrown != any sums or cards on the table or table is clear:
+            put it with the table cards
+        elif card is thrown == card with same value:
+                take and put in the points deck
+        elif card is thrown == sum:
+            if card is thrown = possibleSums:
+                let the player pick which sum they want to take
+                take and put in the points deck
 '''
 
 #MAIN ______________________________________________________________________________________
@@ -154,7 +156,7 @@ tab.draw(deck).draw(deck).draw(deck).draw(deck)
 #MAKING EACH PLAYER'S HAND BASED ON THE GAMEMODE
 players = []
 if gamemode == 1:
-    player = Player(str(input('player 1, what is your name: ')))
+    player = Player(str(input('Player 1, what is your name: ')))
     #print(player.name +' cards:')
     players.append(player)
 # time.sleep(0.5)
@@ -165,12 +167,12 @@ if gamemode == 1:
 # time.sleep(0.5)    
 
 elif gamemode == 2:
-    player = Player(str(input('player 1, what is your name: ')))
+    player = Player(str(input('Player 1, what is your name: ')))
     #print(player.name +' cards:')
     players.append(player)
 # time.sleep(0.5)
 
-    player = Player(str(input('player 2, what is your name: ')))
+    player = Player(str(input('Player 2, what is your name: ')))
     #print(player.name +' cards:')
     players.append(player)
 # time.sleep(0.5)
@@ -185,20 +187,21 @@ elif gamemode == 3:
     players.append(player)
 # time.sleep(0.5)
 #player.showHand()
+
 '''
 #MAKING EACH PLAYER'S EMPTY POINTS DECK  
 pointsDeck1 = PointsDeck()
 pointsDeck1.cards.append(player.playCard() and tab.table)
-pointsDeck1.showPdeck()
+#pointsDeck1.showPdeck()
 
 pointsDeck2 = PointsDeck()
 pointsDeck2.cards.append(player.playCard() and tab.table)
-pointsDeck2.showPdeck()
+#pointsDeck2.showPdeck()
 
 
 
 for p in players
-    for card in player.hand:
+    for card in players[].hand:
         if Card.value > 0:
             playerTurn = playerTurn + 1
             print('my turn')
@@ -235,7 +238,7 @@ while len(deck.cards) > 0 or len(players[0].hand) > 0 or len(players[1].hand) > 
         print('Cards on the table:')
         tab.showTable()
         print(' ')
-        print(players[0].name + ' it is your turn')
+        print(players[0].name + ' it is your turn, your cards are:')
         a = 1
         for card in players[0].hand:
             print('{}) {}'.format(a, card.strVal()))
@@ -245,12 +248,24 @@ while len(deck.cards) > 0 or len(players[0].hand) > 0 or len(players[1].hand) > 
             cardChosen1 = int(input('Invalid! Select one of the cards in your hand: '))
         #cardChosen1 = playCard()
         print(players[0].name +' played the '+ card.strVal())   #it shows the last card in player hand
+        
+        '''
+        
+            if 2 or more sums on the table are possible:
+                for card in table.hand:
+                    print('{}) {}'.format(a, card.strVal()))
+                    a = a+1
+            sumChoice1 = int(input(players[0].name+' which sum do you want to take from the table? '))
+            while sumChoice1 < 1 or sumChoice1 > len(sums available):
+                sumChoice1 = int(input('Invalid! Select one of the sums available: '))
+            sumChoice1 = takeCard()
+        '''
         '''
         if 2 or more cards on the table have the same value:
             for card in table.hand:
-            print('{}) {}'.format(a, card.strVal()))
-            a = a+1
-        tableChoice1 = int(input(players[0].name+' which card do you want to tale from the table? '))
+                print('{}) {}'.format(a, card.strVal()))
+                a = a+1
+        tableChoice1 = int(input(players[0].name+' which card do you want to take from the table? '))
         while tableChoice1 < 1 or tableChoice1 > len(table cards):
             tableChoice1 = int(input('Invalid! Select one of the cards from the table: '))
         tableChoice1 = takeCard()
@@ -266,7 +281,7 @@ while len(deck.cards) > 0 or len(players[0].hand) > 0 or len(players[1].hand) > 
         print('Cards on the table:')
         tab.showTable()
         print(' ')
-        print(players[1].name + ' it is your turn')
+        print(players[1].name + ' it is your turn, your cards are:')
         b = 1
         for card in player.hand:
             print('{}) {}'.format(b, card.strVal()))
@@ -275,13 +290,23 @@ while len(deck.cards) > 0 or len(players[0].hand) > 0 or len(players[1].hand) > 
         while cardChosen2 < 1 or cardChosen2 > len(players[1].hand):
             cardChosen2 = int(input('Invalid! Select one of the cards in your hand: '))
         #cardChosen2 = playCard()
-        print(players[1].name +' played the '+ card.strVal())
+        print(players[1].name +' has played the '+ card.strVal())
+        '''
+        if 2 or more sums on the table are possible:
+            for card in table.hand:
+                print('{}) {}'.format(b, card.strVal()))
+                b = b+1
+        sumChoice2 = int(input(players[1].name+' which sum do you want to take from the table? '))
+        while sumChoice2 < 1 or sumChoice2 > len(sums available):
+            sumChoice2 = int(input('Invalid! Select one of the sums available: '))
+        sumChoice2 = takeCard()
+        '''
         '''
         if 2 or more cards on the table have the same value:
             for card in table.hand:
-            print('{}) {}'.format(a, card.strVal()))
-            a = a+1
-        tableChoice2 = int(input(players[0].name+' which card do you want to tale from the table? '))
+                print('{}) {}'.format(b, card.strVal()))
+                b = b+1
+        tableChoice2 = int(input(players[1].name+' which card do you want to take from the table? '))
         while tableChoice2 < 1 or tableChoice2 > len(table cards):
             tableChoice2 = int(input('Invalid! Select one of the cards from the table: '))
         tableChoice2 = takeCard()
@@ -290,14 +315,14 @@ while len(deck.cards) > 0 or len(players[0].hand) > 0 or len(players[1].hand) > 
         print(' ')
         if len(players[1].hand) - 1:
             counter = counter - 1
-               
-'''
+                
+                
 #END OF THE GAME WHEN DECK RUNS OUT OF CARDS
 if len(deck.cards) == 0 and len(player1.hand) == None:
     playing = False
     turn = 0
     print('End game')
-'''
+
 
 
 # Wording the code so I understand it better
@@ -348,21 +373,22 @@ if len(deck.cards) == 0 and len(player1.hand) == None:
             
         print('total score for Player 1: ', scorePl1)
         print('total score for Player 2: ', scorePl2)
+
         if scorePl1 > scorePl2:
             if gamemode == 3:
                 print('The Winner is CPU 1!')
             else:
-                print('The Winner is'+ player1.name, '!')
-        elif if scorePl1 < scorePl2:
+                print('The Winner is'+ players[0].name+'!')
+        elif scorePl1 < scorePl2:
             if gamemode == 1:
                 print('The Winner is Player 2 (CPU)!')
             elif  gamemode == 3:
                 print('The Winner is CPU 2!')
             else:
-                print('The Winner is'+ player2.name, '!')
+                print('The Winner is'+ players[1].name+'!')
         elif scorePl1 == scorePl2:
-            print('It is a draw!')
- 
+            print('Draw!')
+
                         #Graphs
 Barcharts of all cards collected, all sums, all points aquired by each player
 Pie chart graph for all golden cards collected by each player
