@@ -87,7 +87,32 @@ class Player(object):
 #TAKING CARDS WITH SUM OR WITH SAME CARD  (I need first to make the sums and the taking action)
     def takeSum(self):
         for card in table.hand:
-            
+           
+    def count(cards, n, sum):
+ 
+    # If sum is 0 then there is 1
+    # solution (do not include any coin)
+    if (sum == 0):
+        return 1
+ 
+    # If sum is less than 0 then no
+    # solution exists
+    if (sum < 0):
+        return 0
+ 
+    # If there are no cards and sum
+    # is greater than 0, then no
+    # solution exist
+    if (n <= 0):
+        return 0
+ 
+    # count is sum of solutions (i)
+    # including cards[n-1] (ii) excluding cards[n-1]
+    return count(cards, n - 1, sum) + count(cards, n, sum-cards[n-1])
+ 
+cards = [number of cards on table]
+n = len(cards)
+print(count(cards, n, 4))
 
 #TAKING CARDS FROM TABLE TO POINTS DECK  
     def takeCard(self):
@@ -193,13 +218,9 @@ elif gamemode == 3:
 pointsDeck1 = PointsDeck()
 pointsDeck1.cards.append(player.playCard() and tab.table)
 #pointsDeck1.showPdeck()
-
 pointsDeck2 = PointsDeck()
 pointsDeck2.cards.append(player.playCard() and tab.table)
 #pointsDeck2.showPdeck()
-
-
-
 for p in players
     for card in players[].hand:
         if Card.value > 0:
@@ -373,7 +394,6 @@ if len(deck.cards) == 0 and len(player1.hand) == None:
             
         print('total score for Player 1: ', scorePl1)
         print('total score for Player 2: ', scorePl2)
-
         if scorePl1 > scorePl2:
             if gamemode == 3:
                 print('The Winner is CPU 1!')
@@ -388,7 +408,6 @@ if len(deck.cards) == 0 and len(player1.hand) == None:
                 print('The Winner is'+ players[1].name+'!')
         elif scorePl1 == scorePl2:
             print('Draw!')
-
                         #Graphs
 Barcharts of all cards collected, all sums, all points aquired by each player
 Pie chart graph for all golden cards collected by each player
