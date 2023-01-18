@@ -185,7 +185,12 @@ combinations = []
 for card in tab.showTable():
     list.append(card, intVal())
     counter1 = counter1 + 1
-    for c in
+    for card in tab.showTable():
+        list.append(card, intVal())
+        counter2 = counter2 + 1
+        for card in tab.showTable():
+            list.append(card, intVal())
+            counter3 = counter3 + 1
 '''   
     
     
