@@ -82,43 +82,43 @@ class Player(object):
     def showHand(self):
         for card in self.hand:
             card.show()
-    
-'''
+
 #TAKING CARDS WITH SUM OR WITH SAME CARD  (I need first to make the sums and the taking action)
-    def takeSum(self):
-        for card in table.hand:
-           
+'''
+    def takeSum():
+        
+    
     def count(cards, n, sum):
- 
-    # If sum is 0 then there is 1
-    # solution (do not include any coin)
-    if (sum == 0):
-        return 1
- 
-    # If sum is less than 0 then no
-    # solution exists
-    if (sum < 0):
-        return 0
- 
-    # If there are no cards and sum
-    # is greater than 0, then no
-    # solution exist
-    if (n <= 0):
-        return 0
- 
-    # count is sum of solutions (i)
-    # including cards[n-1] (ii) excluding cards[n-1]
-    return count(cards, n - 1, sum) + count(cards, n, sum-cards[n-1])
- 
+        # If sum is 0 then there is 1
+        # solution (do not include any coin)
+        if (sum == 0):
+            return 1
+     
+        # If sum is less than 0 then no
+        # solution exists
+        if (sum < 0):
+            return 0
+     
+        # If there are no cards and sum
+        # is greater than 0, then no
+        # solution exist
+        if (n <= 0):
+            return 0
+     
+        # count is sum of solutions (i)
+        # including cards[n-1] (ii) excluding cards[n-1]
+        return count(cards, n - 1, sum) + count(cards, n, sum-cards[n-1])
+     
 cards = [number of cards on table]
 n = len(cards)
 print(count(cards, n, 4))
 
+
 #TAKING CARDS FROM TABLE TO POINTS DECK  
     def takeCard(self):
         return self.cards.append(Card(n, s))    
-'''
-  
+
+''' 
 #MAKING THE POINTS DECK
 class PointsDeck(object):
     def __init__(self):
@@ -177,7 +177,18 @@ deck.show()
 #THE 4 STARING CARDS ON THE TABLE
 tab = Table()
 tab.draw(deck).draw(deck).draw(deck).draw(deck)
-
+'''
+counter1 = 1
+counter2 = 1
+counter3 = 1
+combinations = []
+for card in tab.showTable():
+    list.append(card, intVal())
+    counter1 = counter1 + 1
+    for c in
+'''   
+    
+    
 #MAKING EACH PLAYER'S HAND BASED ON THE GAMEMODE
 players = []
 if gamemode == 1:
@@ -245,7 +256,7 @@ while len(deck.cards) > 0 or len(players[0].hand) > 0 or len(players[1].hand) > 
             turn = 1
     #DRAW 3 CARDS EACH AT THE END OF EACH TURN
     if len(players[0].hand) == 0 and len(players[1].hand) == 0 and len(deck.cards) > 0 and turn!= 0:
-        print('Turn',turn+',' +players[0].name +' new cards:')
+        print('Turn',turn,',' +players[0].name +' new cards:')
         players[0].draw(deck).draw(deck).draw(deck)
         players[0].showHand()
         print('-------------------')
@@ -339,7 +350,7 @@ while len(deck.cards) > 0 or len(players[0].hand) > 0 or len(players[1].hand) > 
                 
                 
 #END OF THE GAME WHEN DECK RUNS OUT OF CARDS
-if len(deck.cards) == 0 and len(player1.hand) == None:
+if len(deck.cards) == 0 and len(players[0].hand) == 0 and len(players[1].hand) == 0:
     playing = False
     turn = 0
     print('End game')
@@ -413,6 +424,5 @@ Barcharts of all cards collected, all sums, all points aquired by each player
 Pie chart graph for all golden cards collected by each player
 Scatter plot graph to record in which turn scopas were taken (grafico a puntini)
 Find the mean of all cards taken in each turn and graph with a line graph which turns players took more cards
-
 !I have to calculate all myself without using data packs! NO BUILT IN FUNCTIONS!!!!
 '''
