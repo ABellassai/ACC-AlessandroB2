@@ -50,10 +50,6 @@ class Deck(object):
 #DRAWING CARDS FROM THE DECK AND SUBTRACTING CARDS FROM THE DECK  
     def drawCard(self):
         return self.cards.pop()
-
-#PLAYING CARDS FROM YOUR HAND    
-def playCard(self):
-    return self.hand.pop()
     
 #MAKING THE TABLE WHERE TO PLAY CARDS
 class Table(object):
@@ -67,7 +63,36 @@ class Table(object):
     def showTable(self):
         for card in self.table:
             card.show()
+        self.showComb()
+    
+    def getCards(self):
+        return self.table
 
+    def createComb(self):
+        counter1 = 1
+        counter2 = 1
+        combinations = [None] * 10
+        for index1 in range(0, len(self.table)):
+            card1 = self.table[index1]
+            for index2 in range(index1 + 1, len(self.table)):
+                card2 = self.table[index2]
+                for index3 in range(index2 + 1, len(self.table)):
+                    card3 = self.table[index3]
+                    for index4 in range(index3 + 1, len(self.table)):
+                        card4 = self.table[index4]
+                        if card1.intVal() + card2.intVal() + card3.intVal() + card4.intVal() <= 10:
+                            combinations[card1.intVal() + card2.intVal() + card3.intVal() + card4.intVal() - 1] = str(index1)+','+str(index2)+','+str(index3)+','+str(index4)
+                    if card1.intVal() + card2.intVal() + card3.intVal() <= 10:
+                        combinations[card1.intVal() + card2.intVal() + card3.intVal() - 1] = str(index1)+','+str(index2)+','+str(index3)
+                if card1.intVal() + card2.intVal() <= 10:
+                    combinations[card1.intVal() + card2.intVal() - 1] = str(index1)+','+str(index2)
+            combinations[card1.intVal() - 1] = str(index1)
+        self.combinations = combinations
+        
+    def showComb(self):
+        for index in range(len(self.combinations)):
+            print('{}) {}'.format(index + 1, self.combinations[index]))
+            
 #MAKING THE PLAYERS
 class Player(object):
     def __init__(self, name, isCpu = False):
@@ -82,43 +107,30 @@ class Player(object):
     def showHand(self):
         for card in self.hand:
             card.show()
+            
+    def playCard(self, tab):
+        a = 1
+        for card in self.hand:
+            print('{}) {}'.format(a, card.strVal()))
+            a = a+1
+        cardChosen1 = int(input(self.name+' which card do you want to play? '))
+        while cardChosen < 1 or cardChosen > len(self.hand):
+            cardChosen = int(input('Invalid! Select one of the cards in your hand: '))
+        #cardChosen = playCard(createComb())
+        print(self.name +' played the '+ card.strVal())   #it shows the last card in player hand
 
-#TAKING CARDS WITH SUM OR WITH SAME CARD  (I need first to make the sums and the taking action)
-'''
-    def takeSum():
-        
-    
-    def count(cards, n, sum):
-        # If sum is 0 then there is 1
-        # solution (do not include any coin)
-        if (sum == 0):
-            return 1
-     
-        # If sum is less than 0 then no
-        # solution exists
-        if (sum < 0):
-            return 0
-     
-        # If there are no cards and sum
-        # is greater than 0, then no
-        # solution exist
-        if (n <= 0):
-            return 0
-     
-        # count is sum of solutions (i)
-        # including cards[n-1] (ii) excluding cards[n-1]
-        return count(cards, n - 1, sum) + count(cards, n, sum-cards[n-1])
-     
-cards = [number of cards on table]
-n = len(cards)
-print(count(cards, n, 4))
 
+#PLAYING CARDS FROM YOUR HAND    
+def playCard(self):
+    return self.hand.pop()
 
 #TAKING CARDS FROM TABLE TO POINTS DECK  
     def takeCard(self):
         return self.cards.append(Card(n, s))    
 
-''' 
+#TAKING CARDS WITH SUM OR WITH SAME CARD  (I need first to make the sums and the taking action)
+    
+
 #MAKING THE POINTS DECK
 class PointsDeck(object):
     def __init__(self):
@@ -142,7 +154,7 @@ class PointsDeck(object):
                 take and put in the points deck
 '''
 
-#MAIN ______________________________________________________________________________________
+#MAIN _________________________________________________________________________________________________________________
 
 #DECIDING WHAT GAMEMODE USER WANTS TO PLAY
 print('Scopa Card Game!','\n',
@@ -177,22 +189,7 @@ deck.show()
 #THE 4 STARING CARDS ON THE TABLE
 tab = Table()
 tab.draw(deck).draw(deck).draw(deck).draw(deck)
-'''
-counter1 = 1
-counter2 = 1
-counter3 = 1
-combinations = []
-for card in tab.showTable():
-    list.append(card, intVal())
-    counter1 = counter1 + 1
-    for c1 in counter1:
-        list.append(card, intVal())
-        counter2 = counter2 + 1
-        for c2 in counter2:
-            list.append(card, intVal())
-            counter3 = counter3 + 1
-'''   
-    
+tab.createComb()
     
 #MAKING EACH PLAYER'S HAND BASED ON THE GAMEMODE
 players = []
@@ -276,6 +273,8 @@ while len(deck.cards) > 0 or len(players[0].hand) > 0 or len(players[1].hand) > 
         tab.showTable()
         print(' ')
         print(players[0].name + ' it is your turn, your cards are:')
+        player1.playCard(tab)
+        '''
         a = 1
         for card in players[0].hand:
             print('{}) {}'.format(a, card.strVal()))
@@ -283,10 +282,8 @@ while len(deck.cards) > 0 or len(players[0].hand) > 0 or len(players[1].hand) > 
         cardChosen1 = int(input(players[0].name+' which card do you want to play? '))
         while cardChosen1 < 1 or cardChosen1 > len(players[0].hand):
             cardChosen1 = int(input('Invalid! Select one of the cards in your hand: '))
-        #cardChosen1 = playCard()
+        #cardChosen1 = playCard(createComb())
         print(players[0].name +' played the '+ card.strVal())   #it shows the last card in player hand
-        
-        '''
         
             if 2 or more sums on the table are possible:
                 for card in table.hand:
@@ -319,15 +316,8 @@ while len(deck.cards) > 0 or len(players[0].hand) > 0 or len(players[1].hand) > 
         tab.showTable()
         print(' ')
         print(players[1].name + ' it is your turn, your cards are:')
-        b = 1
-        for card in player.hand:
-            print('{}) {}'.format(b, card.strVal()))
-            b = b+1
-        cardChosen2 = int(input(players[1].name+' which card do you want to play? '))
-        while cardChosen2 < 1 or cardChosen2 > len(players[1].hand):
-            cardChosen2 = int(input('Invalid! Select one of the cards in your hand: '))
-        #cardChosen2 = playCard()
-        print(players[1].name +' has played the '+ card.strVal())
+        player2.playCard(tab)
+        
         '''
         if 2 or more sums on the table are possible:
             for card in table.hand:
@@ -359,7 +349,6 @@ if len(deck.cards) == 0 and len(players[0].hand) == 0 and len(players[1].hand) =
     playing = False
     turn = 0
     print('End game')
-
 
 
 # Wording the code so I understand it better
@@ -430,4 +419,4 @@ Pie chart graph for all golden cards collected by each player
 Scatter plot graph to record in which turn scopas were taken (grafico a puntini)
 Find the mean of all cards taken in each turn and graph with a line graph which turns players took more cards
 !I have to calculate all myself without using data packs! NO BUILT IN FUNCTIONS!!!!
-'''
+''' 
