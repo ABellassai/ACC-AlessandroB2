@@ -161,11 +161,11 @@ class Player(object):
     
 #PLAYING CARDS FROM YOUR HAND          
     def playCard(self, tab):
-        a = 1
         print('\n' + self.name + "'s cards:")
+        a = 1
         for card in self.hand:
             print('{}) {}'.format(a, card.strVal()))
-            a = a+1
+            a = a + 1
         cardChosen = int(input(self.name+' which card do you want to play? '))
         while cardChosen < 1 or cardChosen > len(self.hand):
             cardChosen = int(input('Invalid! Select one of the cards in your hand: '))
@@ -180,9 +180,9 @@ class Player(object):
                 self.pointsDeck.append(playedCard)
             if tab.isEmpty():
                 self.scopaCounter += 1
-                print(self.name + ' has done a SCOPA!')
+                print(self.name + ' has done a SCOPA! :)')
         tab.createComb()
-        print(self.name +' played the '+ card.strVal())   #it shows the last card in player hand
+        print(self.name +' played the '+ card.strVal())
     
 #TAKING CARDS FROM TABLE TO POINTS DECK  
     def takeCard(self):
@@ -202,7 +202,7 @@ class Player(object):
                 let the player pick which sum they want to take
                 take and put in the points deck
 '''
-   
+    
 
 #MAIN _________________________________________________________________________________________________________________
 
@@ -215,7 +215,7 @@ print('Scopa Card Game!','\n',
 gamemode = int(input('Welcome to my game, select one of the options: '))
 while gamemode < 1 or gamemode > 3: #4
     gamemode = int(input('Invalid! Select one of the above options: '))
-# time.sleep(0.5)
+time.sleep(0.5)
 
 """
 if gamemode == 1:
@@ -231,11 +231,7 @@ elif gamemode == 4:
 #SHUFFLED DECK
 deck = Deck()          
 deck.shuffle()
-'''
-# REORDERING THE DECK
-deck.build()
-deck.show()
-'''
+
 #THE 4 STARING CARDS ON THE TABLE
 tab = Table()
 tab.draw(deck).draw(deck).draw(deck).draw(deck)
@@ -243,39 +239,34 @@ tab.createComb()
     
 #MAKING EACH PLAYER'S HAND BASED ON THE GAMEMODE
 players = []
+
 if gamemode == 1:
     player = Player(str(input('Player 1, what is your name: ')))
-    #print(player.name +' cards:')
     players.append(player)
-# time.sleep(0.5)
+    time.sleep(0.5)
 
     player = Player('CPU', True)
-    #print('CPU cards:')
     players.append(player)
-# time.sleep(0.5)    
+    time.sleep(0.5)    
 
 elif gamemode == 2:
     player = Player(str(input('Player 1, what is your name: ')))
-    #print(player.name +' cards:')
     players.append(player)
-# time.sleep(0.5)
+    time.sleep(0.5)
 
     player = Player(str(input('Player 2, what is your name: ')))
-    #print(player.name +' cards:')
     players.append(player)
-# time.sleep(0.5)
+    time.sleep(0.5)
 
 elif gamemode == 3:
     player = Player('CPU1', True)
-    #print('CPU 1 cards:')
     players.append(player)
-#time.sleep(0.5)    
+    time.sleep(0.5)
+    
     player = Player('CPU2', True)
-    #print('CPU 2 cards:')
     players.append(player)
-# time.sleep(0.5)
-#player.showHand()
-
+    time.sleep(0.5)
+    
 #PLAYING LOOP AND NEW TURNS WHEN BOTH PLAYERS FINISHED THEIR CARDS
 print('\n')
 while len(deck.cards) > 0:
@@ -286,7 +277,6 @@ while len(deck.cards) > 0:
         for player in players:
             tab.showTable()
             player.playCard(tab)
-
 
 #PLAYER 1 AND 2 SCORES CARDS AND COINS COLLECTED (AND 7 COIN)
 playerScores = [0] * len(players)
@@ -319,10 +309,29 @@ if maxIndexCards > -1:
     playerScores[maxIndexCards] = playerScores[maxIndexCards] + 1
 if maxIndexCoins > -1:
     playerScores[maxIndexCoins] = playerScores[maxIndexCoins] + 1
-    
+
+print('\n')
 for playerIndex in range(0, len(players)):
-    print(players[playerIndex].getName() + "'s points: " + str(playerScores[playerIndex]))
-print('End game')
+    print(players[playerIndex].getName() + "'s total cards are " + str(playerCardsNum[playerIndex]))
+    print(players[playerIndex].getName() + "'s total Coins are " + str(playerCoinsNum[playerIndex]))
+    print(players[playerIndex].getName() + "'s total Scopas are " + str([playerIndex]))
+    print(players[playerIndex].getName() + "'s points: " + str(playerScores[playerIndex]), '\n')
+
+if playerScores[0] > playerScores[1]:
+    if gamemode == 3:
+        print('The Winner is CPU 1!')
+    else:
+        print('The Winner is '+ players[0].name+'!')
+elif playerScores[0] < playerScores[1]:
+    if gamemode == 1:
+        print('The Winner is Player 2 (CPU)!')
+    elif  gamemode == 3:
+        print('The Winner is CPU 2!')
+    else:
+        print('The Winner is '+ players[1].name+'!')
+elif playerScores[0] == playerScores[1]:
+    print("It's a Draw!")
+print('End game :)')
 
 # Wording the code so I understand it better
 '''
