@@ -26,6 +26,12 @@ class Card(object):
 #Returns just the card seed
     def seedVal(self):
         return self.seed
+    
+    def is7Coin(self):
+        return self.value == 7 and self.seed == 'Coins'
+    
+    def isCoin(self):
+        return self.seed == 'Coins'
         
 #CREATION OF THE SHUFFLED DECK WITH VALUES AND SYMBOLS        
 class Deck(object):
@@ -55,19 +61,33 @@ class Deck(object):
 class Table(object):
     def __init__(self):
         self.table = []
+        self.combinations = []
     
     def draw(self, deck):
         self.table.append(deck.drawCard())
         return self
     
     def showTable(self):
+        print('\n')
+        print('This is the table:')
+        
         for card in self.table:
             card.show()
-        self.showComb()
+        #self.showComb()
     
     def getCards(self):
         return self.table
-
+    
+    def addCard(self, card):
+        self.table.append(card)
+        
+    def removeCard(self, index):
+        return self.table.pop(index)
+    
+    def isEmpty(self):
+        return len(self.table) == 0
+    
+    #MAKING ALL THE POSSIBLE COMBINATION OF SUMS FROM TABLE
     def createComb(self):
         counter1 = 1
         counter2 = 1
@@ -93,13 +113,21 @@ class Table(object):
         for index in range(len(self.combinations)):
             print('{}) {}'.format(index + 1, self.combinations[index]))
             
+    def getCombinations(self):
+        return self.combinations
+            
 #MAKING THE PLAYERS
 class Player(object):
     def __init__(self, name, isCpu = False):
         self.isCpu = isCpu
         self.name = name
         self.hand = []
-    
+        self.scopaCounter = 0
+        self.pointsDeck = []
+
+    def getName(self):
+        return self.name
+
     def draw(self, deck):
         self.hand.append(deck.drawCard())
         return self
@@ -108,39 +136,60 @@ class Player(object):
         for card in self.hand:
             card.show()
             
+#CHECKING IF PLAYER HAS CARDS IN HIS HAND
+    def hasCards(self):
+        return len(self.hand) > 0
+    
+    def getScopaNum(self):
+        return self.scopaCounter
+    
+    def getCardsNum(self):
+        return len(self.pointsDeck)
+    
+    def getCoinsNum(self):
+        coinsNum = 0
+        for card in self.pointsDeck:
+            if card.isCoin():
+                coinsNum += 1  
+        return coinsNum
+
+    def has7Coin(self):
+        for card in self.pointsDeck:
+            if card.is7Coin():
+                return True   
+        return False
+    
+#PLAYING CARDS FROM YOUR HAND          
     def playCard(self, tab):
         a = 1
+        print('\n' + self.name + "'s cards:")
         for card in self.hand:
             print('{}) {}'.format(a, card.strVal()))
             a = a+1
-        cardChosen1 = int(input(self.name+' which card do you want to play? '))
+        cardChosen = int(input(self.name+' which card do you want to play? '))
         while cardChosen < 1 or cardChosen > len(self.hand):
             cardChosen = int(input('Invalid! Select one of the cards in your hand: '))
-        #cardChosen = playCard(createComb())
+        playedCard = self.hand.pop(cardChosen - 1)
+        comb = tab.getCombinations()
+        if comb[playedCard.intVal() - 1] == None:
+            tab.addCard(playedCard)
+        else:
+            valComb = comb[playedCard.intVal() - 1].split(',')
+            for i in reversed(range(len(valComb))):
+                self.pointsDeck.append(tab.removeCard(int(valComb[i])))
+                self.pointsDeck.append(playedCard)
+            if tab.isEmpty():
+                self.scopaCounter += 1
+                print(self.name + ' has done a SCOPA!')
+        tab.createComb()
         print(self.name +' played the '+ card.strVal())   #it shows the last card in player hand
-
-
-#PLAYING CARDS FROM YOUR HAND    
-def playCard(self):
-    return self.hand.pop()
-
+    
 #TAKING CARDS FROM TABLE TO POINTS DECK  
     def takeCard(self):
         return self.cards.append(Card(n, s))    
 
 #TAKING CARDS WITH SUM OR WITH SAME CARD  (I need first to make the sums and the taking action)
-    
-
-#MAKING THE POINTS DECK
-class PointsDeck(object):
-    def __init__(self):
-        self.cards = []
-        
-    def showPdeck(self):
-        for c in self.cards:
-            c.show()
-            
-'''            
+    '''            
     def takingCards(self)
         self.cards.append()
       
@@ -153,6 +202,7 @@ class PointsDeck(object):
                 let the player pick which sum they want to take
                 take and put in the points deck
 '''
+   
 
 #MAIN _________________________________________________________________________________________________________________
 
@@ -226,130 +276,53 @@ elif gamemode == 3:
 # time.sleep(0.5)
 #player.showHand()
 
-'''
-#MAKING EACH PLAYER'S EMPTY POINTS DECK  
-pointsDeck1 = PointsDeck()
-pointsDeck1.cards.append(player.playCard() and tab.table)
-#pointsDeck1.showPdeck()
-pointsDeck2 = PointsDeck()
-pointsDeck2.cards.append(player.playCard() and tab.table)
-#pointsDeck2.showPdeck()
-for p in players
-    for card in players[].hand:
-        if Card.value > 0:
-            playerTurn = playerTurn + 1
-            print('my turn')
-'''
-
-#PLAYER 1 AND 2 SCORES
-scorePl1 = 0
-scorePl2 = 0
-
 #PLAYING LOOP AND NEW TURNS WHEN BOTH PLAYERS FINISHED THEIR CARDS
-turn = 0
-counter = 0
-playing = True
 print('\n')
-while len(deck.cards) > 0 or len(players[0].hand) > 0 or len(players[1].hand) > 0:
-    playing = True
-    if turn == 0:
-            players[0].draw(deck).draw(deck).draw(deck)
-            players[1].draw(deck).draw(deck).draw(deck)
-            turn = 1
-    #DRAW 3 CARDS EACH AT THE END OF EACH TURN
-    if len(players[0].hand) == 0 and len(players[1].hand) == 0 and len(deck.cards) > 0 and turn!= 0:
-        print('Turn',turn,',' +players[0].name +' new cards:')
-        players[0].draw(deck).draw(deck).draw(deck)
-        players[0].showHand()
-        print('-------------------')
-        print(players[1].name +' new cards:')
-        players[1].draw(deck).draw(deck).draw(deck)
-        players[1].showHand()
-        print('\n')
-        
-#TURN PLAYER 1
-    if counter == 0:
-        print('Cards on the table:')
-        tab.showTable()
-        print(' ')
-        print(players[0].name + ' it is your turn, your cards are:')
-        player1.playCard(tab)
-        '''
-        a = 1
-        for card in players[0].hand:
-            print('{}) {}'.format(a, card.strVal()))
-            a = a+1
-        cardChosen1 = int(input(players[0].name+' which card do you want to play? '))
-        while cardChosen1 < 1 or cardChosen1 > len(players[0].hand):
-            cardChosen1 = int(input('Invalid! Select one of the cards in your hand: '))
-        #cardChosen1 = playCard(createComb())
-        print(players[0].name +' played the '+ card.strVal())   #it shows the last card in player hand
-        
-            if 2 or more sums on the table are possible:
-                for card in table.hand:
-                    print('{}) {}'.format(a, card.strVal()))
-                    a = a+1
-            sumChoice1 = int(input(players[0].name+' which sum do you want to take from the table? '))
-            while sumChoice1 < 1 or sumChoice1 > len(sums available):
-                sumChoice1 = int(input('Invalid! Select one of the sums available: '))
-            sumChoice1 = takeCard()
-        '''
-        '''
-        if 2 or more cards on the table have the same value:
-            for card in table.hand:
-                print('{}) {}'.format(a, card.strVal()))
-                a = a+1
-        tableChoice1 = int(input(players[0].name+' which card do you want to take from the table? '))
-        while tableChoice1 < 1 or tableChoice1 > len(table cards):
-            tableChoice1 = int(input('Invalid! Select one of the cards from the table: '))
-        tableChoice1 = takeCard()
-        '''
-        "players[0].hand = players[0].hand - 1"
-        print(' ')
-        if len(players[0].hand) - 1:
-            #print(players[0].hand)
-            counter = counter + 1
-          
-#TURN PLAYER 2
-    elif counter == 1:
-        print('Cards on the table:')
-        tab.showTable()
-        print(' ')
-        print(players[1].name + ' it is your turn, your cards are:')
-        player2.playCard(tab)
-        
-        '''
-        if 2 or more sums on the table are possible:
-            for card in table.hand:
-                print('{}) {}'.format(b, card.strVal()))
-                b = b+1
-        sumChoice2 = int(input(players[1].name+' which sum do you want to take from the table? '))
-        while sumChoice2 < 1 or sumChoice2 > len(sums available):
-            sumChoice2 = int(input('Invalid! Select one of the sums available: '))
-        sumChoice2 = takeCard()
-        '''
-        '''
-        if 2 or more cards on the table have the same value:
-            for card in table.hand:
-                print('{}) {}'.format(b, card.strVal()))
-                b = b+1
-        tableChoice2 = int(input(players[1].name+' which card do you want to take from the table? '))
-        while tableChoice2 < 1 or tableChoice2 > len(table cards):
-            tableChoice2 = int(input('Invalid! Select one of the cards from the table: '))
-        tableChoice2 = takeCard()
-        '''
-        "players[1].hand = players[1].hand - 1"
-        print(' ')
-        if len(players[1].hand) - 1:
-            counter = counter - 1
-                
-                
-#END OF THE GAME WHEN DECK RUNS OUT OF CARDS
-if len(deck.cards) == 0 and len(players[0].hand) == 0 and len(players[1].hand) == 0:
-    playing = False
-    turn = 0
-    print('End game')
+while len(deck.cards) > 0:
+    print('New Turn')
+    for player in players:
+        player.draw(deck).draw(deck).draw(deck)
+    while players[0].hasCards():
+        for player in players:
+            tab.showTable()
+            player.playCard(tab)
 
+
+#PLAYER 1 AND 2 SCORES CARDS AND COINS COLLECTED (AND 7 COIN)
+playerScores = [0] * len(players)
+playerCoinsNum = [0] * len(players)
+playerCardsNum = [0] * len(players)
+
+for playerIndex in range(0, len(players)):
+    player = players[playerIndex]
+    playerScores[playerIndex] = playerScores[playerIndex] + player.getScopaNum()
+    playerScores[playerIndex] = playerScores[playerIndex] + 1 if player.has7Coin() else 0
+    playerCoinsNum[playerIndex] = player.getCoinsNum()
+    playerCardsNum[playerIndex] = player.getCardsNum()
+
+maxCards = 0
+maxCoins = 0
+maxIndexCards = -1
+maxIndexCoins = -1
+for playerIndex in range(0, len(players)):
+    if playerCardsNum[playerIndex] > maxCards:
+        maxCards = playerCardsNum[playerIndex]
+        maxIndexCards = playerIndex
+    elif playerCardsNum[playerIndex] == maxCards:
+        maxIndexCards = -1
+    if playerCoinsNum[playerIndex] > maxCoins:
+        maxCoins = playerCoinsNum[playerIndex]
+        maxIndexCoins = playerIndex
+    elif playerCoinsNum[playerIndex] == maxCoins:
+        maxIndexCoins = -1
+if maxIndexCards > -1:
+    playerScores[maxIndexCards] = playerScores[maxIndexCards] + 1
+if maxIndexCoins > -1:
+    playerScores[maxIndexCoins] = playerScores[maxIndexCoins] + 1
+    
+for playerIndex in range(0, len(players)):
+    print(players[playerIndex].getName() + "'s points: " + str(playerScores[playerIndex]))
+print('End game')
 
 # Wording the code so I understand it better
 '''
@@ -381,6 +354,7 @@ if len(deck.cards) == 0 and len(players[0].hand) == 0 and len(players[1].hand) =
         pointsDeck1.count(all cards, all coin cards, all scopas)
         pointsDeck2.count(all cards, all coin cards, all scopas)
         
+ #CONTAPUNTI       
         scorePl1 = 0
         scorePl2 = 0
         
