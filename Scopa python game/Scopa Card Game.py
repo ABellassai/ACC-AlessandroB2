@@ -5,6 +5,7 @@ import time
 # my 2 Strategies to test
 ' - The chance of winning increases if you throw the lowest cards first and keep high cards so you get more sums'
 ' - If you have the chance of getting golds take them because they could give you a point'
+' - If you leave a scopa with a low table that can be taken in  move you could give a free point and higher chance of loosing'
 
 #CREATION OF THE CARD OBJECT
 class Card(object):
