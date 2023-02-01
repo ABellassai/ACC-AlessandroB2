@@ -183,7 +183,7 @@ class Player(object):
                 self.scopaCounter += 1
                 print(self.name + ' has done a SCOPA! :)')
         tab.createComb()
-        print(self.name +' played the '+ card.strVal())
+        print(self.name +' played the '+ playedCard.strVal())
     
 #TAKING CARDS FROM TABLE TO POINTS DECK  
     def takeCard(self):
