@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-02-13T15:48:07.695Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36" etag="D9tttwkzjxUvUS6eNBcV" version="20.8.20" type="github" pages="2">
+<mxfile host="app.diagrams.net" modified="2023-02-13T15:49:49.920Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36" etag="uyltAIumy7NloPgbbuxE" version="20.8.20" type="github" pages="2">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Menu Page">
     <mxGraphModel dx="806" dy="463" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="#009999" math="0" shadow="0">
       <root>
@@ -116,39 +116,39 @@
     </mxGraphModel>
   </diagram>
   <diagram id="r4zX6FCwEMg9TZWFA4fZ" name="Page-2">
-    <mxGraphModel dx="1434" dy="796" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="806" dy="463" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="#009999" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="A7rMprVfMEgR3UaybPef-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;fontSize=18;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="A7rMprVfMEgR3UaybPef-1" target="A7rMprVfMEgR3UaybPef-4">
+        <mxCell id="A7rMprVfMEgR3UaybPef-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;fontSize=18;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="A7rMprVfMEgR3UaybPef-1" target="A7rMprVfMEgR3UaybPef-4" edge="1">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="400" y="290" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="A7rMprVfMEgR3UaybPef-1" value="Creating deck and shuffling it" style="rounded=0;whiteSpace=wrap;html=1;fontSize=18;" vertex="1" parent="1">
-          <mxGeometry x="340" y="180" width="120" height="60" as="geometry" />
+        <mxCell id="A7rMprVfMEgR3UaybPef-1" value="Creating deck and shuffling it" style="rounded=0;whiteSpace=wrap;html=1;fontSize=18;" parent="1" vertex="1">
+          <mxGeometry x="340" y="160" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="A7rMprVfMEgR3UaybPef-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;fontSize=18;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="A7rMprVfMEgR3UaybPef-4" target="A7rMprVfMEgR3UaybPef-6">
+        <mxCell id="A7rMprVfMEgR3UaybPef-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;fontSize=18;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="A7rMprVfMEgR3UaybPef-4" target="A7rMprVfMEgR3UaybPef-6" edge="1">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="400" y="430" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="A7rMprVfMEgR3UaybPef-4" value="Creating the table (4cards)" style="rounded=0;whiteSpace=wrap;html=1;fontSize=18;" vertex="1" parent="1">
-          <mxGeometry x="340" y="310" width="120" height="60" as="geometry" />
+        <mxCell id="A7rMprVfMEgR3UaybPef-4" value="Creating the table (4cards)" style="rounded=0;whiteSpace=wrap;html=1;fontSize=18;" parent="1" vertex="1">
+          <mxGeometry x="340" y="280" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="A7rMprVfMEgR3UaybPef-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;fontSize=18;" edge="1" parent="1" source="A7rMprVfMEgR3UaybPef-6">
+        <mxCell id="A7rMprVfMEgR3UaybPef-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;fontSize=18;" parent="1" source="A7rMprVfMEgR3UaybPef-6" edge="1">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="400" y="560" as="targetPoint" />
+            <mxPoint x="400" y="520" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="A7rMprVfMEgR3UaybPef-6" value="Giving each player" style="rounded=0;whiteSpace=wrap;html=1;fontSize=18;" vertex="1" parent="1">
-          <mxGeometry x="340" y="440" width="120" height="60" as="geometry" />
+        <mxCell id="A7rMprVfMEgR3UaybPef-6" value="Giving each player 3 cards" style="rounded=0;whiteSpace=wrap;html=1;fontSize=18;" parent="1" vertex="1">
+          <mxGeometry x="340" y="400" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="A7rMprVfMEgR3UaybPef-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=18;" edge="1" parent="1" source="A7rMprVfMEgR3UaybPef-7" target="A7rMprVfMEgR3UaybPef-1">
+        <mxCell id="A7rMprVfMEgR3UaybPef-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=18;" parent="1" source="A7rMprVfMEgR3UaybPef-7" target="A7rMprVfMEgR3UaybPef-1" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="A7rMprVfMEgR3UaybPef-7" value="Start Gameplay" style="ellipse;whiteSpace=wrap;html=1;fontSize=18;" vertex="1" parent="1">
-          <mxGeometry x="340" y="50" width="120" height="80" as="geometry" />
+        <mxCell id="A7rMprVfMEgR3UaybPef-7" value="Start (Set) Gameplay" style="ellipse;whiteSpace=wrap;html=1;fontSize=18;" parent="1" vertex="1">
+          <mxGeometry x="340" y="40" width="120" height="80" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
