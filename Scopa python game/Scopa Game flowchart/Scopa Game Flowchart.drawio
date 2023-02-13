@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-02-13T16:34:42.921Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36" etag="nltshRzh2XO15Py_qU8d" version="20.8.20" type="github" pages="2">
+<mxfile host="app.diagrams.net" modified="2023-02-13T16:38:56.170Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36" etag="h_Uq18pHuJmVOqHB1ZYh" version="20.8.20" type="github" pages="2">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Menu Page">
     <mxGraphModel dx="806" dy="463" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="#009999" math="0" shadow="0">
       <root>
@@ -170,8 +170,13 @@
         <mxCell id="eur9afngzgF5X81ezOUa-2" value="Alterning turns" style="rounded=0;whiteSpace=wrap;html=1;fontSize=18;" vertex="1" parent="1">
           <mxGeometry x="340" y="680" width="120" height="60" as="geometry" />
         </mxCell>
+        <mxCell id="eC-DJ6D7m3388WFmM2am-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=210;" edge="1" parent="1" source="ADtmE46used6P5anF5o4-2" target="eC-DJ6D7m3388WFmM2am-4">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1150" y="370" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
         <mxCell id="ADtmE46used6P5anF5o4-2" value="End Of Gameplay" style="rounded=0;whiteSpace=wrap;html=1;fontSize=18;" vertex="1" parent="1">
-          <mxGeometry x="800" y="290" width="120" height="60" as="geometry" />
+          <mxGeometry x="800" y="280" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="ADtmE46used6P5anF5o4-3" value="Setting the gameplay" style="text;whiteSpace=wrap;html=1;fontSize=18;" vertex="1" parent="1">
           <mxGeometry x="170" y="255" width="120" height="50" as="geometry" />
@@ -181,6 +186,29 @@
         </mxCell>
         <mxCell id="ADtmE46used6P5anF5o4-6" value="Start of Gameplay" style="text;whiteSpace=wrap;html=1;fontSize=18;" vertex="1" parent="1">
           <mxGeometry x="230" y="490" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="eC-DJ6D7m3388WFmM2am-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=18;" edge="1" parent="1" source="eC-DJ6D7m3388WFmM2am-4" target="eC-DJ6D7m3388WFmM2am-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="eC-DJ6D7m3388WFmM2am-4" value="Count each player tot cards" style="rounded=0;whiteSpace=wrap;html=1;fontSize=18;" vertex="1" parent="1">
+          <mxGeometry x="785" y="380" width="150" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="eC-DJ6D7m3388WFmM2am-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;fontSize=18;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="eC-DJ6D7m3388WFmM2am-5" target="eC-DJ6D7m3388WFmM2am-10">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="865" y="680" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="eC-DJ6D7m3388WFmM2am-5" value="Count each player tot Scopas" style="rounded=0;whiteSpace=wrap;html=1;fontSize=18;" vertex="1" parent="1">
+          <mxGeometry x="785" y="580" width="150" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="eC-DJ6D7m3388WFmM2am-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=18;" edge="1" parent="1" source="eC-DJ6D7m3388WFmM2am-6" target="eC-DJ6D7m3388WFmM2am-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="eC-DJ6D7m3388WFmM2am-6" value="Count each player tot coins" style="rounded=0;whiteSpace=wrap;html=1;fontSize=18;" vertex="1" parent="1">
+          <mxGeometry x="785" y="480" width="150" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="eC-DJ6D7m3388WFmM2am-10" value="Count each player tot cards" style="rounded=0;whiteSpace=wrap;html=1;fontSize=18;" vertex="1" parent="1">
+          <mxGeometry x="790" y="680" width="140" height="60" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
