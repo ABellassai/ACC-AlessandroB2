@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-02-13T21:10:04.750Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36" etag="5BaSCEvFMfohz2BaKHEv" version="20.8.20" type="github" pages="2">
+<mxfile host="app.diagrams.net" modified="2023-02-13T21:10:58.090Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36" etag="4vdfSaA4f4FCV9nICxsk" version="20.8.20" type="github" pages="2">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Menu Page">
     <mxGraphModel dx="806" dy="463" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="#009999" math="0" shadow="0">
       <root>
@@ -185,7 +185,7 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="eur9afngzgF5X81ezOUa-2" value="Alterning turns" style="rounded=0;whiteSpace=wrap;html=1;fontSize=18;" parent="1" vertex="1">
-          <mxGeometry x="340" y="1040" width="120" height="60" as="geometry" />
+          <mxGeometry x="340" y="1055" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="eC-DJ6D7m3388WFmM2am-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=210;" parent="1" source="ADtmE46used6P5anF5o4-2" target="eC-DJ6D7m3388WFmM2am-4" edge="1">
           <mxGeometry relative="1" as="geometry">
@@ -390,7 +390,7 @@
             <mxPoint x="560" y="735" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="P5Umke_pk-AGryGn2isK-2" value="&lt;font style=&quot;font-size: 18px;&quot;&gt;&amp;nbsp;While players hand &amp;gt; 0:&lt;/font&gt;" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="P5Umke_pk-AGryGn2isK-2" value="&lt;font style=&quot;font-size: 18px;&quot;&gt;&amp;nbsp;While player1 hand &amp;gt; 0:&lt;/font&gt;" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="320" y="885" width="160" height="130" as="geometry" />
         </mxCell>
         <mxCell id="P5Umke_pk-AGryGn2isK-4" value="Alterning turns function" style="text;whiteSpace=wrap;html=1;fontSize=18;" vertex="1" parent="1">
@@ -403,7 +403,7 @@
           <mxGeometry x="480" y="540" width="50" height="30" as="geometry" />
         </mxCell>
         <mxCell id="7MBdk1am__fWoxltFibg-3" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;True&lt;/font&gt;" style="text;whiteSpace=wrap;html=1;fontSize=18;" vertex="1" parent="1">
-          <mxGeometry x="400" y="970" width="50" height="30" as="geometry" />
+          <mxGeometry x="410" y="1010" width="50" height="30" as="geometry" />
         </mxCell>
         <mxCell id="7MBdk1am__fWoxltFibg-6" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;False&lt;/font&gt;" style="text;whiteSpace=wrap;html=1;fontSize=18;" vertex="1" parent="1">
           <mxGeometry x="490" y="915" width="50" height="30" as="geometry" />
