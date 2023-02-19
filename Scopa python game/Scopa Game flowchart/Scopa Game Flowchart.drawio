@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2023-02-19T16:33:09.343Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36" etag="t-Vz9q-cJDhoftqMrkBy" version="20.8.20" type="github" pages="2">
+<mxfile host="app.diagrams.net" modified="2023-02-19T16:44:31.096Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36" etag="kRbR3iQ57H9hEU3hw5xu" version="20.8.20" type="github" pages="2">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Menu Page">
-    <mxGraphModel dx="3224" dy="1852" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="#009999" math="0" shadow="0">
+    <mxGraphModel dx="806" dy="463" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="#009999" math="0" shadow="0">
       <root>
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
@@ -116,7 +116,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="r4zX6FCwEMg9TZWFA4fZ" name="Page-2">
-    <mxGraphModel dx="948" dy="545" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="#009999" math="0" shadow="0">
+    <mxGraphModel dx="806" dy="463" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="#009999" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -159,7 +159,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="P5Umke_pk-AGryGn2isK-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="mmve00oq2YELYaKE3oax-1" target="7MBdk1am__fWoxltFibg-8">
+        <mxCell id="P5Umke_pk-AGryGn2isK-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="mmve00oq2YELYaKE3oax-1" target="7MBdk1am__fWoxltFibg-8" edge="1">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="400" y="680" as="targetPoint" />
           </mxGeometry>
@@ -175,17 +175,6 @@
               <mxPoint x="160" y="580" />
             </Array>
           </mxGeometry>
-        </mxCell>
-        <mxCell id="7MBdk1am__fWoxltFibg-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=16;" edge="1" parent="1" target="P5Umke_pk-AGryGn2isK-2">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="280" y="1100" as="sourcePoint" />
-            <Array as="points">
-              <mxPoint x="280" y="950" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="eur9afngzgF5X81ezOUa-2" value="Alterning turns" style="rounded=0;whiteSpace=wrap;html=1;fontSize=18;" parent="1" vertex="1">
-          <mxGeometry x="340" y="1055" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="eC-DJ6D7m3388WFmM2am-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=210;" parent="1" source="ADtmE46used6P5anF5o4-2" target="eC-DJ6D7m3388WFmM2am-4" edge="1">
           <mxGeometry relative="1" as="geometry">
@@ -382,48 +371,60 @@
         <mxCell id="eC-DJ6D7m3388WFmM2am-67" value="True" style="text;whiteSpace=wrap;html=1;fontSize=18;" parent="1" vertex="1">
           <mxGeometry x="1075" y="1245" width="45" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="7MBdk1am__fWoxltFibg-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=16;" edge="1" parent="1" source="P5Umke_pk-AGryGn2isK-2" target="eur9afngzgF5X81ezOUa-2">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="7MBdk1am__fWoxltFibg-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;fontSize=16;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="P5Umke_pk-AGryGn2isK-2" target="7MBdk1am__fWoxltFibg-7">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="560" y="735" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="P5Umke_pk-AGryGn2isK-2" value="&lt;font style=&quot;font-size: 18px;&quot;&gt;&amp;nbsp;While player1 hand &amp;gt; 0:&lt;/font&gt;" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="320" y="885" width="160" height="130" as="geometry" />
-        </mxCell>
-        <mxCell id="P5Umke_pk-AGryGn2isK-4" value="Alterning turns function" style="text;whiteSpace=wrap;html=1;fontSize=18;" vertex="1" parent="1">
+        <mxCell id="P5Umke_pk-AGryGn2isK-4" value="Alterning turns function" style="text;whiteSpace=wrap;html=1;fontSize=18;" parent="1" vertex="1">
           <mxGeometry x="230" y="670" width="120" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="7MBdk1am__fWoxltFibg-1" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;True&lt;/font&gt;" style="text;whiteSpace=wrap;html=1;fontSize=18;" vertex="1" parent="1">
+        <mxCell id="7MBdk1am__fWoxltFibg-1" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;True&lt;/font&gt;" style="text;whiteSpace=wrap;html=1;fontSize=18;" parent="1" vertex="1">
           <mxGeometry x="410" y="640" width="50" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="7MBdk1am__fWoxltFibg-2" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;False&lt;/font&gt;" style="text;whiteSpace=wrap;html=1;fontSize=18;" vertex="1" parent="1">
+        <mxCell id="7MBdk1am__fWoxltFibg-2" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;False&lt;/font&gt;" style="text;whiteSpace=wrap;html=1;fontSize=18;" parent="1" vertex="1">
           <mxGeometry x="480" y="540" width="50" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="7MBdk1am__fWoxltFibg-3" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;True&lt;/font&gt;" style="text;whiteSpace=wrap;html=1;fontSize=18;" vertex="1" parent="1">
-          <mxGeometry x="410" y="1010" width="50" height="30" as="geometry" />
-        </mxCell>
-        <mxCell id="7MBdk1am__fWoxltFibg-6" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;False&lt;/font&gt;" style="text;whiteSpace=wrap;html=1;fontSize=18;" vertex="1" parent="1">
-          <mxGeometry x="490" y="915" width="50" height="30" as="geometry" />
-        </mxCell>
-        <mxCell id="7MBdk1am__fWoxltFibg-7" value="Alterning turns" style="rounded=0;whiteSpace=wrap;html=1;fontSize=18;" vertex="1" parent="1">
-          <mxGeometry x="580" y="920" width="120" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="7MBdk1am__fWoxltFibg-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;fontSize=16;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="7MBdk1am__fWoxltFibg-8" target="7MBdk1am__fWoxltFibg-11">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="400" y="780" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="7MBdk1am__fWoxltFibg-8" value="&lt;font style=&quot;font-size: 18px;&quot;&gt;For each player:&lt;/font&gt;" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="7MBdk1am__fWoxltFibg-8" value="&lt;font style=&quot;font-size: 18px;&quot;&gt;For each player:&lt;/font&gt;" style="rhombus;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="320" y="670" width="160" height="90" as="geometry" />
         </mxCell>
-        <mxCell id="7MBdk1am__fWoxltFibg-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=16;" edge="1" parent="1" source="7MBdk1am__fWoxltFibg-11" target="P5Umke_pk-AGryGn2isK-2">
+        <mxCell id="3D9CSnG0MqOJXB3LCwpZ-22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=16;" edge="1" parent="1" target="3D9CSnG0MqOJXB3LCwpZ-26">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="290" y="1110" as="sourcePoint" />
+            <Array as="points">
+              <mxPoint x="290" y="960" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="3D9CSnG0MqOJXB3LCwpZ-23" value="Alterning turns" style="rounded=0;whiteSpace=wrap;html=1;fontSize=18;" vertex="1" parent="1">
+          <mxGeometry x="350" y="1065" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="3D9CSnG0MqOJXB3LCwpZ-24" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=16;" edge="1" parent="1" source="3D9CSnG0MqOJXB3LCwpZ-26" target="3D9CSnG0MqOJXB3LCwpZ-23">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="7MBdk1am__fWoxltFibg-11" value="Draw 3 cards from the deck" style="rounded=0;whiteSpace=wrap;html=1;fontSize=18;" vertex="1" parent="1">
-          <mxGeometry x="340" y="780" width="120" height="60" as="geometry" />
+        <mxCell id="3D9CSnG0MqOJXB3LCwpZ-25" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;fontSize=16;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="3D9CSnG0MqOJXB3LCwpZ-26" target="3D9CSnG0MqOJXB3LCwpZ-32">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="570" y="745" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="3D9CSnG0MqOJXB3LCwpZ-26" value="&lt;font style=&quot;font-size: 18px;&quot;&gt;&amp;nbsp;While player1 hand &amp;gt; 0:&lt;/font&gt;" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="330" y="895" width="160" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="3D9CSnG0MqOJXB3LCwpZ-27" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;True&lt;/font&gt;" style="text;whiteSpace=wrap;html=1;fontSize=18;" vertex="1" parent="1">
+          <mxGeometry x="420" y="1020" width="50" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="3D9CSnG0MqOJXB3LCwpZ-28" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;False&lt;/font&gt;" style="text;whiteSpace=wrap;html=1;fontSize=18;" vertex="1" parent="1">
+          <mxGeometry x="510" y="930" width="50" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="3D9CSnG0MqOJXB3LCwpZ-29" value="Alterning turns" style="rounded=0;whiteSpace=wrap;html=1;fontSize=18;" vertex="1" parent="1">
+          <mxGeometry x="590" y="930" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="3D9CSnG0MqOJXB3LCwpZ-30" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;fontSize=16;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" target="3D9CSnG0MqOJXB3LCwpZ-32">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="410" y="790" as="targetPoint" />
+            <mxPoint x="410" y="770" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="3D9CSnG0MqOJXB3LCwpZ-31" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=16;" edge="1" parent="1" source="3D9CSnG0MqOJXB3LCwpZ-32" target="3D9CSnG0MqOJXB3LCwpZ-26">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3D9CSnG0MqOJXB3LCwpZ-32" value="Draw 3 cards from the deck" style="rounded=0;whiteSpace=wrap;html=1;fontSize=18;" vertex="1" parent="1">
+          <mxGeometry x="350" y="790" width="120" height="60" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
