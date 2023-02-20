@@ -1,11 +1,11 @@
 #            ------------------------Scopa Card Game------------------------
 import random
 import time
+#import ScoreStore
 
 # my 2 Strategies to test
 ' - The chance of winning increases if you throw the lowest cards first and keep high cards so you get more sums'
 ' - If you have the chance of getting golds take them because they could give you a point'
-' - If you leave a scopa with a low table that can be taken in  move you could give a free point and higher chance of loosing'
 
 #CREATION OF THE CARD OBJECT
 class Card(object):
@@ -167,13 +167,38 @@ class Player(object):
         for card in self.hand:
             print('{}) {}'.format(a, card.strVal()))
             a = a + 1
-        cardChosen = int(input(self.name+' which card do you want to play? '))
+        cardChosen = int(input(self.name+ ' which card do you want to play? '))
         while cardChosen < 1 or cardChosen > len(self.hand):
             cardChosen = int(input('Invalid! Select one of the cards in your hand: '))
         playedCard = self.hand.pop(cardChosen - 1)
         comb = tab.getCombinations()
         if comb[playedCard.intVal() - 1] == None:
             tab.addCard(playedCard)
+        #TAKING CARDS FROM TABLE TO POINTS DECK  
+        else:
+            valComb = comb[playedCard.intVal() - 1].split(',')
+            for i in reversed(range(len(valComb))):
+                self.pointsDeck.append(tab.removeCard(int(valComb[i])))
+                self.pointsDeck.append(playedCard)
+            if tab.isEmpty():
+                self.scopaCounter += 1
+                print(self.name + ' has done a SCOPA! :)')
+        tab.createComb()
+        print(self.name +' played the '+ playedCard.strVal())
+        
+        
+    def CPUplayCard(self, tab):
+        print('\n' + self.name + "'s cards:")
+        a = 1
+        for card in self.hand:
+            print('{}) {}'.format(a, card.strVal()))
+            a = a + 1
+        cardChosen = random.randint(1, len(self.hand))
+        playedCard = self.hand.pop(cardChosen - 1)
+        comb = tab.getCombinations()
+        if comb[playedCard.intVal() - 1] == None:
+            tab.addCard(playedCard)
+        #TAKING CARDS FROM TABLE TO POINTS DECK  
         else:
             valComb = comb[playedCard.intVal() - 1].split(',')
             for i in reversed(range(len(valComb))):
@@ -185,9 +210,6 @@ class Player(object):
         tab.createComb()
         print(self.name +' played the '+ playedCard.strVal())
     
-#TAKING CARDS FROM TABLE TO POINTS DECK  
-    def takeCard(self):
-        return self.cards.append(Card(n, s))    
 
 #TAKING CARDS WITH SUM OR WITH SAME CARD  (I need first to make the sums and the taking action)
     '''            
@@ -214,7 +236,7 @@ print('Scopa Card Game!','\n',
     '[3] Simulation Game','\n',
     '[4] Rules')
 gamemode = int(input('Welcome to my game, select one of the options: '))
-while gamemode < 1 or gamemode > 3: #4
+while gamemode < 1 or gamemode > 3: #4:
     gamemode = int(input('Invalid! Select one of the above options: '))
 time.sleep(0.5)
 
@@ -229,6 +251,7 @@ elif gamemode == 4:
     # go to rules
 """
  
+
 #SHUFFLED DECK
 deck = Deck()          
 deck.shuffle()
@@ -237,7 +260,7 @@ deck.shuffle()
 tab = Table()
 tab.draw(deck).draw(deck).draw(deck).draw(deck)
 tab.createComb()
-    
+
 #MAKING EACH PLAYER'S HAND BASED ON THE GAMEMODE
 players = []
 
@@ -263,21 +286,38 @@ elif gamemode == 3:
     player = Player('CPU1', True)
     players.append(player)
     time.sleep(0.5)
-    
-    player = Player('CPU2', True)
-    players.append(player)
+
+elif gamemode == 4:
+    import Rules
+    gamemode = int(input('Welcome to my game, select one of the options: '))
+    while gamemode < 1 or gamemode > 3:
+        gamemode = int(input('Invalid! Select one of the above options: '))
     time.sleep(0.5)
-    
+
 #PLAYING LOOP AND NEW TURNS WHEN BOTH PLAYERS FINISHED THEIR CARDS
 print('\n')
 while len(deck.cards) > 0:
-    print('New Turn')
+    #print('New Turn')
     for player in players:
         player.draw(deck).draw(deck).draw(deck)
     while players[0].hasCards():
-        for player in players:
-            tab.showTable()
-            player.playCard(tab)
+        if gamemode == 1:
+            for player in players:
+                if player == Player.isCPU:
+                    tab.showTable()
+                    player.playCard(tab)
+                else:
+                    tab.showTable()
+                    player.playCard(tab)
+        elif gamemode == 2:
+            for player in players:
+                tab.showTable()
+                player.playCard(tab)
+        elif gamemode == 3:
+            for player in players:
+                tab.showTable()
+                time.sleep(0.2)
+                player.CPUplayCard(tab)
 
 #PLAYER 1 AND 2 SCORES CARDS AND COINS COLLECTED (AND 7 COIN)
 playerScores = [0] * len(players)
@@ -311,13 +351,12 @@ if maxIndexCards > -1:
 if maxIndexCoins > -1:
     playerScores[maxIndexCoins] = playerScores[maxIndexCoins] + 1
 
-print('\n')
+print('-----------------------------')
 for playerIndex in range(0, len(players)):
     print(players[playerIndex].getName() + "'s total cards are " + str(playerCardsNum[playerIndex]))
     print(players[playerIndex].getName() + "'s total Coins are " + str(playerCoinsNum[playerIndex]))
     print(players[playerIndex].getName() + "'s total Scopas are " + str([playerIndex]))
     print(players[playerIndex].getName() + "'s points: " + str(playerScores[playerIndex]), '\n')
-
 if playerScores[0] > playerScores[1]:
     if gamemode == 3:
         print('The Winner is CPU 1!')
