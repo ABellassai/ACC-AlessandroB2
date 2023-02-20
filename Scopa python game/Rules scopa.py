@@ -1,6 +1,6 @@
 #Scopa Rules
-print('How to Play Scopa','\n'
-'\n'
+print('\n'
+'How to Play Scopa','\n'
 'A game of Scopa is traditionally played using a deck of Napoletane cards.','\n'
 'The Italian deck is composed of only 40 cards.' ,'\n'
 'The deck is composed of four suits, which includes: Spades, Coins, Cups, Clubs.','\n'
@@ -24,5 +24,6 @@ print('How to Play Scopa','\n'
 'until there are no more cards left to deal in the deck. Once the dealer has played his last','\n'
 'card, the player who was able to perform the last capture is given the privilege of taking','\n'
 'all the cards left on the table. Points are then calculated for each player or team and whoever','\n'
-'scores the most wins the game. In the event that there is no winner, the player to the right of''\n'
-'the dealer must reshuffle the cards and assume the role of dealer on the next round.')
+'scores the most wins the game. In the event that there is no winner, the player to the right of','\n'
+'the dealer must reshuffle the cards and assume the role of dealer on the next round.','\n'
+'\n')
