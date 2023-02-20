@@ -305,7 +305,7 @@ while len(deck.cards) > 0:
     print('New Turn')
     for player in players:
         player.draw(deck).draw(deck).draw(deck)
-        time.sleep(0.5)
+        time.sleep(0.3)
     while players[0].hasCards():
         if gamemode != 3:
             for player in players:
