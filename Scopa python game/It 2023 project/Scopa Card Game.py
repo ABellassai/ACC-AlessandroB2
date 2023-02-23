@@ -242,26 +242,26 @@ print('The chance of winning if you throw the lowest cards first and keep','\n',
 'high cards so you get more sums is', )
 
 #DECIDING WHAT GAMEMODE USER WANTS TO PLAY
-print('Scopa Card Game!','\n',
-    '[1] Single Player','\n',
-    '[2] Multi Player','\n',
-    '[3] Simulation Game','\n',
-    '[4] Rules')
-gamemode = 3 #int(input('Welcome to my game, select one of the options: '))
-while gamemode < 1 or gamemode > 4:
-    gamemode = int(input('Invalid! Select one of the above options: '))
-time.sleep(0.5)
-
-"""
-if gamemode == 1:
-    # go to single player mode against bot(CPU)
-elif gamemode == 2:
-    # go to multiplayer mode
-elif gamemode == 3:
-    # go to simulation mode
-elif gamemode == 4:
-    # go to rules
-"""
+if strategyChosen == 1 or strategyChosen == 2:
+    print('Scopa Card Game!','\n',
+        '[1] Single Player','\n',
+        '[2] Multi Player','\n',
+        '[3] Simulation Game','\n',
+        '[4] Rules')
+    gamemode = int(input('Welcome to my game, select one of the options: '))
+    while gamemode < 1 or gamemode > 4:
+        gamemode = int(input('Invalid! Select one of the above options: '))
+    time.sleep(0.5)
+else:
+    print('Scopa Card Game!','\n',
+        '[1] Single Player','\n',
+        '[2] Multi Player','\n',
+        '[3] Simulation Game','\n',
+        '[4] Rules')
+    gamemode = int(input('Welcome to my game, select one of the options: '))
+    while gamemode < 1 or gamemode > 4:
+        gamemode = int(input('Invalid! Select one of the above options: '))
+    time.sleep(0.5)
  
 #SHUFFLED DECK
 deck = Deck()          
