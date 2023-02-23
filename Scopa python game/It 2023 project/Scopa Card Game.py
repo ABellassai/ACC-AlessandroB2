@@ -228,6 +228,19 @@ class Player(object):
     
 #MAIN _________________________________________________________________________________________________________________
 
+#DECIDING WHAT STRATEGY USER WANTS TO PICK
+print('Scopa Card Game!','\n',
+    '[1] Strategy 1: The chance of winning increases if you throw the lowest cards first and keep high cards so you get more sums','\n',
+    '[2] Strategy 2: If you have the chance of getting golds take them because they could give you a point','\n',
+    '[3] None')
+strategyChosen = int(input('Welcome to my game, select one of the options: '))
+while strategyChosen < 1 or gamemode > 3:
+    strategyChosen = int(input('Invalid! Select one of the above options: '))
+time.sleep(0.5)
+
+print('The chance of winning if you throw the lowest cards first and keep','\n',
+'high cards so you get more sums is', )
+
 #DECIDING WHAT GAMEMODE USER WANTS TO PLAY
 print('Scopa Card Game!','\n',
     '[1] Single Player','\n',
