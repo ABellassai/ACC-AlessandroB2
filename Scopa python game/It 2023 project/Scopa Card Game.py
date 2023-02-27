@@ -234,7 +234,7 @@ print('Scopa Card Game!','\n',
     '[2] Strategy 2: If you have the chance of getting golds take them because they could give you a point','\n',
     '[3] None')
 strategyChosen = int(input('Welcome to my game, select one of the options: '))
-while strategyChosen < 1 or gamemode > 3:
+while strategyChosen < 1 or strategyChosen > 3:
     strategyChosen = int(input('Invalid! Select one of the above options: '))
 time.sleep(0.5)
 
@@ -315,94 +315,99 @@ elif gamemode == 3:
         
 #PLAYING LOOP AND NEW TURNS WHEN BOTH PLAYERS FINISHED THEIR CARDS
 print('\n')
-for i in range(1, 5):
-    deck = Deck()          
-    deck.shuffle()
+#for i in range(1, 5):
+deck = Deck()          
+deck.shuffle()
 
-    #THE 4 STARING CARDS ON THE TABLE
-    tab = Table()
-    tab.draw(deck).draw(deck).draw(deck).draw(deck)
-    tab.createComb()
-    while len(deck.cards) > 0:
-        print('New Turn')
-        for player in players:
-            player.draw(deck).draw(deck).draw(deck)
-            time.sleep(0.2)
-        while players[0].hasCards():
-            if gamemode != 3:
-                for player in players:
-                    tab.showTable()
-                    time.sleep(0.2)
-                    player.playCard(tab)
-                    time.sleep(0.1)
-            else:
-                for player in players:
-                    tab.showTable()
-                    player.CPUplayCard(tab)
-                
-    #PLAYER 1 AND 2 SCORES CARDS AND COINS COLLECTED (AND 7 COIN)
-    playerScores = [0] * len(players)
-    playerCoinsNum = [0] * len(players)
-    playerCardsNum = [0] * len(players)
-
-    for playerIndex in range(0, len(players)):
-        player = players[playerIndex]
-        playerScores[playerIndex] = playerScores[playerIndex] + player.getScopaNum()
-        playerScores[playerIndex] = playerScores[playerIndex] + 1 if player.has7Coin() else 0
-        playerCoinsNum[playerIndex] = player.getCoinsNum()
-        playerCardsNum[playerIndex] = player.getCardsNum()
-
-    maxCards = 0
-    maxCoins = 0
-    maxIndexCards = -1
-    maxIndexCoins = -1
-    for playerIndex in range(0, len(players)):
-        if playerCardsNum[playerIndex] > maxCards:
-            maxCards = playerCardsNum[playerIndex]
-            maxIndexCards = playerIndex
-        elif playerCardsNum[playerIndex] == maxCards:
-            maxIndexCards = -1
-        if playerCoinsNum[playerIndex] > maxCoins:
-            maxCoins = playerCoinsNum[playerIndex]
-            maxIndexCoins = playerIndex
-        elif playerCoinsNum[playerIndex] == maxCoins:
-            maxIndexCoins = -1
-    if maxIndexCards > -1:
-        playerScores[maxIndexCards] = playerScores[maxIndexCards] + 1
-    if maxIndexCoins > -1:
-        playerScores[maxIndexCoins] = playerScores[maxIndexCoins] + 1
-
-    print('\n')
-    for playerIndex in range(0, len(players)):
-        print(players[playerIndex].getName() + "'s total Cards are " + str(playerCardsNum[playerIndex]))
-        print(players[playerIndex].getName() + "'s total Coins are " + str(playerCoinsNum[playerIndex]))
-        print(players[playerIndex].getName() + "'s total Scopas are " + str([playerIndex])) #get scopa number fix bug
-        print(players[playerIndex].getName() + "'s points: " + str(playerScores[playerIndex]), '\n')
-
-    data = {
-        "P1":[playerCardsNum[0],playerCoinsNum[0]],
-        "P2":[playerCardsNum[1],playerCoinsNum[1]],
-        }
-
-    df = pd.DataFrame(data, index = ["Cards","Coins"])
-
-    if playerScores[0] > playerScores[1]:
-        if gamemode == 3:
-            print('The Winner is CPU 1!')
+#THE 4 STARING CARDS ON THE TABLE
+tab = Table()
+tab.draw(deck).draw(deck).draw(deck).draw(deck)
+tab.createComb()
+while len(deck.cards) > 0:
+    print('New Turn')
+    for player in players:
+        player.draw(deck).draw(deck).draw(deck)
+        time.sleep(0.2)
+    while players[0].hasCards():
+        if gamemode != 3:
+            for player in players:
+                tab.showTable()
+                time.sleep(0.2)
+                player.playCard(tab)
+                time.sleep(0.1)
         else:
-            print('The Winner is '+ players[0].name+'!')
-    elif playerScores[0] < playerScores[1]:
-        if gamemode == 1:
-            print('The Winner is Player 2 (CPU)!')
-        elif  gamemode == 3:
-            print('The Winner is CPU 2!')
-        else:
-            print('The Winner is '+ players[1].name+'!')
-    elif playerScores[0] == playerScores[1]:
-        print("It's a Draw!")
-    print('End game :)')
+            for player in players:
+                tab.showTable()
+                player.CPUplayCard(tab)
+            
+#PLAYER 1 AND 2 SCORES CARDS AND COINS COLLECTED (AND 7 COIN)
+playerScores = [0] * len(players)
+playerCoinsNum = [0] * len(players)
+playerCardsNum = [0] * len(players)
 
-    df.to_csv('ScoreStoreFile.csv', ',', mode='a')
+for playerIndex in range(0, len(players)):
+    player = players[playerIndex]
+    playerScores[playerIndex] = playerScores[playerIndex] + player.getScopaNum()
+    playerScores[playerIndex] = playerScores[playerIndex] + 1 if player.has7Coin() else 0
+    playerCoinsNum[playerIndex] = player.getCoinsNum()
+    playerCardsNum[playerIndex] = player.getCardsNum()
+
+maxCards = 0
+maxCoins = 0
+maxIndexCards = -1
+maxIndexCoins = -1
+for playerIndex in range(0, len(players)):
+    if playerCardsNum[playerIndex] > maxCards:
+        maxCards = playerCardsNum[playerIndex]
+        maxIndexCards = playerIndex
+    elif playerCardsNum[playerIndex] == maxCards:
+        maxIndexCards = -1
+    if playerCoinsNum[playerIndex] > maxCoins:
+        maxCoins = playerCoinsNum[playerIndex]
+        maxIndexCoins = playerIndex
+    elif playerCoinsNum[playerIndex] == maxCoins:
+        maxIndexCoins = -1
+if maxIndexCards > -1:
+    playerScores[maxIndexCards] = playerScores[maxIndexCards] + 1
+if maxIndexCoins > -1:
+    playerScores[maxIndexCoins] = playerScores[maxIndexCoins] + 1
+
+print('\n')
+for playerIndex in range(0, len(players)):
+    print(players[playerIndex].getName() + "'s total Cards are " + str(playerCardsNum[playerIndex]))
+    print(players[playerIndex].getName() + "'s total Coins are " + str(playerCoinsNum[playerIndex]))
+    print(players[playerIndex].getName() + "'s total Scopas are " + str([playerIndex])) #get scopa number fix bug
+    print(players[playerIndex].getName() + "'s points: " + str(playerScores[playerIndex]), '\n')
+
+data = {
+    "Player1":[playerCardsNum[0],playerCoinsNum[0]],
+    "Player2":[playerCardsNum[1],playerCoinsNum[1]],
+    }
+df = pd.DataFrame(data, index = ["Cards","Coins"])
+ 
+data2 = {
+    "Player1":[playerCardsNum[0],playerCoinsNum[0]],
+    "Player2":[playerCardsNum[1],playerCoinsNum[1]],
+    }
+df2 = pd.DataFrame(data, index = ["Cards","Coins"])
+
+if playerScores[0] > playerScores[1]:
+    if gamemode == 3:
+        print('The Winner is CPU 1!')
+    else:
+        print('The Winner is '+ players[0].name+'!')
+elif playerScores[0] < playerScores[1]:
+    if gamemode == 1:
+        print('The Winner is Player 2 (CPU)!')
+    elif  gamemode == 3:
+        print('The Winner is CPU 2!')
+    else:
+        print('The Winner is '+ players[1].name+'!')
+elif playerScores[0] == playerScores[1]:
+    print("It's a Draw!")
+print('End game :)')
+
+df.to_csv('ScoreStoreFile.csv', ',', mode='a')
 
 # Wording the code so I understand it better
 '''
