@@ -24,6 +24,11 @@ df = pd.read_csv('ScoreStoreFile.csv')
 playerCoinsNum =list(df.loc[1])[1:]
 players = list(df.columns)[1:]
 
+df2 = pd.read_csv('ScoreStoreFile.csv')
+
+playerCoinsNum =list(df2.loc[1])[1:]
+players = list(df2.columns)[1:]
+
 
 '''
 winList = (df.values.tolist())[0]
@@ -37,8 +42,18 @@ coinDifference = (df.values.tolist())[7]
 '''
 #import plotly.express as px
 
-fig = px.pie(values= playerCoinsNum, names= players)
-fig.show()
+#Cards Pie chart
+fig1 = px.pie(values= playerCoinsNum, names= players)
+fig1.show()
+#Coins Pie chart
+fig2 = px.pie(values= playerCoinsNum, names= players)
+fig2.show()
+#Scopas Scatterplot
+fig3 = px.scatter(x = turnCounts, y = cardsTaken)
+fig3.show()
+#Barchart of player points
+fig4 = px.scatter(x=[0, 1, 2, 3, 4], y=[0, 1, 4, 9, 16])
+fig4.show()
 
 '''
 # Creating Dataset
