@@ -305,6 +305,7 @@ elif gamemode == 2:
     time.sleep(0.5)
 
 elif gamemode == 3:
+    nSimulation = int(input('How many simulations do you want to run? '))
     player = Player('CPU1', True)
     players.append(player)
     time.sleep(0.5)
@@ -320,11 +321,13 @@ deck = Deck()
 deck.shuffle()
 
 #THE 4 STARING CARDS ON THE TABLE
+turnCounter = 0
 tab = Table()
 tab.draw(deck).draw(deck).draw(deck).draw(deck)
 tab.createComb()
 while len(deck.cards) > 0:
     print('New Turn')
+    turnCounter = turnCounter + 1
     for player in players:
         player.draw(deck).draw(deck).draw(deck)
         time.sleep(0.2)
@@ -336,6 +339,10 @@ while len(deck.cards) > 0:
                 player.playCard(tab)
                 time.sleep(0.1)
         else:
+            if len(deck.cards) == 0:
+                for i in nSimulation:
+                    deck = Deck()          
+                    deck.shuffle()
             for player in players:
                 tab.showTable()
                 player.CPUplayCard(tab)
@@ -384,7 +391,7 @@ data = {
     "Player2":[playerCardsNum[1],playerCoinsNum[1]],
     }
 df = pd.DataFrame(data, index = ["Cards","Coins"])
- 
+
 data2 = {
     "Player1":[playerCardsNum[0],playerCoinsNum[0]],
     "Player2":[playerCardsNum[1],playerCoinsNum[1]],
