@@ -47,6 +47,9 @@ class Deck(object):
             for n in range(1, 11):
                 self.cards.append(Card(n, s))
 
+    def getCardsNum(self):
+        return len(self.cards)
+    
     def show(self):
         for c in self.cards:
             c.show()
@@ -80,6 +83,9 @@ class Table(object):
     
     def getCards(self):
         return self.table
+    
+    def getCardsNum(self):
+        return len(self.table)
     
     def addCard(self, card):
         self.table.append(card)
@@ -147,6 +153,9 @@ class Player(object):
     def getCardsNum(self):
         return len(self.pointsDeck)
     
+    def getHandCardsNum(self):
+        return len(self.hand)
+    
     def getCoinsNum(self):
         coinsNum = 0
         for card in self.pointsDeck:
@@ -179,7 +188,7 @@ class Player(object):
             valComb = comb[playedCard.intVal() - 1].split(',')
             for i in reversed(range(len(valComb))):
                 self.pointsDeck.append(tab.removeCard(int(valComb[i])))
-                self.pointsDeck.append(playedCard)
+            self.pointsDeck.append(playedCard)
             if tab.isEmpty():
                 self.scopaCounter += 1
                 print(self.name + ' has done a SCOPA!----------------------------------')
@@ -203,7 +212,7 @@ class Player(object):
             valComb = comb[playedCard.intVal() - 1].split(',')
             for i in reversed(range(len(valComb))):
                 self.pointsDeck.append(tab.removeCard(int(valComb[i])))
-                self.pointsDeck.append(playedCard)
+            self.pointsDeck.append(playedCard)
             if tab.isEmpty():
                 self.scopaCounter += 1
                 print(self.name + ' has done a SCOPA! :)-------------------------------')
@@ -230,16 +239,15 @@ class Player(object):
 
 #DECIDING WHAT STRATEGY USER WANTS TO PICK
 print('Scopa Card Game!','\n',
-    '[1] Strategy 1: The chance of winning increases if you throw the lowest cards first and keep high cards so you get more sums','\n',
-    '[2] Strategy 2: If you have the chance of getting golds take them because they could give you a point','\n',
-    '[3] None')
+    '(1) Strategy 1: The chance of winning increases if you throw the lowest','\n',
+    'cards first from your hand and keep high cards so you get more sums','\n',
+    '(2) Strategy 2: If you collect more coin cards you have','\n',
+    'better chance of winning the game','\n',
+    '(3) No Strategy to test')
 strategyChosen = int(input('Welcome to my game, select one of the options: '))
 while strategyChosen < 1 or strategyChosen > 3:
     strategyChosen = int(input('Invalid! Select one of the above options: '))
 time.sleep(0.5)
-
-print('The chance of winning if you throw the lowest cards first and keep','\n',
-'high cards so you get more sums is', )
 
 #DECIDING WHAT GAMEMODE USER WANTS TO PLAY
 if strategyChosen == 1 or strategyChosen == 2:
@@ -273,7 +281,6 @@ tab.draw(deck).draw(deck).draw(deck).draw(deck)
 tab.createComb()
     
 #MAKING EACH PLAYER'S HAND BASED ON THE GAMEMODE
-
 if gamemode == 4:
     import Rules
     print('Scopa Card Game!','\n',
@@ -306,6 +313,7 @@ elif gamemode == 2:
 
 elif gamemode == 3:
     nSimulation = int(input('How many simulations do you want to run? '))
+    
     player = Player('CPU1', True)
     players.append(player)
     time.sleep(0.5)
@@ -316,21 +324,11 @@ elif gamemode == 3:
         
 #PLAYING LOOP AND NEW TURNS WHEN BOTH PLAYERS FINISHED THEIR CARDS
 print('\n')
-#for i in range(1, 5):
-deck = Deck()          
-deck.shuffle()
-
-#THE 4 STARING CARDS ON THE TABLE
-turnCounter = 0
-tab = Table()
-tab.draw(deck).draw(deck).draw(deck).draw(deck)
-tab.createComb()
 while len(deck.cards) > 0:
     print('New Turn')
-    turnCounter = turnCounter + 1
     for player in players:
         player.draw(deck).draw(deck).draw(deck)
-        time.sleep(0.2)
+        time.sleep(0.1)
     while players[0].hasCards():
         if gamemode != 3:
             for player in players:
@@ -339,18 +337,32 @@ while len(deck.cards) > 0:
                 player.playCard(tab)
                 time.sleep(0.1)
         else:
-            if len(deck.cards) == 0:
-                for i in nSimulation:
-                    deck = Deck()          
-                    deck.shuffle()
+#             if len(deck.cards) == 0:
+#                 for i in range(0, nSimulation):
+#                     deck = Deck()          
+#                     deck.shuffle()
             for player in players:
                 tab.showTable()
+                time.sleep(0.2)
                 player.CPUplayCard(tab)
-            
+                tot = 0
+#DEBUG CODE
+                '''
+                for p in players:
+                    tot += p.getHandCardsNum() + p.getCardsNum()
+                    print("Carte in mano player " + p.getName() + ": " + str(p.getHandCardsNum()))
+                    print("Carte punti player " + p.getName()+ ": " + str(p.getCardsNum()))
+                tot += tab.getCardsNum() + deck.getCardsNum()
+                print("Carte table: " + str(tab.getCardsNum()))
+                print("Carte deck: " + str(deck.getCardsNum()))
+                print("Carte totali: " + str(tot))
+                time.sleep(0.1)
+                '''
 #PLAYER 1 AND 2 SCORES CARDS AND COINS COLLECTED (AND 7 COIN)
 playerScores = [0] * len(players)
 playerCoinsNum = [0] * len(players)
 playerCardsNum = [0] * len(players)
+playerScopaNum = [0] * len(players)
 
 for playerIndex in range(0, len(players)):
     player = players[playerIndex]
@@ -358,6 +370,7 @@ for playerIndex in range(0, len(players)):
     playerScores[playerIndex] = playerScores[playerIndex] + 1 if player.has7Coin() else 0
     playerCoinsNum[playerIndex] = player.getCoinsNum()
     playerCardsNum[playerIndex] = player.getCardsNum()
+    playerScopaNum[playerIndex] = player.getScopaNum()
 
 maxCards = 0
 maxCoins = 0
@@ -383,21 +396,16 @@ print('\n')
 for playerIndex in range(0, len(players)):
     print(players[playerIndex].getName() + "'s total Cards are " + str(playerCardsNum[playerIndex]))
     print(players[playerIndex].getName() + "'s total Coins are " + str(playerCoinsNum[playerIndex]))
-    print(players[playerIndex].getName() + "'s total Scopas are " + str([playerIndex])) #get scopa number fix bug
+    print(players[playerIndex].getName() + "'s total Scopas are " + str(playerScopaNum[playerIndex])) #get scopa number fix bug
     print(players[playerIndex].getName() + "'s points: " + str(playerScores[playerIndex]), '\n')
 
 data = {
-    "Player1":[playerCardsNum[0],playerCoinsNum[0]],
-    "Player2":[playerCardsNum[1],playerCoinsNum[1]],
+    "P1":[playerCardsNum[0],playerCoinsNum[0]],
+    "P2":[playerCardsNum[1],playerCoinsNum[1]],
     }
+
 df = pd.DataFrame(data, index = ["Cards","Coins"])
-
-data2 = {
-    "Player1":[playerCardsNum[0],playerCoinsNum[0]],
-    "Player2":[playerCardsNum[1],playerCoinsNum[1]],
-    }
-df2 = pd.DataFrame(data, index = ["Cards","Coins"])
-
+    
 if playerScores[0] > playerScores[1]:
     if gamemode == 3:
         print('The Winner is CPU 1!')
@@ -415,6 +423,7 @@ elif playerScores[0] == playerScores[1]:
 print('End game :)')
 
 df.to_csv('ScoreStoreFile.csv', ',', mode='a')
+
 
 # Wording the code so I understand it better
 '''
@@ -479,6 +488,7 @@ df.to_csv('ScoreStoreFile.csv', ',', mode='a')
                 print('The Winner is'+ players[1].name+'!')
         elif scorePl1 == scorePl2:
             print('Draw!')
+            
                         #Graphs
 Barcharts of all cards collected, all sums, all points aquired by each player
 Pie chart graph for all golden cards collected by each player
