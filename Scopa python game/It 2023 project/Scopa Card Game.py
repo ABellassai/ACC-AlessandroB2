@@ -93,6 +93,9 @@ class Table(object):
     def removeCard(self, index):
         return self.table.pop(index)
     
+    def clear(self):
+        return self.table.clear()
+    
     def isEmpty(self):
         return len(self.table) == 0
     
@@ -122,6 +125,7 @@ class Table(object):
             
     def getCombinations(self):
         return self.combinations
+
             
 #MAKING THE PLAYERS
 class Player(object):
@@ -169,8 +173,14 @@ class Player(object):
                 return True   
         return False
     
+    def takeRemainingCards(self):
+        for card in tab.getCards():
+            self.pointsDeck.append(card)
+        tab.clear()
+
 #PLAYING CARDS FROM YOUR HAND          
     def playCard(self, tab):
+        hasTaken = False
         print('\n' + self.name + "'s cards:")
         a = 1
         for card in self.hand:
@@ -185,6 +195,7 @@ class Player(object):
             tab.addCard(playedCard)
         #TAKING CARDS FROM TABLE TO POINTS DECK  
         else:
+            hasTaken = True
             valComb = comb[playedCard.intVal() - 1].split(',')
             for i in reversed(range(len(valComb))):
                 self.pointsDeck.append(tab.removeCard(int(valComb[i])))
@@ -195,8 +206,11 @@ class Player(object):
                 print('The table is now empty')
         tab.createComb()
         print(self.name +' played the '+ playedCard.strVal())
+        return hasTaken
+        
     #PLAYING CARDS FROM Dummy CPU
     def CPUplayCard(self, tab):
+        hasTaken = False
         print('\n' + self.name + "'s cards:")
         a = 1
         for card in self.hand:
@@ -209,6 +223,7 @@ class Player(object):
             tab.addCard(playedCard)
         #TAKING CARDS FROM TABLE TO POINTS DECK  
         else:
+            hasTaken = True
             valComb = comb[playedCard.intVal() - 1].split(',')
             for i in reversed(range(len(valComb))):
                 self.pointsDeck.append(tab.removeCard(int(valComb[i])))
@@ -219,6 +234,7 @@ class Player(object):
                 print('The table is now empty')
         tab.createComb()
         print(self.name +' played the '+ playedCard.strVal())
+        return hasTaken
     
 #TAKING CARDS WITH SUM OR WITH SAME CARD  (I need first to make the sums and the taking action)
     '''            
@@ -324,29 +340,37 @@ elif gamemode == 3:
         
 #PLAYING LOOP AND NEW TURNS WHEN BOTH PLAYERS FINISHED THEIR CARDS
 print('\n')
+# if gamemode == 3:
+#     if len(deck.cards) == 0:
+#         for i in range(0, nSimulation):
+#                 deck = Deck() 
+#                 deck.shuffle()
+#                 tab.draw(deck).draw(deck).draw(deck).draw(deck)
+#                 tab.createComb()
+
 while len(deck.cards) > 0:
     print('New Turn')
     for player in players:
         player.draw(deck).draw(deck).draw(deck)
         time.sleep(0.1)
+    lastTakenIndex = 0
     while players[0].hasCards():
         if gamemode != 3:
             for player in players:
                 tab.showTable()
                 time.sleep(0.2)
-                player.playCard(tab)
+                if player.playCard(tab) == True:
+                    lastTakenIndex = players.index(player)
+                
                 time.sleep(0.1)
         else:
-#             if len(deck.cards) == 0:
-#                 for i in range(0, nSimulation):
-#                     deck = Deck()          
-#                     deck.shuffle()
             for player in players:
                 tab.showTable()
                 time.sleep(0.2)
-                player.CPUplayCard(tab)
+                if player.CPUplayCard(tab) == True:
+                    lastTakenIndex = players.index(player)
                 tot = 0
-#DEBUG CODE
+                #DEBUG CODE
                 '''
                 for p in players:
                     tot += p.getHandCardsNum() + p.getCardsNum()
@@ -358,6 +382,8 @@ while len(deck.cards) > 0:
                 print("Carte totali: " + str(tot))
                 time.sleep(0.1)
                 '''
+players[lastTakenIndex].takeRemainingCards()            
+
 #PLAYER 1 AND 2 SCORES CARDS AND COINS COLLECTED (AND 7 COIN)
 playerScores = [0] * len(players)
 playerCoinsNum = [0] * len(players)
@@ -396,6 +422,10 @@ print('\n')
 for playerIndex in range(0, len(players)):
     print(players[playerIndex].getName() + "'s total Cards are " + str(playerCardsNum[playerIndex]))
     print(players[playerIndex].getName() + "'s total Coins are " + str(playerCoinsNum[playerIndex]))
+    if players[playerIndex].has7Coin() == True:
+        print(players[playerIndex].getName() + " has the 7 of Coins")
+    else:
+        print(players[playerIndex].getName() + " hasn't got the 7 of Coins")
     print(players[playerIndex].getName() + "'s total Scopas are " + str(playerScopaNum[playerIndex])) #get scopa number fix bug
     print(players[playerIndex].getName() + "'s points: " + str(playerScores[playerIndex]), '\n')
 
