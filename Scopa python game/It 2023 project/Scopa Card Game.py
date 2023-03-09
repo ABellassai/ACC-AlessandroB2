@@ -312,6 +312,9 @@ players = []
 if gamemode == 1:
     player = Player(str(input('Player 1, what is your name: ')))
     players.append(player)
+    player1Email = input('Insert a valid E-mail: ')
+    while player1Email :
+        player1Email = input('Invalid E-mail! Insert an existing Email: ')
     time.sleep(0.5)
 
     player = Player('CPU', True)
@@ -321,15 +324,23 @@ if gamemode == 1:
 elif gamemode == 2:
     player = Player(str(input('Player 1, what is your name: ')))
     players.append(player)
+    player1Email = input('Insert a valid E-mail: ')
+    while player1Email :
+        player1Email = input('Invalid E-mail! Insert an existing Email: ')
     time.sleep(0.5)
 
     player = Player(str(input('Player 2, what is your name: ')))
     players.append(player)
+    player2Email = input('Insert a valid E-mail: ')
+    while player2Email :
+        player2Email = input('Invalid E-mail! Insert an existing Email: ')
     time.sleep(0.5)
 
 elif gamemode == 3:
     nSimulation = int(input('How many simulations do you want to run? '))
-    
+    while nSimulation < 1:
+        nSimulation = int(input('Invalid! Select at least one simulation to run: '))
+        
     player = Player('CPU1', True)
     players.append(player)
     time.sleep(0.5)
@@ -340,16 +351,10 @@ elif gamemode == 3:
         
 #PLAYING LOOP AND NEW TURNS WHEN BOTH PLAYERS FINISHED THEIR CARDS
 print('\n')
-# if gamemode == 3:
-#     if len(deck.cards) == 0:
-#         for i in range(0, nSimulation):
-#                 deck = Deck() 
-#                 deck.shuffle()
-#                 tab.draw(deck).draw(deck).draw(deck).draw(deck)
-#                 tab.createComb()
+
 
 while len(deck.cards) > 0:
-    print('New Turn')
+    print('New Game')
     for player in players:
         player.draw(deck).draw(deck).draw(deck)
         time.sleep(0.1)
@@ -370,18 +375,32 @@ while len(deck.cards) > 0:
                 if player.CPUplayCard(tab) == True:
                     lastTakenIndex = players.index(player)
                 tot = 0
-                #DEBUG CODE
-                '''
-                for p in players:
-                    tot += p.getHandCardsNum() + p.getCardsNum()
-                    print("Carte in mano player " + p.getName() + ": " + str(p.getHandCardsNum()))
-                    print("Carte punti player " + p.getName()+ ": " + str(p.getCardsNum()))
-                tot += tab.getCardsNum() + deck.getCardsNum()
-                print("Carte table: " + str(tab.getCardsNum()))
-                print("Carte deck: " + str(deck.getCardsNum()))
-                print("Carte totali: " + str(tot))
-                time.sleep(0.1)
-                '''
+                
+    if gamemode == 3:
+        if len(deck.cards) == 0 and nSimulation > 1:
+            print('/////////////////////////////////////////////////////////')
+            deck = Deck() 
+            deck.shuffle()
+            tab = Table()
+            tab.draw(deck).draw(deck).draw(deck).draw(deck)
+            tab.createComb()
+            for player in players:
+                player.pointsDeck = []
+            nSimulation = nSimulation - 1
+            
+
+#DEBUG CODE
+                
+#                 for p in players:
+#                     tot += p.getHandCardsNum() + p.getCardsNum()
+#                     print("Carte in mano player " + p.getName() + ": " + str(p.getHandCardsNum()))
+#                     print("Carte punti player " + p.getName()+ ": " + str(p.getCardsNum()))
+#                 tot += tab.getCardsNum() + deck.getCardsNum()
+#                 print("Carte table: " + str(tab.getCardsNum()))
+#                 print("Carte deck: " + str(deck.getCardsNum()))
+#                 print("Carte totali: " + str(tot))
+#                 time.sleep(0.1)
+                
 players[lastTakenIndex].takeRemainingCards()            
 
 #PLAYER 1 AND 2 SCORES CARDS AND COINS COLLECTED (AND 7 COIN)
@@ -426,7 +445,7 @@ for playerIndex in range(0, len(players)):
         print(players[playerIndex].getName() + " has the 7 of Coins")
     else:
         print(players[playerIndex].getName() + " hasn't got the 7 of Coins")
-    print(players[playerIndex].getName() + "'s total Scopas are " + str(playerScopaNum[playerIndex])) #get scopa number fix bug
+    print(players[playerIndex].getName() + "'s total Scopas are " + str(playerScopaNum[playerIndex]))
     print(players[playerIndex].getName() + "'s points: " + str(playerScores[playerIndex]), '\n')
 
 data = {
@@ -435,7 +454,8 @@ data = {
     }
 
 df = pd.DataFrame(data, index = ["Cards","Coins"])
-    
+df2 = pd.DataFrame()
+
 if playerScores[0] > playerScores[1]:
     if gamemode == 3:
         print('The Winner is CPU 1!')
@@ -452,7 +472,8 @@ elif playerScores[0] == playerScores[1]:
     print("It's a Draw!")
 print('End game :)')
 
-df.to_csv('ScoreStoreFile.csv', ',', mode='a')
+df.to_csv('ScoreStoreFile.csv', ',', mode='w')
+df2.to_csv('ScoreStoreFile.csv', ',', mode='w')
 
 
 # Wording the code so I understand it better
