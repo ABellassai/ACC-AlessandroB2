@@ -2,6 +2,7 @@
 import random
 import time
 import pandas as pd
+import re
 #import ScoreStore
 
 # my 2 Strategies to test
@@ -202,7 +203,7 @@ class Player(object):
             self.pointsDeck.append(playedCard)
             if tab.isEmpty():
                 self.scopaCounter += 1
-                print(self.name + ' has done a SCOPA!----------------------------------')
+                print(self.name + ' has done a SCOPA!')
                 print('The table is now empty')
         tab.createComb()
         print(self.name +' played the '+ playedCard.strVal())
@@ -230,7 +231,7 @@ class Player(object):
             self.pointsDeck.append(playedCard)
             if tab.isEmpty():
                 self.scopaCounter += 1
-                print(self.name + ' has done a SCOPA! :)-------------------------------')
+                print(self.name + ' has done a SCOPA!')
                 print('The table is now empty')
         tab.createComb()
         print(self.name +' played the '+ playedCard.strVal())
@@ -254,6 +255,9 @@ class Player(object):
 #MAIN _________________________________________________________________________________________________________________
 
 #DECIDING WHAT STRATEGY USER WANTS TO PICK
+Strat1Prediction = 67
+Strat2Prediction = 56
+
 print('Scopa Card Game!','\n',
     '(1) Strategy 1: The chance of winning increases if you throw the lowest','\n',
     'cards first from your hand and keep high cards so you get more sums','\n',
@@ -266,26 +270,34 @@ while strategyChosen < 1 or strategyChosen > 3:
 time.sleep(0.5)
 
 #DECIDING WHAT GAMEMODE USER WANTS TO PLAY
-if strategyChosen == 1 or strategyChosen == 2:
-    print('Scopa Card Game!','\n',
-        '[1] Single Player','\n',
-        '[2] Multi Player','\n',
-        '[3] Simulation Game','\n',
-        '[4] Rules')
-    gamemode = int(input('Welcome to my game, select one of the options: '))
-    while gamemode < 1 or gamemode > 4:
-        gamemode = int(input('Invalid! Select one of the above options: '))
+if strategyChosen == 1:
+    print('\n',
+          'The prediction made from the simulation proves that if you follow','\n',
+        'the strategy of using clower cards and saving the higher cards ','\n',
+        'to take more sums on the table gives you a chance of winning ','\n',
+        'of % against your opponent.','\n')
+            #'+ str(Strat1Prediction) + '
+    time.sleep(0.5)
+    
+elif strategyChosen == 2:
+    print('\n',
+          'The prediction made from the simulation proves that if you follow','\n',
+        'the strategy of collecting coins during the game,','\n',
+        'gives you a chance of winning of % against your opponent.','\n')
+                                        #'+ str(Strat2Prediction) + '
     time.sleep(0.5)
 else:
-    print('Scopa Card Game!','\n',
-        '[1] Single Player','\n',
-        '[2] Multi Player','\n',
-        '[3] Simulation Game','\n',
-        '[4] Rules')
-    gamemode = int(input('Welcome to my game, select one of the options: '))
-    while gamemode < 1 or gamemode > 4:
-        gamemode = int(input('Invalid! Select one of the above options: '))
     time.sleep(0.5)
+    
+print('Scopa Card Game!','\n',
+    '[1] Single Player','\n',
+    '[2] Multi Player','\n',
+    '[3] Simulation Game','\n',
+    '[4] Rules')
+gamemode = int(input('Welcome to my game, select one of the options: '))
+while gamemode < 1 or gamemode > 4:
+    gamemode = int(input('Invalid! Select one of the above options: '))
+time.sleep(0.5)
  
 #SHUFFLED DECK
 deck = Deck()          
@@ -296,7 +308,7 @@ tab = Table()
 tab.draw(deck).draw(deck).draw(deck).draw(deck)
 tab.createComb()
     
-#MAKING EACH PLAYER'S HAND BASED ON THE GAMEMODE
+#RULES AND GOING BACK TO MENU
 if gamemode == 4:
     import Rules
     print('Scopa Card Game!','\n',
@@ -306,14 +318,24 @@ if gamemode == 4:
     gamemode = int(input('Select one of the options: '))
     while gamemode < 1 or gamemode > 3:
         gamemode = int(input('Invalid! Select one of the above options: '))
-        
+#VERYFYING E-MAIL
+regex = '^[a-z0-9]+[\._]?[ a-z0-9]+[@]\w+[. ]\w{2,3}$'
+def check(email):
+    if(re.search(regex,email)):
+        return True
+    else:
+        return False
+    
+
+#MAKING EACH PLAYER'S HAND BASED ON THE GAMEMODE
 players = []
 
 if gamemode == 1:
     player = Player(str(input('Player 1, what is your name: ')))
     players.append(player)
     player1Email = input('Insert a valid E-mail: ')
-    while player1Email :
+    check(player1Email) 
+    while check(player1Email) == False:
         player1Email = input('Invalid E-mail! Insert an existing Email: ')
     time.sleep(0.5)
 
@@ -325,14 +347,16 @@ elif gamemode == 2:
     player = Player(str(input('Player 1, what is your name: ')))
     players.append(player)
     player1Email = input('Insert a valid E-mail: ')
-    while player1Email :
+    check(player1Email) 
+    while check(player1Email) == False:
         player1Email = input('Invalid E-mail! Insert an existing Email: ')
     time.sleep(0.5)
 
     player = Player(str(input('Player 2, what is your name: ')))
     players.append(player)
     player2Email = input('Insert a valid E-mail: ')
-    while player2Email :
+    check(player2Email) 
+    while check(player2Email) == False:
         player2Email = input('Invalid E-mail! Insert an existing Email: ')
     time.sleep(0.5)
 
@@ -352,7 +376,6 @@ elif gamemode == 3:
 #PLAYING LOOP AND NEW TURNS WHEN BOTH PLAYERS FINISHED THEIR CARDS
 print('\n')
 
-
 while len(deck.cards) > 0:
     print('New Game')
     for player in players:
@@ -366,7 +389,6 @@ while len(deck.cards) > 0:
                 time.sleep(0.2)
                 if player.playCard(tab) == True:
                     lastTakenIndex = players.index(player)
-                
                 time.sleep(0.1)
         else:
             for player in players:
@@ -378,7 +400,7 @@ while len(deck.cards) > 0:
                 
     if gamemode == 3:
         if len(deck.cards) == 0 and nSimulation > 1:
-            print('/////////////////////////////////////////////////////////')
+            print('__________________________NEW SIMULATION GAME__________________________')
             deck = Deck() 
             deck.shuffle()
             tab = Table()
@@ -386,8 +408,10 @@ while len(deck.cards) > 0:
             tab.createComb()
             for player in players:
                 player.pointsDeck = []
+            #save simulation data from each game on database
             nSimulation = nSimulation - 1
             
+players[lastTakenIndex].takeRemainingCards()
 
 #DEBUG CODE
                 
@@ -400,8 +424,7 @@ while len(deck.cards) > 0:
 #                 print("Carte deck: " + str(deck.getCardsNum()))
 #                 print("Carte totali: " + str(tot))
 #                 time.sleep(0.1)
-                
-players[lastTakenIndex].takeRemainingCards()            
+                        
 
 #PLAYER 1 AND 2 SCORES CARDS AND COINS COLLECTED (AND 7 COIN)
 playerScores = [0] * len(players)
@@ -545,5 +568,6 @@ Barcharts of all cards collected, all sums, all points aquired by each player
 Pie chart graph for all golden cards collected by each player
 Scatter plot graph to record in which turn scopas were taken (grafico a puntini)
 Find the mean of all cards taken in each turn and graph with a line graph which turns players took more cards
+Calculate frequencies of scopas for each Round. Graph it on histogram histogram
 !I have to calculate all myself without using data packs! NO BUILT IN FUNCTIONS!!!!
-''' 
+'''
