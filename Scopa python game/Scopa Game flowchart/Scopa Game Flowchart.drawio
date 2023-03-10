@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-03-10T10:58:38.580Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36" etag="cvHqvjiqxJlTa04qkZ-A" version="21.0.6" type="github" pages="6">
+<mxfile host="app.diagrams.net" modified="2023-03-10T10:59:04.520Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36" etag="d-6UvIEO-zGZXyh3f1sN" version="21.0.6" type="github" pages="6">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Menu Page">
     <mxGraphModel dx="1118" dy="628" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="#009999" math="0" shadow="0">
       <root>
@@ -257,11 +257,11 @@
         <mxCell id="YeGWBvGDF-dvy0_CH280-6" value="No Strategy" style="rhombus;whiteSpace=wrap;html=1;fontSize=18;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="730" y="351.25" width="160" height="102.5" as="geometry" />
         </mxCell>
-        <mxCell id="hiqK_q8E5ouLZYj6ZJDG-0" value="Display strategy 1 Prediction" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.display;whiteSpace=wrap;fontSize=18;direction=west;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="420" y="85" width="270" height="70" as="geometry" />
+        <mxCell id="hiqK_q8E5ouLZYj6ZJDG-0" value="Strategy 1 Prediction" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.display;whiteSpace=wrap;fontSize=18;direction=west;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="480" y="85" width="210" height="70" as="geometry" />
         </mxCell>
-        <mxCell id="hiqK_q8E5ouLZYj6ZJDG-3" value="Display strategy 2 Prediction" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.display;whiteSpace=wrap;fontSize=18;direction=west;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="420" y="225" width="270" height="70" as="geometry" />
+        <mxCell id="hiqK_q8E5ouLZYj6ZJDG-3" value="Strategy 2 Prediction" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.display;whiteSpace=wrap;fontSize=18;direction=west;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="480" y="225" width="210" height="70" as="geometry" />
         </mxCell>
         <mxCell id="hiqK_q8E5ouLZYj6ZJDG-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="hiqK_q8E5ouLZYj6ZJDG-13" target="YeGWBvGDF-dvy0_CH280-0" edge="1">
           <mxGeometry relative="1" as="geometry" />
