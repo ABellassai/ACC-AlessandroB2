@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-03-10T15:19:17.212Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36" etag="QwsFLNiAuOJ8NXzq0TsT" version="21.0.6" type="github" pages="6">
+<mxfile host="app.diagrams.net" modified="2023-03-10T16:23:54.498Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36" etag="kkQc6cwPsLkBsTHDOgZp" version="21.0.6" type="github" pages="6">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Menu Page">
     <mxGraphModel dx="1118" dy="628" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="#009999" math="0" shadow="0">
       <root>
@@ -612,7 +612,7 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="OgbGGJEBVcIlQf8aTshV-1" value="New Game" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.display;whiteSpace=wrap;fontSize=18;" vertex="1" parent="1">
-          <mxGeometry x="440" y="635" width="240" height="60" as="geometry" />
+          <mxGeometry x="420" y="640" width="240" height="60" as="geometry" />
         </mxCell>
         <mxCell id="bbTxxOQ67S1lvPn5cuS1-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="mn9c8hLmjoryh7IISNvZ-2" target="3D9CSnG0MqOJXB3LCwpZ-42">
           <mxGeometry relative="1" as="geometry">
