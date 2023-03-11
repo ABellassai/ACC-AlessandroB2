@@ -377,7 +377,7 @@ elif gamemode == 3:
 print('\n')
 
 while len(deck.cards) > 0:
-    print('New Game')
+    print('New Turn')
     for player in players:
         player.draw(deck).draw(deck).draw(deck)
         time.sleep(0.1)
@@ -471,14 +471,6 @@ for playerIndex in range(0, len(players)):
     print(players[playerIndex].getName() + "'s total Scopas are " + str(playerScopaNum[playerIndex]))
     print(players[playerIndex].getName() + "'s points: " + str(playerScores[playerIndex]), '\n')
 
-data = {
-    "P1":[playerCardsNum[0],playerCoinsNum[0]],
-    "P2":[playerCardsNum[1],playerCoinsNum[1]],
-    }
-
-df = pd.DataFrame(data, index = ["Cards","Coins"])
-df2 = pd.DataFrame()
-
 if playerScores[0] > playerScores[1]:
     if gamemode == 3:
         print('The Winner is CPU 1!')
@@ -495,9 +487,13 @@ elif playerScores[0] == playerScores[1]:
     print("It's a Draw!")
 print('End game :)')
 
-df.to_csv('ScoreStoreFile.csv', ',', mode='w')
-df2.to_csv('ScoreStoreFile.csv', ',', mode='w')
+data = {
+    str(players[0].getName()):[playerCardsNum[0],playerCoinsNum[0],playerScopaNum[0],playerScores[0]],
+    str(players[1].getName()):[playerCardsNum[1],playerCoinsNum[1],playerScopaNum[1],playerScores[1]],
+    }
+df = pd.DataFrame(data, index = ['Cards','Coins','Scopas','Total Points'])
 
+df.to_csv('ScoreStoreFile.csv', ',', mode='w')
 
 # Wording the code so I understand it better
 '''
@@ -565,9 +561,9 @@ df2.to_csv('ScoreStoreFile.csv', ',', mode='w')
             
                         #Graphs
 Barcharts of all cards collected, all sums, all points aquired by each player
-Pie chart graph for all golden cards collected by each player
+Pie chart graph for all golden cards collected by each player X
 Scatter plot graph to record in which turn scopas were taken (grafico a puntini)
 Find the mean of all cards taken in each turn and graph with a line graph which turns players took more cards
-Calculate frequencies of scopas for each Round. Graph it on histogram histogram
+Calculate frequencies of scopas for each Round. Graph it on histogram
 !I have to calculate all myself without using data packs! NO BUILT IN FUNCTIONS!!!!
-'''
+''' 
