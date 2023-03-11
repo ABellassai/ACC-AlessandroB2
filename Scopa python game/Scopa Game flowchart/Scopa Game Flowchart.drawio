@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-03-11T09:42:24.787Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36" etag="hODOVB5Zj6D2UTkzhiVB" version="21.0.6" type="github" pages="6">
+<mxfile host="app.diagrams.net" modified="2023-03-11T09:43:48.556Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36" etag="IVOGanOZ3lzpLMdchwSJ" version="21.0.6" type="github" pages="6">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Menu Page">
     <mxGraphModel dx="1056" dy="593" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="#009999" math="0" shadow="0">
       <root>
@@ -436,7 +436,7 @@
             <mxPoint x="942.5" y="1197.5" as="sourcePoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="eC-DJ6D7m3388WFmM2am-14" value="&lt;span style=&quot;font-size: 18px;&quot;&gt;If player 1 poins &amp;gt; player 2 points:&lt;/span&gt;" style="rhombus;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+        <mxCell id="eC-DJ6D7m3388WFmM2am-14" value="&lt;span style=&quot;font-size: 18px;&quot;&gt;If player 1 poins &amp;gt;&lt;br&gt;&amp;nbsp;player 2 points:&lt;/span&gt;" style="rhombus;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="840" y="1077.5" width="205" height="120" as="geometry" />
         </mxCell>
         <mxCell id="eC-DJ6D7m3388WFmM2am-15" value="Player 1 Won!" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.display;whiteSpace=wrap;fontSize=18;" parent="1" vertex="1">
@@ -448,7 +448,7 @@
         <mxCell id="pf12BwZJPKzwB_eu5mjh-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="eC-DJ6D7m3388WFmM2am-20" target="eC-DJ6D7m3388WFmM2am-24" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="eC-DJ6D7m3388WFmM2am-20" value="&lt;span style=&quot;font-size: 18px;&quot;&gt;If player 1 poins &amp;lt; player 2 points:&lt;/span&gt;" style="rhombus;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+        <mxCell id="eC-DJ6D7m3388WFmM2am-20" value="&lt;span style=&quot;font-size: 18px;&quot;&gt;If player 1 poins &amp;lt;&lt;br&gt;player 2 points:&lt;/span&gt;" style="rhombus;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="840" y="1217.5" width="205" height="120" as="geometry" />
         </mxCell>
         <mxCell id="eC-DJ6D7m3388WFmM2am-21" value="Player 2 Won!" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.display;whiteSpace=wrap;fontSize=18;" parent="1" vertex="1">
@@ -457,7 +457,7 @@
         <mxCell id="pf12BwZJPKzwB_eu5mjh-5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="eC-DJ6D7m3388WFmM2am-24" target="eC-DJ6D7m3388WFmM2am-25" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="eC-DJ6D7m3388WFmM2am-24" value="&lt;span style=&quot;font-size: 18px;&quot;&gt;If player 1 poins == player 2 points:&lt;/span&gt;" style="rhombus;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+        <mxCell id="eC-DJ6D7m3388WFmM2am-24" value="&lt;span style=&quot;font-size: 18px;&quot;&gt;If player 1 poins == &lt;br&gt;player 2 points:&lt;/span&gt;" style="rhombus;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="840" y="1357.5" width="210" height="120" as="geometry" />
         </mxCell>
         <mxCell id="eC-DJ6D7m3388WFmM2am-25" value="It&#39;s a draw!" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.display;whiteSpace=wrap;fontSize=18;" parent="1" vertex="1">
@@ -529,13 +529,13 @@
           <mxGeometry x="1155" y="967.5" width="240" height="60" as="geometry" />
         </mxCell>
         <mxCell id="eC-DJ6D7m3388WFmM2am-61" value="True" style="text;whiteSpace=wrap;html=1;fontSize=18;" parent="1" vertex="1">
-          <mxGeometry x="1045" y="1107.5" width="45" height="30" as="geometry" />
+          <mxGeometry x="1045" y="1100" width="45" height="30" as="geometry" />
         </mxCell>
         <mxCell id="eC-DJ6D7m3388WFmM2am-62" value="True" style="text;whiteSpace=wrap;html=1;fontSize=18;" parent="1" vertex="1">
-          <mxGeometry x="1050" y="1247.5" width="45" height="30" as="geometry" />
+          <mxGeometry x="1045" y="1240" width="45" height="30" as="geometry" />
         </mxCell>
         <mxCell id="eC-DJ6D7m3388WFmM2am-67" value="True" style="text;whiteSpace=wrap;html=1;fontSize=18;" parent="1" vertex="1">
-          <mxGeometry x="1050" y="1387.5" width="45" height="30" as="geometry" />
+          <mxGeometry x="1045" y="1380" width="45" height="30" as="geometry" />
         </mxCell>
         <mxCell id="P5Umke_pk-AGryGn2isK-4" value="Alterning turns function" style="text;whiteSpace=wrap;html=1;fontSize=18;" parent="1" vertex="1">
           <mxGeometry x="235" y="730" width="120" height="50" as="geometry" />
