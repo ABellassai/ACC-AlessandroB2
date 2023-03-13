@@ -273,7 +273,7 @@ time.sleep(0.5)
 if strategyChosen == 1:
     print('\n',
           'The prediction made from the simulation proves that if you follow','\n',
-        'the strategy of using clower cards and saving the higher cards ','\n',
+        'the strategy of using lower cards and saving the higher cards ','\n',
         'to take more sums on the table gives you a chance of winning ','\n',
         'of % against your opponent.','\n')
             #'+ str(Strat1Prediction) + '
@@ -497,11 +497,10 @@ df.to_csv('ScoreStoreFile.csv', ',', mode='w')
 
 # Wording the code so I understand it better
 '''
-    while deck is not empty and players have cards each:
-        draw 3 cards to the players 
+while deck is != empty and players have cards each:
+    draw 3 cards to the players 
         
-    #turns and gameplay
-    
+#TURNS AND GAMEPLAY
     while 2 players still have cards in their hands:
         if player one hand - 1 card:
             turn of player 2
@@ -525,39 +524,39 @@ df.to_csv('ScoreStoreFile.csv', ',', mode='w')
         pointsDeck1.count(all cards, all coin cards, all scopas)
         pointsDeck2.count(all cards, all coin cards, all scopas)
         
- #CONTAPUNTI       
-        scorePl1 = 0
-        scorePl2 = 0
-        
-        if pointsDeck1.count(all cards) > pointsDeck2.count(all cards):
-            scorePl1 + 1
-        elif pointsDeck1.count(all cards) < pointsDeck2.count(all cards):
-            scorePl2 + 1
-        if pointsDeck1.count(all coin cards) > pointsDeck2.count(all coin cards):
-            scorePl1 + 1
-        elif pointsDeck1.count(all coin cards) < pointsDeck2.count(all coin cards):
-            scorePl2 + 1
-        for s in pointsDeck1:                #s stands for scopa
-            scorePl1 + 1
-        for s in pointsDeck2:
-            scorePl2 + 1
-            
-        print('total score for Player 1: ', scorePl1)
-        print('total score for Player 2: ', scorePl2)
-        if scorePl1 > scorePl2:
-            if gamemode == 3:
-                print('The Winner is CPU 1!')
-            else:
-                print('The Winner is'+ players[0].name+'!')
-        elif scorePl1 < scorePl2:
-            if gamemode == 1:
-                print('The Winner is Player 2 (CPU)!')
-            elif  gamemode == 3:
-                print('The Winner is CPU 2!')
-            else:
-                print('The Winner is'+ players[1].name+'!')
-        elif scorePl1 == scorePl2:
-            print('Draw!')
+#POINTS COUNTER      
+scorePl1 = 0
+scorePl2 = 0
+
+if pointsDeck1.count(all cards) > pointsDeck2.count(all cards):
+    scorePl1 + 1
+elif pointsDeck1.count(all cards) < pointsDeck2.count(all cards):
+    scorePl2 + 1
+if pointsDeck1.count(all coin cards) > pointsDeck2.count(all coin cards):
+    scorePl1 + 1
+elif pointsDeck1.count(all coin cards) < pointsDeck2.count(all coin cards):
+    scorePl2 + 1
+for s in pointsDeck1:                #s stands for scopa
+    scorePl1 + 1
+for s in pointsDeck2:
+    scorePl2 + 1
+    
+print('total score for Player 1: ', scorePl1)
+print('total score for Player 2: ', scorePl2)
+if scorePl1 > scorePl2:
+    if gamemode == 3:
+        print('The Winner is CPU 1!')
+    else:
+        print('The Winner is'+ players[0].name+'!')
+elif scorePl1 < scorePl2:
+    if gamemode == 3:
+        print('The Winner is CPU 2!')
+    elif gamemode == 1:
+        print('The Winner is Player 2 (CPU)!')
+    else:
+        print('The Winner is'+ players[1].name+'!')
+elif scorePl1 == scorePl2:
+    print('Draw!')
             
                         #Graphs
 Barcharts of all cards collected, all sums, all points aquired by each player
