@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2023-03-13T12:34:49.911Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36" etag="yVgSr5x2h4Hyr5fMvmao" version="21.0.6" type="github" pages="5">
+<mxfile host="app.diagrams.net" modified="2023-03-13T12:37:44.855Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36" etag="PkTnZAtpX8wzZK7K6x96" version="21.0.6" type="github" pages="5">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Menu Page">
-    <mxGraphModel dx="1593" dy="830" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="#009999" math="0" shadow="0">
+    <mxGraphModel dx="1687" dy="879" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="#009999" math="0" shadow="0">
       <root>
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
@@ -727,19 +727,19 @@
         <mxCell id="OLSodcF-RHbEvANPN67J-1" value="Player 1 &lt;br&gt;Won!" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fontSize=18;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
           <mxGeometry x="2888" y="1117.5" width="120" height="100" as="geometry" />
         </mxCell>
-        <mxCell id="OLSodcF-RHbEvANPN67J-6" value="Player 1 number of Scopas are:" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fontSize=18;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+        <mxCell id="OLSodcF-RHbEvANPN67J-6" value="Player 1 number of Scopas" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fontSize=18;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
           <mxGeometry x="2934.5" y="535" width="120" height="100" as="geometry" />
         </mxCell>
-        <mxCell id="OLSodcF-RHbEvANPN67J-7" value="Player 2 number of cards are:" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fontSize=18;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+        <mxCell id="OLSodcF-RHbEvANPN67J-7" value="Player 2 number of cards" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fontSize=18;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
           <mxGeometry x="2934.5" y="645" width="120" height="100" as="geometry" />
         </mxCell>
         <mxCell id="OLSodcF-RHbEvANPN67J-8" value="The player who collected 7 of coins" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fontSize=18;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
           <mxGeometry x="2919.5" y="765" width="150" height="100" as="geometry" />
         </mxCell>
-        <mxCell id="OLSodcF-RHbEvANPN67J-9" value="Player 1 total points are:" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fontSize=18;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+        <mxCell id="OLSodcF-RHbEvANPN67J-9" value="Player 1 total points" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fontSize=18;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
           <mxGeometry x="2934.5" y="875" width="120" height="100" as="geometry" />
         </mxCell>
-        <mxCell id="OLSodcF-RHbEvANPN67J-10" value="Player 2 total poins are:" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fontSize=18;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+        <mxCell id="OLSodcF-RHbEvANPN67J-10" value="Player 2 total poins" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fontSize=18;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
           <mxGeometry x="2934.5" y="990" width="120" height="100" as="geometry" />
         </mxCell>
         <mxCell id="OLSodcF-RHbEvANPN67J-11" value="New SImulation Game" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fontSize=18;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
@@ -757,23 +757,20 @@
         <mxCell id="OLSodcF-RHbEvANPN67J-15" value="It&#39;s a draw!" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fontSize=18;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
           <mxGeometry x="2888" y="1397.5" width="120" height="100" as="geometry" />
         </mxCell>
-        <mxCell id="OLSodcF-RHbEvANPN67J-16" value="Player 1 number of cards are:" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fontSize=18;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+        <mxCell id="OLSodcF-RHbEvANPN67J-16" value="Player 1 number of cards" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fontSize=18;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
           <mxGeometry x="2934.5" y="50" width="120" height="100" as="geometry" />
         </mxCell>
-        <mxCell id="OLSodcF-RHbEvANPN67J-17" value="Player 2 number of cards are:" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fontSize=18;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+        <mxCell id="OLSodcF-RHbEvANPN67J-17" value="Player 2 number of cards" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fontSize=18;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
           <mxGeometry x="2934.5" y="197.5" width="120" height="100" as="geometry" />
         </mxCell>
-        <mxCell id="OLSodcF-RHbEvANPN67J-18" value="Player 1 number of coins are:" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fontSize=18;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+        <mxCell id="OLSodcF-RHbEvANPN67J-18" value="Player 1 number of coins" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fontSize=18;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
           <mxGeometry x="2934.5" y="322.5" width="120" height="100" as="geometry" />
         </mxCell>
-        <mxCell id="OLSodcF-RHbEvANPN67J-19" value="Player 2 number of coins are:" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fontSize=18;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+        <mxCell id="OLSodcF-RHbEvANPN67J-19" value="Player 2 number of coins" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fontSize=18;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
           <mxGeometry x="2934.5" y="430" width="120" height="100" as="geometry" />
         </mxCell>
         <mxCell id="OLSodcF-RHbEvANPN67J-21" value="Output:" style="text;whiteSpace=wrap;html=1;fontSize=18;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
           <mxGeometry x="2065" y="794.38" width="70" height="33.75" as="geometry" />
-        </mxCell>
-        <mxCell id="OLSodcF-RHbEvANPN67J-22" value="Output:" style="text;whiteSpace=wrap;html=1;fontSize=18;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="2260" y="10" width="70" height="33.75" as="geometry" />
         </mxCell>
         <mxCell id="OLSodcF-RHbEvANPN67J-23" value="Start of Gameplay" style="text;whiteSpace=wrap;html=1;fontSize=18;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
           <mxGeometry x="1850" y="130" width="240" height="30" as="geometry" />
