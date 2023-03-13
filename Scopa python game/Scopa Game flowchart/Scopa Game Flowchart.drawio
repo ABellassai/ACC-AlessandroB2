@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-03-13T21:42:25.757Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36" etag="Y0QziUldD6ZDImb6t7TA" version="21.0.6" type="github" pages="5">
+<mxfile host="app.diagrams.net" modified="2023-03-13T21:44:12.375Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36" etag="vW7-wGKBog0fYihhh4dK" version="21.0.6" type="github" pages="5">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Scopa Card Game">
     <mxGraphModel dx="1357" dy="1932" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="#009999" math="0" shadow="0">
       <root>
@@ -398,6 +398,9 @@
             <mxPoint x="2892.5" y="1267.5555555555554" as="targetPoint" />
           </mxGeometry>
         </mxCell>
+        <mxCell id="XUpBR-v3J_Z_Iwn9Y3Ie-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="As7zYQ27ajiBxiVSNyG--33" target="lPtxXaYhRmQ_pLQ50HGr-32">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
         <mxCell id="As7zYQ27ajiBxiVSNyG--33" value="&lt;span style=&quot;font-size: 18px;&quot;&gt;If player 1 poins == &lt;br&gt;player 2 points:&lt;/span&gt;" style="rhombus;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="2650" y="1207.5" width="210" height="120" as="geometry" />
         </mxCell>
@@ -502,8 +505,8 @@
         </mxCell>
         <mxCell id="As7zYQ27ajiBxiVSNyG--110" value="" style="endArrow=none;html=1;rounded=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="1975.28" y="576.79" as="sourcePoint" />
-            <mxPoint x="2005.28" y="576.79" as="targetPoint" />
+            <mxPoint x="1975.28" y="584" as="sourcePoint" />
+            <mxPoint x="2005.28" y="584" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="As7zYQ27ajiBxiVSNyG--111" value="End Of Gameplay" style="text;whiteSpace=wrap;html=1;fontSize=18;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
@@ -563,10 +566,20 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="lPtxXaYhRmQ_pLQ50HGr-22" value="games number == 1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fontSize=18;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="2015.84" y="140" width="119.44" height="90" as="geometry" />
+          <mxGeometry x="2015.28" y="120" width="119.44" height="90" as="geometry" />
         </mxCell>
         <mxCell id="XUpBR-v3J_Z_Iwn9Y3Ie-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="lPtxXaYhRmQ_pLQ50HGr-25" target="lPtxXaYhRmQ_pLQ50HGr-22">
           <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="XUpBR-v3J_Z_Iwn9Y3Ie-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="lPtxXaYhRmQ_pLQ50HGr-25">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="2075" y="250" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="1975" y="40" />
+              <mxPoint x="1975" y="250" />
+              <mxPoint x="2075" y="250" />
+            </Array>
+          </mxGeometry>
         </mxCell>
         <mxCell id="lPtxXaYhRmQ_pLQ50HGr-25" value="&lt;font style=&quot;font-size: 18px;&quot;&gt;If Gamemode != 3&lt;/font&gt;" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
           <mxGeometry x="1995.28" y="-20" width="160" height="120" as="geometry" />
@@ -612,6 +625,12 @@
         </mxCell>
         <mxCell id="XUpBR-v3J_Z_Iwn9Y3Ie-5" value="Reset" style="rounded=0;whiteSpace=wrap;html=1;fontSize=18;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
           <mxGeometry x="2190" y="295" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="XUpBR-v3J_Z_Iwn9Y3Ie-9" value="True" style="text;whiteSpace=wrap;html=1;fontSize=18;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="2085.28" y="90" width="64.72" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="XUpBR-v3J_Z_Iwn9Y3Ie-11" value="False" style="text;whiteSpace=wrap;html=1;fontSize=18;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="1920.0000000000002" y="122.5" width="64.72" height="30" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
