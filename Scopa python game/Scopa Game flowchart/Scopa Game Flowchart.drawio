@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-03-13T21:44:12.375Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36" etag="vW7-wGKBog0fYihhh4dK" version="21.0.6" type="github" pages="5">
+<mxfile host="app.diagrams.net" modified="2023-03-13T21:46:40.701Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36" etag="obzCE7y-Q2N3S9o-dYJL" version="21.0.6" type="github" pages="5">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Scopa Card Game">
     <mxGraphModel dx="1357" dy="1932" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="#009999" math="0" shadow="0">
       <root>
@@ -334,16 +334,6 @@
         <mxCell id="As7zYQ27ajiBxiVSNyG--10" value="&lt;font style=&quot;font-size: 18px;&quot;&gt;While deck &amp;gt; 0:&lt;/font&gt;" style="rhombus;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="1995.28" y="622.5" width="160" height="120" as="geometry" />
         </mxCell>
-        <mxCell id="As7zYQ27ajiBxiVSNyG--11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=18;exitX=0;exitY=0;exitDx=0;exitDy=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="As7zYQ27ajiBxiVSNyG--59" target="As7zYQ27ajiBxiVSNyG--10" edge="1">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="1835.28" y="1252.5" as="sourcePoint" />
-            <Array as="points">
-              <mxPoint x="2035" y="1157" />
-              <mxPoint x="1840" y="1157" />
-              <mxPoint x="1840" y="683" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
         <mxCell id="As7zYQ27ajiBxiVSNyG--12" value="Setting the gameplay" style="text;whiteSpace=wrap;html=1;fontSize=18;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="1885.28" y="342.5" width="120" height="50" as="geometry" />
         </mxCell>
@@ -353,10 +343,8 @@
         <mxCell id="As7zYQ27ajiBxiVSNyG--16" value="Count each player total cards" style="rounded=0;whiteSpace=wrap;html=1;fontSize=18;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="2680" width="150" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="lPtxXaYhRmQ_pLQ50HGr-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" target="As7zYQ27ajiBxiVSNyG--72">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="2770" y="350" as="sourcePoint" />
-          </mxGeometry>
+        <mxCell id="XUpBR-v3J_Z_Iwn9Y3Ie-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="As7zYQ27ajiBxiVSNyG--18" target="As7zYQ27ajiBxiVSNyG--72">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="As7zYQ27ajiBxiVSNyG--18" value="Count each player total Scopas" style="rounded=0;whiteSpace=wrap;html=1;fontSize=18;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="2680" y="235" width="150" height="60" as="geometry" />
@@ -365,7 +353,7 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="As7zYQ27ajiBxiVSNyG--20" value="Count each player total coins" style="rounded=0;whiteSpace=wrap;html=1;fontSize=18;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="2680" y="122.5" width="150" height="60" as="geometry" />
+          <mxGeometry x="2680" y="120" width="150" height="60" as="geometry" />
         </mxCell>
         <mxCell id="As7zYQ27ajiBxiVSNyG--23" value="Add all points gathered" style="rounded=0;whiteSpace=wrap;html=1;fontSize=18;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="2685" y="480" width="140" height="60" as="geometry" />
@@ -417,10 +405,10 @@
           <mxGeometry x="1905.28" y="927.5" width="120" height="50" as="geometry" />
         </mxCell>
         <mxCell id="As7zYQ27ajiBxiVSNyG--52" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;True&lt;/font&gt;" style="text;whiteSpace=wrap;html=1;fontSize=18;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="2085.28" y="732.5" width="50" height="30" as="geometry" />
+          <mxGeometry x="2084.7200000000003" y="742.5" width="50" height="30" as="geometry" />
         </mxCell>
         <mxCell id="As7zYQ27ajiBxiVSNyG--53" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;False&lt;/font&gt;" style="text;whiteSpace=wrap;html=1;fontSize=18;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="2155.28" y="642.5" width="50" height="30" as="geometry" />
+          <mxGeometry x="2190" y="650" width="50" height="30" as="geometry" />
         </mxCell>
         <mxCell id="As7zYQ27ajiBxiVSNyG--54" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="As7zYQ27ajiBxiVSNyG--55" target="As7zYQ27ajiBxiVSNyG--63" edge="1">
           <mxGeometry relative="1" as="geometry" />
@@ -431,6 +419,14 @@
         <mxCell id="As7zYQ27ajiBxiVSNyG--58" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="As7zYQ27ajiBxiVSNyG--59" target="As7zYQ27ajiBxiVSNyG--84" edge="1">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="2075.2799999999997" y="1357.4999999999995" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="XUpBR-v3J_Z_Iwn9Y3Ie-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="As7zYQ27ajiBxiVSNyG--59" target="As7zYQ27ajiBxiVSNyG--10">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1840" y="1230" />
+              <mxPoint x="1840" y="683" />
+            </Array>
           </mxGeometry>
         </mxCell>
         <mxCell id="As7zYQ27ajiBxiVSNyG--59" value="&lt;font style=&quot;font-size: 18px;&quot;&gt;&amp;nbsp;While player1 hasCards:&lt;/font&gt;" style="rhombus;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
@@ -458,10 +454,9 @@
         </mxCell>
         <mxCell id="lPtxXaYhRmQ_pLQ50HGr-35" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="As7zYQ27ajiBxiVSNyG--82">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="1840" y="1160" as="targetPoint" />
+            <mxPoint x="1840" y="1230" as="targetPoint" />
             <Array as="points">
-              <mxPoint x="1840" y="1555" />
-              <mxPoint x="1840" y="1160" />
+              <mxPoint x="1840" y="1595" />
             </Array>
           </mxGeometry>
         </mxCell>
@@ -529,9 +524,6 @@
         </mxCell>
         <mxCell id="OLSodcF-RHbEvANPN67J-15" value="It&#39;s a draw!" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fontSize=18;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="2928" y="1217.5" width="120" height="100" as="geometry" />
-        </mxCell>
-        <mxCell id="OLSodcF-RHbEvANPN67J-21" value="Output:" style="text;whiteSpace=wrap;html=1;fontSize=18;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="1960.28" y="821.88" width="70" height="33.75" as="geometry" />
         </mxCell>
         <mxCell id="OLSodcF-RHbEvANPN67J-23" value="Start of Gameplay" style="text;whiteSpace=wrap;html=1;fontSize=18;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="1790.28" y="-90" width="240" height="30" as="geometry" />
