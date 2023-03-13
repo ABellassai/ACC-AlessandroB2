@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-03-13T17:52:37.933Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36" etag="6TAv3oVKU-DZ5yxfcSyB" version="21.0.6" type="github" pages="5">
+<mxfile host="app.diagrams.net" modified="2023-03-13T17:53:12.986Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36" etag="iN9TUf706HDdA867T9Ey" version="21.0.6" type="github" pages="5">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Scopa Card Game">
     <mxGraphModel dx="1357" dy="1932" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="#009999" math="0" shadow="0">
       <root>
@@ -772,14 +772,14 @@
         <mxCell id="lPtxXaYhRmQ_pLQ50HGr-9" value="&lt;font style=&quot;font-size: 18px;&quot;&gt;End Game&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
           <mxGeometry x="2695" y="1350" width="120" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="lPtxXaYhRmQ_pLQ50HGr-11" value="Add all points gathered" style="rounded=0;whiteSpace=wrap;html=1;fontSize=18;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="2705" y="785" width="140" height="60" as="geometry" />
-        </mxCell>
         <mxCell id="lPtxXaYhRmQ_pLQ50HGr-12" value="Menu Page" style="text;whiteSpace=wrap;html=1;fontSize=18;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
           <mxGeometry x="670" width="120" height="30" as="geometry" />
         </mxCell>
         <mxCell id="lPtxXaYhRmQ_pLQ50HGr-15" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;False&lt;/font&gt;" style="text;whiteSpace=wrap;html=1;fontSize=18;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
           <mxGeometry x="1490" y="665" width="50" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="lPtxXaYhRmQ_pLQ50HGr-17" value="Outputs" style="text;whiteSpace=wrap;html=1;fontSize=18;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="2869" y="-130" width="90.5" height="30" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
