@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-03-13T23:31:07.551Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36" etag="hlNCrhjT68BIJoi5BxGc" version="21.0.6" type="github" pages="5">
+<mxfile host="app.diagrams.net" modified="2023-03-13T23:31:26.307Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36" etag="0zgGJHV_cCr9-HbQI-qU" version="21.0.6" type="github" pages="5">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Scopa Card Game">
     <mxGraphModel dx="1357" dy="1932" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="#009999" math="0" shadow="0">
       <root>
@@ -570,7 +570,7 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="lPtxXaYhRmQ_pLQ50HGr-22" value="Games Number == 1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fontSize=18;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="2015.28" y="170" width="119.44" height="90" as="geometry" />
+          <mxGeometry x="2012.92" y="170" width="124.72" height="90" as="geometry" />
         </mxCell>
         <mxCell id="XUpBR-v3J_Z_Iwn9Y3Ie-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="lPtxXaYhRmQ_pLQ50HGr-25" target="lPtxXaYhRmQ_pLQ50HGr-22">
           <mxGeometry relative="1" as="geometry" />
