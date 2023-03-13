@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-03-13T23:28:28.876Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36" etag="Zb9YK2XFa_RXRxwuv0u4" version="21.0.6" type="github" pages="5">
+<mxfile host="app.diagrams.net" modified="2023-03-13T23:30:07.983Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36" etag="FQjbyBgta-w46ThwTQqM" version="21.0.6" type="github" pages="5">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Scopa Card Game">
     <mxGraphModel dx="1357" dy="1932" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="#009999" math="0" shadow="0">
       <root>
@@ -377,9 +377,6 @@
             <mxPoint x="2892.5" y="1317.5555555555554" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="XUpBR-v3J_Z_Iwn9Y3Ie-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="As7zYQ27ajiBxiVSNyG--33" target="lPtxXaYhRmQ_pLQ50HGr-32">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
         <mxCell id="As7zYQ27ajiBxiVSNyG--33" value="&lt;span style=&quot;font-size: 18px;&quot;&gt;If player 1 poins == &lt;br&gt;player 2 points:&lt;/span&gt;" style="rhombus;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="2650" y="1257.5" width="210" height="120" as="geometry" />
         </mxCell>
@@ -502,6 +499,14 @@
         <mxCell id="OLSodcF-RHbEvANPN67J-0" value="Strategy 1 Prediction" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fontSize=18;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="530" y="70" width="120" height="100" as="geometry" />
         </mxCell>
+        <mxCell id="XUpBR-v3J_Z_Iwn9Y3Ie-24" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="OLSodcF-RHbEvANPN67J-1" target="lPtxXaYhRmQ_pLQ50HGr-32">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="3120" y="1038" />
+              <mxPoint x="3120" y="1470" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
         <mxCell id="OLSodcF-RHbEvANPN67J-1" value="Player 1 &lt;br&gt;Won!" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fontSize=18;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="2928" y="987.5" width="120" height="100" as="geometry" />
         </mxCell>
@@ -516,8 +521,18 @@
         <mxCell id="OLSodcF-RHbEvANPN67J-13" value="Strategy 2 Prediction" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fontSize=18;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="530" y="210" width="120" height="100" as="geometry" />
         </mxCell>
+        <mxCell id="XUpBR-v3J_Z_Iwn9Y3Ie-26" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="OLSodcF-RHbEvANPN67J-14">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="3120" y="1178" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
         <mxCell id="OLSodcF-RHbEvANPN67J-14" value="Player 2 &lt;br&gt;Won!" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fontSize=18;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="2928" y="1127.5" width="120" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="XUpBR-v3J_Z_Iwn9Y3Ie-27" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="OLSodcF-RHbEvANPN67J-15">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="3120" y="1318" as="targetPoint" />
+          </mxGeometry>
         </mxCell>
         <mxCell id="OLSodcF-RHbEvANPN67J-15" value="It&#39;s a draw!" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fontSize=18;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="2928" y="1267.5" width="120" height="100" as="geometry" />
