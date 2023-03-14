@@ -401,7 +401,7 @@ for gameIndex in range(0, nGames):
                     time.sleep(0.1)
     players[lastTakenIndex].takeRemainingCards()
     
-        '''
+    '''
         if gamemode == 3:
             if len(deck.cards) == 0 and nSimulation > 1:
                 print('________________________________NEW SIMULATION GAME________________________________')
@@ -414,20 +414,20 @@ for gameIndex in range(0, nGames):
                     player.pointsDeck = []
                 #save simulation data from each game on database
                 nSimulation = nSimulation - 1
-        ''' 
+    ''' 
 
-    #DEBUG CODE
-    
-    #                 tot = 0
-    #                 for p in players:
-    #                     tot += p.getHandCardsNum() + p.getCardsNum()
-    #                     print("Carte in mano player " + p.getName() + ": " + str(p.getHandCardsNum()))
-    #                     print("Carte punti player " + p.getName()+ ": " + str(p.getCardsNum()))
-    #                 tot += tab.getCardsNum() + deck.getCardsNum()
-    #                 print("Carte table: " + str(tab.getCardsNum()))
-    #                 print("Carte deck: " + str(deck.getCardsNum()))
-    #                 print("Carte totali: " + str(tot))
-    #                 time.sleep(0.1)               
+#                     #DEBUG CODE
+#     
+#                     tot = 0
+#                     for p in players:
+#                         tot += p.getHandCardsNum() + p.getCardsNum()
+#                         print("Cards in player's hand" + p.getName() + ": " + str(p.getHandCardsNum()))
+#                         print("Cards in Points Deck" + p.getName()+ ": " + str(p.getCardsNum()))
+#                     tot += tab.getCardsNum() + deck.getCardsNum()
+#                     print("Table Cards: " + str(tab.getCardsNum()))
+#                     print("Deck Cards: " + str(deck.getCardsNum()))
+#                     print("Total Cards: " + str(tot))
+#                     time.sleep(0.1)               
 
     #PLAYER 1 AND 2 SCORES CARDS AND COINS COLLECTED (AND 7 COIN)
     playerScores = [0] * len(players)
@@ -528,7 +528,6 @@ while deck is != empty and players have cards each:
 #POINTS COUNTER      
 scorePl1 = 0
 scorePl2 = 0
-
 if pointsDeck1.count(all cards) > pointsDeck2.count(all cards):
     scorePl1 + 1
 elif pointsDeck1.count(all cards) < pointsDeck2.count(all cards):
@@ -568,4 +567,13 @@ Find the mean of all cards taken in each turn and graph with a line graph which 
 took more cards
 Calculate frequencies of scopas for each game. Graph it on histogram and calculate average/mean
 !I have to calculate all myself without using data packs! NO BUILT IN FUNCTIONS!!!!
-''' 
+'''
+
+'''
+COSA RIMANE DA FARE:
+~ fare tutti e 4 i grafici (3 calcolare mean di carte, 4 calcolare la frequenza di scope x game)
+~ testare le 2 strategie - 1CPU gioca le carte piu basse se non c'e nessuna combinazione da prendere 2CPU random
+                         - 1CPU prende se possibile tutti gli ori sul tavolo, 2CPU random
+~ calcolare la percentuale di 100 simulazioni per le 2 strategie
+~ display la data con l'e-mail su un file CSV (email, stategia 1, strategia 2, no strategia, wins, losses, draws)
+'''
