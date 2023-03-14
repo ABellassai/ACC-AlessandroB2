@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2023-03-14T19:37:18.032Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36" etag="f7ysJJMhOHZzpdZ4Tha5" version="21.0.6" type="github" pages="6">
+<mxfile host="app.diagrams.net" modified="2023-03-14T19:41:39.009Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36" etag="jZw_jOLECqLFmQxyOnm4" version="21.0.6" type="github" pages="6">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Scopa Card Game">
-    <mxGraphModel dx="2714" dy="2695" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="#FFFFFF" math="0" shadow="0">
+    <mxGraphModel dx="1118" dy="1797" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="#FFFFFF" math="0" shadow="0">
       <root>
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
@@ -552,7 +552,7 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="lPtxXaYhRmQ_pLQ50HGr-18" value="Display Rules and Aims&amp;nbsp;" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fontSize=18;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="420" y="960" width="110" height="117.5" as="geometry" />
+          <mxGeometry x="413" y="981" width="110" height="117.5" as="geometry" />
         </mxCell>
         <mxCell id="XUpBR-v3J_Z_Iwn9Y3Ie-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="lPtxXaYhRmQ_pLQ50HGr-22" target="As7zYQ27ajiBxiVSNyG--1" edge="1">
           <mxGeometry relative="1" as="geometry" />
