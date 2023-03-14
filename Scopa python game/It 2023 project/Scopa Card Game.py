@@ -381,15 +381,26 @@ for gameIndex in range(0, nGames):
         print('New Turn')
         for player in players:
             player.draw(deck).draw(deck).draw(deck)
-            time.sleep(0.1)
+            if gamemode == 1 or gamemode == 2:
+                time.sleep(0.5)
+            else:
+                time.sleep(0.1)
         lastTakenIndex = 0
         while players[0].hasCards():
             for player in players:
                 tab.showTable()
-                time.sleep(0.2)
+                if gamemode == 1 or gamemode == 2:
+                    time.sleep(0.5)
+                else:
+                    time.sleep(0.1)
                 if player.playCard(tab) == True:
                     lastTakenIndex = players.index(player)
-                time.sleep(0.1)
+                if gamemode == 1 or gamemode == 2:
+                    time.sleep(0.5)
+                else:
+                    time.sleep(0.1)
+    players[lastTakenIndex].takeRemainingCards()
+    
         '''
         if gamemode == 3:
             if len(deck.cards) == 0 and nSimulation > 1:
@@ -403,11 +414,11 @@ for gameIndex in range(0, nGames):
                     player.pointsDeck = []
                 #save simulation data from each game on database
                 nSimulation = nSimulation - 1
-        '''  
-    players[lastTakenIndex].takeRemainingCards()
+        ''' 
 
     #DEBUG CODE
-                    
+    
+    #                 tot = 0
     #                 for p in players:
     #                     tot += p.getHandCardsNum() + p.getCardsNum()
     #                     print("Carte in mano player " + p.getName() + ": " + str(p.getHandCardsNum()))
@@ -416,8 +427,7 @@ for gameIndex in range(0, nGames):
     #                 print("Carte table: " + str(tab.getCardsNum()))
     #                 print("Carte deck: " + str(deck.getCardsNum()))
     #                 print("Carte totali: " + str(tot))
-    #                 time.sleep(0.1)
-                            
+    #                 time.sleep(0.1)               
 
     #PLAYER 1 AND 2 SCORES CARDS AND COINS COLLECTED (AND 7 COIN)
     playerScores = [0] * len(players)
