@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-03-14T19:36:16.434Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36" etag="Kq2JCxOu371d9y3Md44_" version="21.0.6" type="github" pages="6">
+<mxfile host="app.diagrams.net" modified="2023-03-14T19:37:18.032Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36" etag="f7ysJJMhOHZzpdZ4Tha5" version="21.0.6" type="github" pages="6">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Scopa Card Game">
     <mxGraphModel dx="2714" dy="2695" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="#FFFFFF" math="0" shadow="0">
       <root>
@@ -986,7 +986,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="5axb7NRhxRyGcv5LAkhd" name="Pagina-6">
-    <mxGraphModel dx="2340" dy="1780" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="229" dy="593" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -1319,7 +1319,7 @@
         </mxCell>
         <mxCell id="060piA-kxy__N17Yj_x_-87" value="" style="endArrow=classic;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" target="060piA-kxy__N17Yj_x_-71">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="1490" y="910" as="sourcePoint" />
+            <mxPoint x="1620" y="910" as="sourcePoint" />
             <mxPoint x="1250" y="930" as="targetPoint" />
             <Array as="points">
               <mxPoint x="1770" y="910" />
