@@ -274,21 +274,23 @@ print('Scopa Card Game!','\n',
     '[2] Multi Player','\n',
     '[3] Simulation Game','\n',
     '[4] Rules')
-gamemode = int(input('Welcome to my game, select one of the options: '))
-while gamemode < 1 or gamemode > 4:
-    gamemode = int(input('Invalid! Select one of the above options: '))
+gamemode = input('Welcome to my game, select one of the options: ')
+while gamemode.isdigit() == False:
+    while gamemode != "1" and gamemode != "2 " and gamemode != "3" and gamemode != "4":
+        gamemode = input('Invalid! Select one of the above options: ')
 time.sleep(0.5)
-    
+   
 #RULES AND GOING BACK TO MENU
-if gamemode == 4:
+if int(gamemode) == 4:
     import Rules
     print('Scopa Card Game!','\n',
     '[1] Single Player','\n',
     '[2] Multi Player','\n',
     '[3] Simulation Game')
-    gamemode = int(input('Select one of the options: '))
-    while gamemode < 1 or gamemode > 3:
-        gamemode = int(input('Invalid! Select one of the above options: '))
+    gamemode = input('Select one of the options: ')
+    while gamemode.isdigit() == False:
+        while gamemode != "1" and gamemode != "2 " and gamemode != "3":
+            gamemode = input('Invalid! Select one of the above options: ')
 #VERYFYING E-MAIL
 regex = '^[a-z0-9]+[\._]?[ a-z0-9]+[@]\w+[. ]\w{2,3}$'
 def check(email):
@@ -296,13 +298,12 @@ def check(email):
         return True
     else:
         return False
-    
 
 #MAKING EACH PLAYER'S HAND BASED ON THE GAMEMODE
 players = []
 nGames = 1
 
-if gamemode == 1:
+if int(gamemode) == 1:
     player = Player(str(input('Player 1, what is your name: ')))
     players.append(player)
     player1Email = input('Insert a valid E-mail: ')
@@ -315,7 +316,7 @@ if gamemode == 1:
     players.append(player)
     time.sleep(0.5)    
 
-elif gamemode == 2:
+elif int(gamemode) == 2:
     player = Player(str(input('Player 1, what is your name: ')))
     players.append(player)
     player1Email = input('Insert a valid E-mail: ')
@@ -332,7 +333,7 @@ elif gamemode == 2:
         player2Email = input('Invalid E-mail! Insert an existing Email: ')
     time.sleep(0.5)
 
-elif gamemode == 3:
+elif int(gamemode) == 3:
     nGames = int(input('How many simulations do you want to run? '))
     while nGames < 1:
         nGames = int(input('Invalid! Select at least one simulation to run: '))
@@ -362,7 +363,7 @@ df = pd.DataFrame(data)
 for gameIndex in range(0, nGames):
     for player in players:
         player.reset()
-    if gamemode == 3:
+    if int(gamemode) == 3:
         print('________________________________NEW SIMULATION GAME________________________________')
         
     #SHUFFLED DECK
@@ -381,7 +382,7 @@ for gameIndex in range(0, nGames):
         print('New Turn')
         for player in players:
             player.draw(deck).draw(deck).draw(deck)
-            if gamemode == 1 or gamemode == 2:
+            if int(gamemode) == 1 or int(gamemode) == 2:
                 time.sleep(0.5)
             else:
                 time.sleep(0.1)
@@ -389,20 +390,20 @@ for gameIndex in range(0, nGames):
         while players[0].hasCards():
             for player in players:
                 tab.showTable()
-                if gamemode == 1 or gamemode == 2:
+                if int(gamemode) == 1 or int(gamemode) == 2:
                     time.sleep(0.5)
                 else:
                     time.sleep(0.1)
                 if player.playCard(tab) == True:
                     lastTakenIndex = players.index(player)
-                if gamemode == 1 or gamemode == 2:
+                if int(gamemode) == 1 or int(gamemode) == 2:
                     time.sleep(0.5)
                 else:
                     time.sleep(0.1)
     players[lastTakenIndex].takeRemainingCards()
     
     '''
-        if gamemode == 3:
+        if int(gamemode) == 3:
             if len(deck.cards) == 0 and nSimulation > 1:
                 print('________________________________NEW SIMULATION GAME________________________________')
                 deck = Deck() 
@@ -477,14 +478,14 @@ for gameIndex in range(0, nGames):
         print(players[playerIndex].getName() + "'s points: " + str(playerScores[playerIndex]), '\n')
 
     if playerScores[0] > playerScores[1]:
-        if gamemode == 3:
+        if int(gamemode) == 3:
             print('The Winner is CPU 1!')
         else:
             print('The Winner is '+ players[0].name+'!')
     elif playerScores[0] < playerScores[1]:
-        if gamemode == 1:
+        if int(gamemode) == 1:
             print('The Winner is Player 2 (CPU)!')
-        elif  gamemode == 3:
+        elif  int(gamemode) == 3:
             print('The Winner is CPU 2!')
         else:
             print('The Winner is '+ players[1].name+'!')
