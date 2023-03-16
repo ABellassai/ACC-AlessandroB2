@@ -194,11 +194,17 @@ class Player(object):
             a = a + 1
         if self.isCpu == True:
             cardChosen = random.randint(1, len(self.hand))
+        elif self.isCpu == True and strategyChosen == 1:
+            cardChosen = random.randint(1, len(self.hand)) # CPU1 throws from the smallest card to the biggest
+            card.intVal()
+        elif self.isCpu == True and strategyChosen == 2:
+            cardChosen = random.randint(1, len(self.hand)) # CPU1 collects all coins on the table if combination available
+            Card.isCoin()
         else:
-            cardChosen = int(input(self.name+' which card do you want to play? '))
-            while cardChosen < 1 or cardChosen > len(self.hand):
-                cardChosen = int(input('Invalid! Select one of the cards in your hand: '))
-        playedCard = self.hand.pop(cardChosen - 1)
+            cardChosen = input(self.name+' which card do you want to play? ')
+            while not cardChosen.isdigit() or not (int(cardChosen) in range(1, len(self.hand) +1)):
+                cardChosen = input('Invalid! Select one of the cards in your hand: ')
+        playedCard = self.hand.pop(int(cardChosen) - 1)
         comb = tab.getCombinations()
         if comb[playedCard.intVal() - 1] == None:
             tab.addCard(playedCard)
@@ -280,17 +286,17 @@ while not gamemode.isdigit() or not (int(gamemode) in range(1, 5)):
 time.sleep(0.5)
    
 #RULES AND GOING BACK TO MENU
-if gamemode == '4':
+if int(gamemode) == 4:
     import Rules
     print('Scopa Card Game!','\n',
     '[1] Single Player','\n',
     '[2] Multi Player','\n',
     '[3] Simulation Game')
-gamemode = input('Select one of the options: ')
-while not gamemode.isdigit() or not (int(gamemode) in range(1, 4)):
-        gamemode = input('Invalid! Select one of the above options: ') 
-time.sleep(0.5)
-time.sleep(0.5)
+    gamemode = input('Select one of the options: ')
+    while not gamemode.isdigit() or not (int(gamemode) in range(1, 4)):
+            gamemode = input('Invalid! Select one of the above options: ') 
+    time.sleep(0.5)
+
 #VERYFYING E-MAIL
 import re
 
