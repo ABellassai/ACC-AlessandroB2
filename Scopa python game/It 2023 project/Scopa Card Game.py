@@ -274,24 +274,26 @@ print('Scopa Card Game!','\n',
     '[2] Multi Player','\n',
     '[3] Simulation Game','\n',
     '[4] Rules')
-gamemode = input('Welcome to my game, select one of the options: ')
-while gamemode.isdigit() == False:
-    while gamemode != "1" and gamemode != "2 " and gamemode != "3" and gamemode != "4":
-        gamemode = input('Invalid! Select one of the above options: ')
+gamemode = input('Select one of the options: ')
+while not gamemode.isdigit() or not (int(gamemode) in range(1, 5)):
+        gamemode = input('Invalid! Select one of the above options: ') 
 time.sleep(0.5)
    
 #RULES AND GOING BACK TO MENU
-if int(gamemode) == 4:
+if gamemode == '4':
     import Rules
     print('Scopa Card Game!','\n',
     '[1] Single Player','\n',
     '[2] Multi Player','\n',
     '[3] Simulation Game')
-    gamemode = input('Select one of the options: ')
-    while gamemode.isdigit() == False:
-        while gamemode != "1" and gamemode != "2 " and gamemode != "3":
-            gamemode = input('Invalid! Select one of the above options: ')
+gamemode = input('Select one of the options: ')
+while not gamemode.isdigit() or not (int(gamemode) in range(1, 4)):
+        gamemode = input('Invalid! Select one of the above options: ') 
+time.sleep(0.5)
+time.sleep(0.5)
 #VERYFYING E-MAIL
+import re
+
 regex = '^[a-z0-9]+[\._]?[ a-z0-9]+[@]\w+[. ]\w{2,3}$'
 def check(email):
     if(re.search(regex,email)):
