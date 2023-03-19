@@ -3,12 +3,10 @@ import random
 import time
 import pandas as pd
 import re
-#import ScoreStore
 
-# my 2 Strategies to test
-' - The chance of winning increases if you throw the lowest cards first and keep high cards so you get more sums'
-' - If you have the chance of getting golds take them because they could give you a point'
-' - If you leave a scopa with a low table that can be taken in  move you could give a free point and higher chance of loosing'
+# My 2 Strategies to test
+' - The chance of winning increases if you throw a card that takes, otherwise throw the smallest card'
+' - The chance of winning increases if you take a card that takes, otherwise throw a random card'
 
 #CREATION OF THE CARD OBJECT
 class Card(object):
@@ -42,7 +40,8 @@ class Deck(object):
     def __init__(self):
         self.cards = []
         self.build()
-        
+
+#BUILD THE DECK OF CARDS 
     def build(self):
         for s in ['Coins', 'Cups', 'Spades', 'Clubs']:
             for n in range(1, 11):
@@ -55,6 +54,7 @@ class Deck(object):
         for c in self.cards:
             c.show()
             
+#SHUFFLING THE DECK            
     def shuffle(self):
         for i in range(len(self.cards)-1, 0, -1):
             r = random.randint(0, i)
@@ -77,10 +77,8 @@ class Table(object):
     def showTable(self):
         print('\n')
         print('This is the table:')
-        
         for card in self.table:
             card.show()
-        #self.showComb()
     
     def getCards(self):
         return self.table
@@ -100,7 +98,7 @@ class Table(object):
     def isEmpty(self):
         return len(self.table) == 0
     
-    #MAKING ALL THE POSSIBLE COMBINATION OF SUMS FROM TABLE
+#MAKING ALL THE POSSIBLE COMBINATION OF SUMS FROM TABLE
     def createComb(self):
         combinations = [None] * 10
         for index1 in range(0, len(self.table)):
@@ -130,12 +128,13 @@ class Table(object):
             
 #MAKING THE PLAYERS
 class Player(object):
-    def __init__(self, name, isCpu = False):
+    def __init__(self, name, isCpu = False, strategy = 3):
         self.isCpu = isCpu
         self.name = name
         self.hand = []
         self.scopaCounter = 0
         self.pointsDeck = []
+        self.strategy = strategy
 
     def reset(self):
         self.hand = []
@@ -165,7 +164,8 @@ class Player(object):
     
     def getHandCardsNum(self):
         return len(self.hand)
-    
+
+#COUNTING ALL COINS FROM POINTSDECK
     def getCoinsNum(self):
         coinsNum = 0
         for card in self.pointsDeck:
@@ -173,12 +173,36 @@ class Player(object):
                 coinsNum += 1  
         return coinsNum
 
+#CHECKING IF PLAYER HAS COLLECTED 7 OF COIN
     def has7Coin(self):
         for card in self.pointsDeck:
             if card.is7Coin():
                 return True   
         return False
     
+#TESTING STRATEGY 1 FUNCTION  
+    def getSmallestCardIndex(self):
+        minValue = 11
+        minIndex = 0
+        count = 1
+        for card in self.hand:
+            if card.intVal() < minValue:
+                minValue = card.intVal()
+                minIndex = count
+            count += 1
+        return minIndex
+    
+#TESTING STRATEGY 2 FUNCTION     
+    def getTakingCardIndex(self):
+        count = 1
+        comb = tab.getCombinations()
+        for card in self.hand:
+            if comb[card.intVal() - 1] != None:
+                return count
+            count += 1
+        return -1
+
+#GIVE ALL THE REMAINING CARDS TO LAST PLAYER WHO TOOK FROM TABLE
     def takeRemainingCards(self):
         for card in tab.getCards():
             self.pointsDeck.append(card)
@@ -193,13 +217,16 @@ class Player(object):
             print('{}) {}'.format(a, card.strVal()))
             a = a + 1
         if self.isCpu == True:
-            cardChosen = random.randint(1, len(self.hand))
-        elif self.isCpu == True and strategyChosen == 1:
-            cardChosen = random.randint(1, len(self.hand)) # CPU1 throws from the smallest card to the biggest
-            card.intVal()
-        elif self.isCpu == True and strategyChosen == 2:
-            cardChosen = random.randint(1, len(self.hand)) # CPU1 collects all coins on the table if combination available
-            Card.isCoin()
+            if self.strategy == 1:   # player throws a card that takes, otherwise the smallest card
+                cardChosen = self.getTakingCardIndex()
+                if cardChosen < 0:
+                    cardChosen = self.getSmallestCardIndex() 
+            elif self.strategy == 2: # player throws a card that takes, otherwise random
+                cardChosen = self.getTakingCardIndex()
+                if cardChosen < 0:
+                    cardChosen = random.randint(1, len(self.hand)) 
+            else:                    # player throws a random card
+                cardChosen = random.randint(1, len(self.hand))
         else:
             cardChosen = input(self.name+' which card do you want to play? ')
             while not cardChosen.isdigit() or not (int(cardChosen) in range(1, len(self.hand) +1)):
@@ -222,33 +249,15 @@ class Player(object):
         tab.createComb()
         print(self.name +' played the '+ playedCard.strVal())
         return hasTaken
-    
-#TAKING CARDS WITH SUM OR WITH SAME CARD  (I need first to make the sums and the taking action)
-    '''            
-    def takingCards(self)
-        self.cards.append()
-      
-        if card is thrown != any sums or cards on the table or table is clear:
-            put it with the table cards
-        elif card is thrown == card with same value:
-                take and put in the points deck
-        elif card is thrown == sum:
-            if card is thrown = possibleSums:
-                let the player pick which sum they want to take
-                take and put in the points deck
-'''
-    
-#MAIN _________________________________________________________________________________________________________________
+
+#_______________________________________MAIN _______________________________________
 
 #DECIDING WHAT STRATEGY USER WANTS TO PICK
-Strat1Prediction = 67
-Strat2Prediction = 56
-
 print('Scopa Card Game!','\n',
-    '(1) Strategy 1: The chance of winning increases if you throw the lowest','\n',
-    'cards first from your hand and keep high cards so you get more sums','\n',
-    '(2) Strategy 2: If you collect more coin cards you have','\n',
-    'better chance of winning the game','\n',
+    '(1) Strategy 1: The chance of winning increases if you throw a card','\n',
+    'that takes or otherwise throw the smallest card in your hand.','\n',
+    '(2) Strategy 2: The chance of winning increases if you throw a card','\n',
+    'that takes or otherwise throw a random card.','\n',
     '(3) No Strategy to test')
 strategyChosen = int(input('Welcome to my game, select one of the options: '))
 while strategyChosen < 1 or strategyChosen > 3:
@@ -258,19 +267,17 @@ time.sleep(0.5)
 #DECIDING WHAT GAMEMODE USER WANTS TO PLAY
 if strategyChosen == 1:
     print('\n',
-          'The prediction made from the simulation proves that if you follow','\n',
-        'the strategy of using lower cards and saving the higher cards ','\n',
-        'to take more sums on the table gives you a chance of winning ','\n',
-        'of % against your opponent.','\n')
-            #'+ str(Strat1Prediction) + '
+          'The prediction made from 100 simulations proves that if you follow','\n',
+        'the strategy of using a card that takes or otherwise throwing the','\n',
+        'smallest card in your hand gives you a chance of winning ','\n',
+        'of 71.1% against your opponent.','\n')
     time.sleep(0.5)
     
 elif strategyChosen == 2:
     print('\n',
-          'The prediction made from the simulation proves that if you follow','\n',
-        'the strategy of collecting coins during the game,','\n',
-        'gives you a chance of winning of % against your opponent.','\n')
-                                        #'+ str(Strat2Prediction) + '
+          'The prediction made from 100 simulations proves that if you follow','\n',
+        'the strategy of using a card that takes or otherwise throwing a,','\n',
+        'random card gives you a chance of winning of 59.9% against your opponent.','\n')
     time.sleep(0.5)
 else:
     time.sleep(0.5)
@@ -297,9 +304,7 @@ if int(gamemode) == 4:
             gamemode = input('Invalid! Select one of the above options: ') 
     time.sleep(0.5)
 
-#VERYFYING E-MAIL
-import re
-
+#VERYFYING E-MAIL FUNCTION
 regex = '^[a-z0-9]+[\._]?[ a-z0-9]+[@]\w+[. ]\w{2,3}$'
 def check(email):
     if(re.search(regex,email)):
@@ -307,7 +312,7 @@ def check(email):
     else:
         return False
 
-#MAKING EACH PLAYER'S HAND BASED ON THE GAMEMODE
+#MAKING EACH PLAYER BASED ON THE GAMEMODE
 players = []
 nGames = 1
 
@@ -346,7 +351,7 @@ elif int(gamemode) == 3:
     while nGames < 1:
         nGames = int(input('Invalid! Select at least one simulation to run: '))
         
-    player = Player('CPU1', True)
+    player = Player('CPU1', True, strategyChosen)
     players.append(player)
     time.sleep(0.5)
     
@@ -354,20 +359,20 @@ elif int(gamemode) == 3:
     players.append(player)
     time.sleep(0.5)
 
+#SEEING THE TABLE VALUES IN THE FIRST ROW
 data = {
-    'Cards CPU1': [],
-    'Coins CPU1': [],
-    'Scopas CPU1': [],
-    '7 Of Coin CPU1': [],
-    'Total Points CPU1': [],
-    'Cards CPU2': [],
-    'Coins CPU2': [],
-    'Scopas CPU2': [],
-    '7 Of Coin CPU2': [],
-    'Total Points CPU2': []
+    'Games': [],
+    'Cards': [],
+    'Coins': [],
+    'Scopas': [],
+    '7 Of Coin': [],
+    'Total Points': [],
+    'Players': []
 }
 df = pd.DataFrame(data)
+L = []
 
+#DECIDING THE NUMBER OF GAMES
 for gameIndex in range(0, nGames):
     for player in players:
         player.reset()
@@ -410,20 +415,6 @@ for gameIndex in range(0, nGames):
                     time.sleep(0.1)
     players[lastTakenIndex].takeRemainingCards()
     
-    '''
-        if int(gamemode) == 3:
-            if len(deck.cards) == 0 and nSimulation > 1:
-                print('________________________________NEW SIMULATION GAME________________________________')
-                deck = Deck() 
-                deck.shuffle()
-                tab = Table()
-                tab.draw(deck).draw(deck).draw(deck).draw(deck)
-                tab.createComb()
-                for player in players:
-                    player.pointsDeck = []
-                #save simulation data from each game on database
-                nSimulation = nSimulation - 1
-    ''' 
 
 #                     #DEBUG CODE
 #     
@@ -438,7 +429,7 @@ for gameIndex in range(0, nGames):
 #                     print("Total Cards: " + str(tot))
 #                     time.sleep(0.1)               
 
-    #PLAYER 1 AND 2 SCORES CARDS AND COINS COLLECTED (AND 7 COIN)
+    #PLAYER 1 AND 2 SCORES, CARDS, COINS, SCOPAS AND WHO COLLECTED 7 COIN
     playerScores = [0] * len(players)
     player7CoinNum = [0] * len(players)
     playerCoinsNum = [0] * len(players)
@@ -473,7 +464,8 @@ for gameIndex in range(0, nGames):
         playerScores[maxIndexCards] = playerScores[maxIndexCards] + 1
     if maxIndexCoins > -1:
         playerScores[maxIndexCoins] = playerScores[maxIndexCoins] + 1
-
+    
+    #PRINTING THE RESULTS OF GAME
     print('\n')
     for playerIndex in range(0, len(players)):
         print(players[playerIndex].getName() + "'s total Cards are " + str(playerCardsNum[playerIndex]))
@@ -484,7 +476,8 @@ for gameIndex in range(0, nGames):
             print(players[playerIndex].getName() + " hasn't got the 7 of Coins")
         print(players[playerIndex].getName() + "'s total Scopas are " + str(playerScopaNum[playerIndex]))
         print(players[playerIndex].getName() + "'s points: " + str(playerScores[playerIndex]), '\n')
-
+    
+    #NOMINATING A WINNER
     if playerScores[0] > playerScores[1]:
         if int(gamemode) == 3:
             print('The Winner is CPU 1!')
@@ -500,10 +493,57 @@ for gameIndex in range(0, nGames):
     elif playerScores[0] == playerScores[1]:
         print("It's a Draw!")
     print('End game!')
-    time.sleep(3)
-    df = df.append(pd.Series([playerCardsNum[0],playerCoinsNum[0],playerScopaNum[0],player7CoinNum[0],playerScores[0],playerCardsNum[1],playerCoinsNum[1],playerScopaNum[1],player7CoinNum[1],playerScores[1]], index=df.columns), ignore_index=True)
+    time.sleep(0.1)
+    
+#SAVE EACH GAME WITH DATA IN CSV FILE
+    #PLAYER 1
+    l = []
+    l.append(gameIndex+1)
+    l.append(playerCardsNum[0])
+    l.append(playerCoinsNum[0])
+    l.append(playerScopaNum[0])
+    l.append(player7CoinNum[0])
+    l.append(playerScores[0])
+    l.append(players[0].getName())
+    L.insert(gameIndex, l)
+    #PLAYER 2
+    l = []
+    l.append(gameIndex+1)
+    l.append(playerCardsNum[1])
+    l.append(playerCoinsNum[1])
+    l.append(playerScopaNum[1])
+    l.append(player7CoinNum[1])
+    l.append(playerScores[1])
+    l.append(players[1].getName())
+    L.append(l)
+for l in L:
+    df = df.append(pd.Series(l, index=df.columns), ignore_index=True)
 
+#GRAPHING THE DATA AQUIRED
 df.to_csv('ScoreStoreFile.csv', ',', mode='w')
+import ScoreStore
+
+#100 SIMULATIONS I RUN AND SAVED DATA IN EACH CSV FOR EACH STRATEGY USED (GRAPHS ARE IN EACH CSV)
+'''
+if strategyChosen == 1:
+    df.to_csv('Strategy 1 test.csv', ',', mode='w')
+elif strategyChosen == 2:
+    df.to_csv('Strategy 2 test.csv', ',', mode='w')
+'''
+
+#MAKING THE TABLE WITH ALL GAMES RECORDED ACCESSIBLE TO USER THROUGH E-MAIL
+df.to_csv('Games Recorded.csv', ',', mode='w')
+dfGames = pd.read_csv('Games Recorded.csv')
+tableAccessEmail = input('Insert a valid E-mail: ')
+check(tableAccessEmail) 
+while check(tableAccessEmail) == False:
+    tableAccessEmail = input('Invalid E-mail! Insert an existing Email: ')
+'''
+if tableAccessEmail has been used:
+    show all the table with all the info (email, stategia 1, strategia 2, no strategia, wins, losses, draws)     
+'''
+
+
 
 # Wording the code so I understand it better
 '''
@@ -565,24 +605,4 @@ elif scorePl1 < scorePl2:
     else:
         print('The Winner is'+ players[1].name+'!')
 elif scorePl1 == scorePl2:
-    print('Draw!')
-            
-                        #Graphs
-Barcharts of all points aquired by each player
-Pie chart graph for all cards collected by each player XXXX
-Pie chart graph for all golden cards collected by each player XXXX
-Scatter plot graph to record in which turn scopas were taken (grafico a puntini)
-Find the mean of all cards taken in each turn and graph with a line graph which turns players
-took more cards
-Calculate frequencies of scopas for each game. Graph it on histogram and calculate average/mean
-!I have to calculate all myself without using data packs! NO BUILT IN FUNCTIONS!!!!
-'''
-
-'''
-COSA RIMANE DA FARE:
-~ fare tutti e 4 i grafici (3 calcolare mean di carte, 4 calcolare la frequenza di scope x game)
-~ testare le 2 strategie - 1CPU gioca le carte piu basse se non c'e nessuna combinazione da prendere 2CPU random
-                         - 1CPU prende se possibile tutti gli ori sul tavolo, 2CPU random
-~ calcolare la percentuale di 100 simulazioni per le 2 strategie
-~ display la data con l'e-mail su un file CSV (email, stategia 1, strategia 2, no strategia, wins, losses, draws)
-'''
+    print('Draw!') 
