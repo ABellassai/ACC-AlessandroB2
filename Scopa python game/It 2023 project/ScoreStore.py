@@ -1,84 +1,45 @@
 import pandas as pd
 import plotly.express as px
 import plotly
-#import os
-#import csv
 
-#I can make a list of sums for every turn
-#Output:
-'''
-        sums player1  sums player2
-  Turn1      3           1
-  Turn2      6           0
-  Turn3      1           4
-'''
-data = {
-  "sums player1": [3, 6, 1],
-  "sums player2": [1, 0, 4]
-}
-
-#----------------------------------------------------
+def pieChart(value1, value2, player1, player2):
+    sequence = []
+    sequence.append(value1)
+    sequence.append(value2)
+    players = []
+    players.append(player1)
+    players.append(player2)
+    fig = px.pie(values=sequence, names=players)
+    fig.show()
+    
+def barChart(df):
+    fig = px.bar(df, x='Games', y='Total Points', color='Players')
+    fig.show()
 
 df = pd.read_csv('ScoreStoreFile.csv')
 
-playerCoinsNum = list(df.loc[1])[1:]
-players = list(df.columns)[1:]
+nGames = int(len(df.loc[0:]) / 2)
 
-df2 = pd.read_csv('ScoreStoreFile.csv')
+totCardsCPU1 = 0
+totCardsCPU2 = 0
+totCoinsCPU1 = 0
+totCoinsCPU2 = 0
+totPointsCPU1 = 0
+totPointsCPU2 = 0
 
-playerCardsNum = list(df2.loc[1])[1:]
-players = list(df2.columns)[1:]
+for gameIndex in range(0, nGames):
+    totCardsCPU1 = totCardsCPU1 + df.loc[gameIndex][2]
+    totCardsCPU2 = totCardsCPU2 + df.loc[gameIndex + nGames][2]
+    totCoinsCPU1 = totCoinsCPU1 + df.loc[gameIndex][3]
+    totCoinsCPU2 = totCoinsCPU2 + df.loc[gameIndex + nGames][3]
+    totPointsCPU1 = totPointsCPU1 + df.loc[gameIndex][6]
+    totPointsCPU2 = totPointsCPU2 + df.loc[gameIndex + nGames][6]
 
-df3 = pd.read_csv('ScoreStoreFile.csv')
-
-playerCardsNum = list(df2.loc[0])[1:]
-players = list(df2.columns)[1:]
-
-
+pieChart(round(totCardsCPU1 / nGames, 2), round(totCardsCPU2 / nGames, 2), df.loc[0][7], df.loc[nGames][7])
 '''
-winList = (df.values.tolist())[0]
-winChar = (df.values.tolist())[1]
-loseList = (df.values.tolist())[2]
-looseChar = (df.values.tolist())[3]
-turnCounts = (df.values.tolist())[4]
-cardsTaken = (df.values.tolist())[5]
-pDeckDifference = (df.values.tolist())[6]
-coinDifference = (df.values.tolist())[7]
+fig = px.pie(df,  values='Cards', names='Players', title='Average of Cards')
+fig.show()
 '''
-
-#Coins Pie chart
-fig1 = px.pie(values= playerCoinsNum, names= players)
-fig1.show()
-#Cards Pie chart
-fig2 = px.pie(values= playerCardsNum, names= players)
-fig2.show()
-
-'''
-#Scopas Scatterplot
-fig3 = px.scatter(x = turnCounts, y = cardsTaken)
-fig3.show()
-#Barchart of player points
-fig4 = px.scatter(x=[0, 1, 2, 3, 4], y=[0, 1, 4, 9, 16])
-fig4.show()
-'''
-
-'''
-# Creating Dataset
-chars = []
-players = ['PLAYER 1', 'PLAYER 2']
-dataChar = [0, 0, 0, 0, 0, 0, 0]
-for i in range(len(winChar)):
-    dataChar[int(winChar[i] - 1)] += 1
-dataPlayer = [0, 0]
-for i in range(len(winChar)):
-    dataPlayer[int(winChar[i] - 1)] += 1
-    
-#Creating Plot
-fig1 = px.pie(values = dataChar, names = chars)
-fig2 = px.pie(values = dataPlayer, names = players)
-fig3 = px.scatter(x = turnCounts, y = cardsTaken)
-#Show.plot
-fig1.show()
-fig2.show()
-fig3.show()
-'''
+pieChart(round(totCoinsCPU1 / nGames, 2), round(totCoinsCPU2 / nGames, 2), df.loc[0][7], df.loc[nGames][7])
+pieChart(round(totPointsCPU1 / nGames, 2), round(totPointsCPU2 / nGames, 2), df.loc[0][7], df.loc[nGames][7])
+barChart(df)
