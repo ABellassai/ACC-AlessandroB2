@@ -1,45 +1,87 @@
 import pandas as pd
 import plotly.express as px
+import plotly.graph_objects as go
 import plotly
-
-def pieChart(value1, value2, player1, player2):
-    sequence = []
-    sequence.append(value1)
-    sequence.append(value2)
-    players = []
-    players.append(player1)
-    players.append(player2)
-    fig = px.pie(values=sequence, names=players)
-    fig.show()
-    
-def barChart(df):
-    fig = px.bar(df, x='Games', y='Total Points', color='Players')
-    fig.show()
+import os.path as path
 
 df = pd.read_csv('ScoreStoreFile.csv')
 
-nGames = int(len(df.loc[0:]) / 2)
-
-totCardsCPU1 = 0
-totCardsCPU2 = 0
-totCoinsCPU1 = 0
-totCoinsCPU2 = 0
-totPointsCPU1 = 0
-totPointsCPU2 = 0
-
-for gameIndex in range(0, nGames):
-    totCardsCPU1 = totCardsCPU1 + df.loc[gameIndex][2]
-    totCardsCPU2 = totCardsCPU2 + df.loc[gameIndex + nGames][2]
-    totCoinsCPU1 = totCoinsCPU1 + df.loc[gameIndex][3]
-    totCoinsCPU2 = totCoinsCPU2 + df.loc[gameIndex + nGames][3]
-    totPointsCPU1 = totPointsCPU1 + df.loc[gameIndex][6]
-    totPointsCPU2 = totPointsCPU2 + df.loc[gameIndex + nGames][6]
-
-pieChart(round(totCardsCPU1 / nGames, 2), round(totCardsCPU2 / nGames, 2), df.loc[0][7], df.loc[nGames][7])
-'''
-fig = px.pie(df,  values='Cards', names='Players', title='Average of Cards')
+# PIE CHARTS
+data1 = {
+   "values": df['Total Points'].tolist(),
+   "labels": df['Player'].tolist(),
+   "domain": {"column": 0},
+   "hoverinfo":"label+value",
+   "hole": .4,
+   "type": "pie"
+}
+data2 = {
+   "values": df['Cards'].tolist(),
+   "labels": df['Player'].tolist(),
+   "domain": {"column": 1},
+   "hoverinfo":"label+value",
+   "hole": .4,
+   "type": "pie"
+}
+data3 = {
+   "values": df['Coins'].tolist(),
+   "labels": df['Player'].tolist(),
+   "domain": {"column": 2},
+   "hoverinfo": "label+value",
+   "hole": .4,
+   "type": "pie"
+}
+data = [data1,data2,data3]
+layout = go.Layout(
+   {
+      "title":"Pie Charts",
+      "grid": {"rows": 1, "columns": 3},
+      "annotations": [
+         {
+            "font": {
+               "size": 20
+            },
+            "showarrow": False,
+            "text": "Total Points",
+            "x": 0.11,
+            "y": 0.5
+         },
+         {
+            "font": {
+               "size": 20
+            },
+            "showarrow": False,
+            "text": "Total Cards",
+            "x": 0.5,
+            "y": 0.5
+         },
+         {
+            "font": {
+               "size": 20
+            },
+            "showarrow": False,
+            "text": "Total Coins",
+            "x": 0.89,
+            "y": 0.5
+         }
+      ]
+   }
+)
+fig = go.Figure(data = data, layout = layout)
 fig.show()
-'''
-pieChart(round(totCoinsCPU1 / nGames, 2), round(totCoinsCPU2 / nGames, 2), df.loc[0][7], df.loc[nGames][7])
-pieChart(round(totPointsCPU1 / nGames, 2), round(totPointsCPU2 / nGames, 2), df.loc[0][7], df.loc[nGames][7])
-barChart(df)
+
+#BAR CHART
+fig = px.bar(df, x='Games', y='Total Points', color='Player', title='Points per game')
+fig.show()
+
+#GAMES RECORDED TABLE
+if path.exists('Games Recorded.csv'):
+    df = pd.read_csv('Games Recorded.csv', index_col=0 )
+    fig = go.Figure(layout = go.Layout(title = go.layout.Title(text="Games Recorded")))
+    fig.add_trace( 
+        go.Table(
+            header = dict(values=list(df.columns)),
+            cells = dict(values=[df.iloc[:,num] for num in range(len(df.columns))])
+        )
+    )
+    fig.show()
