@@ -3,6 +3,7 @@ import random
 import time
 import pandas as pd
 import re
+import os.path as path
 
 # My 2 Strategies to test
 ' - The chance of winning increases if you throw a card that takes, otherwise throw the smallest card'
@@ -360,16 +361,15 @@ elif int(gamemode) == 3:
     time.sleep(0.5)
 
 #SEEING THE TABLE VALUES IN THE FIRST ROW
-data = {
+df = pd.DataFrame({
     'Games': [],
     'Cards': [],
     'Coins': [],
     'Scopas': [],
     '7 Of Coin': [],
     'Total Points': [],
-    'Players': []
-}
-df = pd.DataFrame(data)
+    'Player': []
+})
 L = []
 
 #DECIDING THE NUMBER OF GAMES
@@ -519,9 +519,8 @@ for gameIndex in range(0, nGames):
 for l in L:
     df = df.append(pd.Series(l, index=df.columns), ignore_index=True)
 
-#GRAPHING THE DATA AQUIRED
 df.to_csv('ScoreStoreFile.csv', ',', mode='w')
-import ScoreStore
+
 
 #100 SIMULATIONS I RUN AND SAVED DATA IN EACH CSV FOR EACH STRATEGY USED (GRAPHS ARE IN EACH CSV)
 '''
@@ -532,18 +531,104 @@ elif strategyChosen == 2:
 '''
 
 #MAKING THE TABLE WITH ALL GAMES RECORDED ACCESSIBLE TO USER THROUGH E-MAIL
-df.to_csv('Games Recorded.csv', ',', mode='w')
-dfGames = pd.read_csv('Games Recorded.csv')
-tableAccessEmail = input('Insert a valid E-mail: ')
-check(tableAccessEmail) 
-while check(tableAccessEmail) == False:
-    tableAccessEmail = input('Invalid E-mail! Insert an existing Email: ')
-'''
-if tableAccessEmail has been used:
-    show all the table with all the info (email, stategia 1, strategia 2, no strategia, wins, losses, draws)     
-'''
+if int(gamemode) == 1 or int(gamemode) == 2:
+    win = playerScores[0] > playerScores[1]
+    draw = playerScores[0] == playerScores[1]
+    loss = playerScores[0] < playerScores[1]
+    strategy1 = strategyChosen == 1
+    strategy2 = strategyChosen == 2
+    noStrategy = strategyChosen == 3
+    if path.exists('Games Recorded.csv'):
+        df = pd.read_csv('Games Recorded.csv', index_col=0 )
+    else:
+        df = pd.DataFrame({
+            'Email': [],
+            'Games played': [],
+            'Wins': [],
+            'Draws': [],
+            'Losses': [],
+            'Strategy 1': [],
+            'Strategy 2': [],
+            'No strategy': []
+        })
 
+    if len(df.loc[df['Email'] == player1Email]) == 0:
+        newRow = {'Email': player1Email,
+                   'Games played': 1,
+                   'Wins': 1 if win else 0,
+                   'Draws': 1 if draw else 0,
+                   'Losses': 1 if loss else 0,
+                   'Strategy 1': 1 if strategy1 else 0,
+                   'Strategy 2': 1 if strategy2 else 0,
+                   'No strategy': 1 if noStrategy else 0}
+        df = df.append(newRow, ignore_index=True)
+    else:
+        lIndex = df.index[df['Email'] == player1Email].tolist()
+        df.at[lIndex[0],'Games played'] += 1
+        if win == True:
+            df.at[lIndex[0],'Wins'] += 1
+        if draw == True:
+            df.at[lIndex[0],'Draws'] += 1
+        if loss == True:
+            df.at[lIndex[0],'Losses'] += 1
+        if strategy1 == True:
+            df.at[lIndex[0],'Strategy 1'] += 1
+        if strategy2 == True:
+            df.at[lIndex[0],'Strategy 2'] += 1
+        if noStrategy == True:
+            df.at[lIndex[0],'No strategy'] += 1
+    df.to_csv('Games Recorded.csv', ',', mode='w')
 
+if int(gamemode) == 2:
+    win = playerScores[1] > playerScores[0]
+    draw = playerScores[1] == playerScores[0]
+    loss = playerScores[1] < playerScores[0]
+    strategy1 = strategyChosen == 1
+    strategy2 = strategyChosen == 2
+    noStrategy = strategyChosen == 3
+    if path.exists('Games Recorded.csv'):
+        df = pd.read_csv('Games Recorded.csv', index_col=0 )
+    else:
+        df = pd.DataFrame({
+            'Email': [],
+            'Games played': [],
+            'Wins': [],
+            'Draws': [],
+            'Losses': [],
+            'Strategy 1': [],
+            'Strategy 2': [],
+            'No strategy': []
+        })
+
+    if len(df.loc[df['Email'] == player2Email]) == 0:
+        newRow = {'Email': player2Email,
+                   'Games played': 1,
+                   'Wins': 1 if win else 0,
+                   'Draws': 1 if draw else 0,
+                   'Losses': 1 if loss else 0,
+                   'Strategy 1': 1 if strategy1 else 0,
+                   'Strategy 2': 1 if strategy2 else 0,
+                   'No strategy': 1 if noStrategy else 0}
+        df = df.append(newRow, ignore_index=True)
+    else:
+        lIndex = df.index[df['Email'] == player2Email].tolist()
+        df.at[lIndex[0],'Games played'] += 1
+        if win == True:
+            df.at[lIndex[0],'Wins'] += 1
+        if draw == True:
+            df.at[lIndex[0],'Draws'] += 1
+        if loss == True:
+            df.at[lIndex[0],'Losses'] += 1
+        if strategy1 == True:
+            df.at[lIndex[0],'Strategy 1'] += 1
+        if strategy2 == True:
+            df.at[lIndex[0],'Strategy 2'] += 1
+        if noStrategy == True:
+            df.at[lIndex[0],'No strategy'] += 1
+    df.to_csv('Games Recorded.csv', ',', mode='w')
+
+#GRAPHING THE DATA ACQUIRED
+import ScoreStore
 
 # Wording the code so I understand it better
 '''
@@ -606,3 +691,5 @@ elif scorePl1 < scorePl2:
         print('The Winner is'+ players[1].name+'!')
 elif scorePl1 == scorePl2:
     print('Draw!') 
+   
+END MAIN
