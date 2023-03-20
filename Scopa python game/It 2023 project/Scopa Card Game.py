@@ -1,13 +1,17 @@
 #            ------------------------Scopa Card Game------------------------
 
+# My objectives:
+' 1. To allow the user to interact with the game'
+' 2. To allow the player to enter different inputs'
+' 3. To implement various game modes to choose from'
+' 4. To save all the data into files and be able to iterate through the file'
+' 5. To analyse the data and display it.'
+' 6. To test and find the best strategy to win the game.'
+' 7. To provide a fun experience to the user.'
+
 # My 2 Strategies to test:
 ' - The chance of winning increases if you throw a card that takes, otherwise throw the smallest card'
 ' - The chance of winning increases if you take a card that takes, otherwise throw a random card'
-
-# My objectives:
-' 1. To provide a fun experience to the user.'
-' 2. To analyse the data and display it clearly.'
-' 3. To find the best strategy to win the game.'
 
 #IMPORTED LIBRARIES
 import random
@@ -267,13 +271,13 @@ print('Scopa Card Game!','\n',
     '(2) Strategy 2: The chance of winning increases if you throw a card','\n',
     'that takes or otherwise throw a random card.','\n',
     '(3) No Strategy to test')
-strategyChosen = int(input('Welcome to my game, select one of the options: '))
-while strategyChosen < 1 or strategyChosen > 3:
-    strategyChosen = int(input('Invalid! Select one of the above options: '))
+strategyChosen = input('Welcome to my game, select one of the options: ')
+while not strategyChosen.isdigit() or not (int(strategyChosen) in range(1, 4)):
+    strategyChosen = input('Invalid! Select one of the above options: ')
 time.sleep(0.5)
 
 #DECIDING WHAT GAMEMODE USER WANTS TO PLAY
-if strategyChosen == 1:
+if int(strategyChosen) == 1:
     print('\n',
           'The prediction made from 100 simulations proves that if you follow','\n',
         'the strategy of using a card that takes or otherwise throwing the','\n',
@@ -281,7 +285,7 @@ if strategyChosen == 1:
         'of 68.0% against your opponent.','\n')
     time.sleep(0.5)
     
-elif strategyChosen == 2:
+elif int(strategyChosen) == 2:
     print('\n',
           'The prediction made from 100 simulations proves that if you follow','\n',
         'the strategy of using a card that takes or otherwise throwing a,','\n',
@@ -313,7 +317,7 @@ if int(gamemode) == 4:
     time.sleep(0.5)
 
 #VERYFYING E-MAIL FUNCTION
-regex = '^[a-z0-9]+[\._]?[ a-z0-9]+[@]\w+[. ]\w{2,3}$'
+regex = '^[a-zA-Z0-9]+[\._]?[A-Za-z0-9]+[@]\w+[. ]\w{2,3}$'
 def check(email):
     if(re.search(regex,email)):
         return True
@@ -359,7 +363,7 @@ elif int(gamemode) == 3:
     while nGames < 1:
         nGames = int(input('Invalid! Select at least one simulation to run: '))
         
-    player = Player('CPU1', True, strategyChosen)
+    player = Player('CPU1', True, int(strategyChosen))
     players.append(player)
     time.sleep(0.5)
     
@@ -530,9 +534,9 @@ df.to_csv('ScoreStoreFile.csv', ',', mode='w')
 
 #100 SIMULATIONS I RUN AND SAVED DATA IN EACH CSV FOR EACH STRATEGY USED (GRAPHS ARE IN EACH CSV)
 '''
-if strategyChosen == 1:
+if int(strategyChosen) == 1:
     df.to_csv('Strategy 1 test.csv', ',', mode='w')
-elif strategyChosen == 2:
+elif int(strategyChosen) == 2:
     df.to_csv('Strategy 2 test.csv', ',', mode='w')
 '''
 
@@ -541,9 +545,9 @@ if int(gamemode) == 1 or int(gamemode) == 2:
     win = playerScores[0] > playerScores[1]
     draw = playerScores[0] == playerScores[1]
     loss = playerScores[0] < playerScores[1]
-    strategy1 = strategyChosen == 1
-    strategy2 = strategyChosen == 2
-    noStrategy = strategyChosen == 3
+    strategy1 = int(strategyChosen) == 1
+    strategy2 = int(strategyChosen) == 2
+    noStrategy = int(strategyChosen) == 3
     if path.exists('Games Recorded.csv'):
         df = pd.read_csv('Games Recorded.csv', index_col=0 )
     else:
@@ -589,9 +593,9 @@ if int(gamemode) == 2:
     win = playerScores[1] > playerScores[0]
     draw = playerScores[1] == playerScores[0]
     loss = playerScores[1] < playerScores[0]
-    strategy1 = strategyChosen == 1
-    strategy2 = strategyChosen == 2
-    noStrategy = strategyChosen == 3
+    strategy1 = int(strategyChosen) == 1
+    strategy2 = int(strategyChosen) == 2
+    noStrategy = int(strategyChosen) == 3
     if path.exists('Games Recorded.csv'):
         df = pd.read_csv('Games Recorded.csv', index_col=0 )
     else:
