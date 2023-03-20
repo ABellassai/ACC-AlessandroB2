@@ -1,13 +1,20 @@
 #            ------------------------Scopa Card Game------------------------
+
+# My 2 Strategies to test:
+' - The chance of winning increases if you throw a card that takes, otherwise throw the smallest card'
+' - The chance of winning increases if you take a card that takes, otherwise throw a random card'
+
+# My objectives:
+' 1. To provide a fun experience to the user.'
+' 2. To analyse the data and display it clearly.'
+' 3. To find the best strategy to win the game.'
+
+#IMPORTED LIBRARIES
 import random
 import time
 import pandas as pd
 import re
 import os.path as path
-
-# My 2 Strategies to test
-' - The chance of winning increases if you throw a card that takes, otherwise throw the smallest card'
-' - The chance of winning increases if you take a card that takes, otherwise throw a random card'
 
 #CREATION OF THE CARD OBJECT
 class Card(object):
@@ -271,14 +278,14 @@ if strategyChosen == 1:
           'The prediction made from 100 simulations proves that if you follow','\n',
         'the strategy of using a card that takes or otherwise throwing the','\n',
         'smallest card in your hand gives you a chance of winning ','\n',
-        'of 71.1% against your opponent.','\n')
+        'of 68.0% against your opponent.','\n')
     time.sleep(0.5)
     
 elif strategyChosen == 2:
     print('\n',
           'The prediction made from 100 simulations proves that if you follow','\n',
         'the strategy of using a card that takes or otherwise throwing a,','\n',
-        'random card gives you a chance of winning of 59.9% against your opponent.','\n')
+        'random card gives you a chance of winning of 54.8% against your opponent.','\n')
     time.sleep(0.5)
 else:
     time.sleep(0.5)
@@ -521,7 +528,6 @@ for l in L:
 
 df.to_csv('ScoreStoreFile.csv', ',', mode='w')
 
-
 #100 SIMULATIONS I RUN AND SAVED DATA IN EACH CSV FOR EACH STRATEGY USED (GRAPHS ARE IN EACH CSV)
 '''
 if strategyChosen == 1:
@@ -630,6 +636,8 @@ if int(gamemode) == 2:
 #GRAPHING THE DATA ACQUIRED
 import ScoreStore
 
+#_______________________________________END MAIN_______________________________________
+
 # Wording the code so I understand it better
 '''
 while deck is != empty and players have cards each:
@@ -691,5 +699,4 @@ elif scorePl1 < scorePl2:
         print('The Winner is'+ players[1].name+'!')
 elif scorePl1 == scorePl2:
     print('Draw!') 
-   
-END MAIN
+'''
