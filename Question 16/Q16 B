@@ -1,0 +1,30 @@
+# Question 16(b)
+# Name and School: Alessandro Bellassai
+
+cardNum=8549018035096133
+strCardNum = str(cardNum)
+lastDigitValue = int(strCardNum[-1])
+cardNumList = [int(strCardNum[-2]),int(strCardNum[-3]),int(strCardNum[-4]),int(strCardNum[-5]),int(strCardNum[-6]),int(strCardNum[-7]),int(strCardNum[-8]),int(strCardNum[-9]),int(strCardNum[-10]),int(strCardNum[-11]),int(strCardNum[-12]),int(strCardNum[-13]),int(strCardNum[-14]),int(strCardNum[-15]),int(strCardNum[-16]),]
+print(cardNumList)
+counter = 0
+sumOfValues = 0
+for num in range(0, round(len(cardNumList) / 2),1):
+    value = cardNumList[counter]
+    value = value * 2
+    if value > 9:
+        value = value - 9
+    sumOfValues = sumOfValues + value
+    counter = counter + 2
+    print(value)
+    
+counter2 = 1
+for num in range(1, round(len(cardNumList) / 2),1):
+    value2 = cardNumList[counter2]
+    sumOfValues = sumOfValues + value2
+    counter2 = counter2 + 2
+sumOfValues = sumOfValues + lastDigitValue
+print(sumOfValues)
+if sumOfValues % 10 == 0:
+    print('It is valid')
+else:
+    print('It is not valid')
